@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.12
+0.1.13
 
 ---
 
@@ -33,7 +33,7 @@
 - Database Table Creation Automation Created
 - PostgreSQL knowledge Schema Created
 - documents Table Created Successfully
-- Bulk Document Insert Tested Successfully
+- Bulk Document Insert Tested
 - SQLAlchemy Transaction Handling Verified
 - Repository Layer Structure Created
 - Document Repository Implemented
@@ -46,6 +46,10 @@
 - Document Loader Refactored
 - End-to-End Metadata Pipeline Tested Successfully
 - Documentation Generator Refactored
+- Reader Framework Structure Created
+- BaseReader Abstract Contract Implemented
+- TXT Reader Implemented
+- TXT Reader Independent Test Completed Successfully
 
 
 ---

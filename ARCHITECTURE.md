@@ -34,12 +34,12 @@
 - File Validator
 - Metadata Extractor
 - Document Loader
+- Reader Framework
 
 ---
 
 # Upcoming Pipeline
 
-- Reader
 - Chunker
 - Embedding Generator
 - Vector Storage
@@ -75,7 +75,8 @@
 
 ## Readers
 
-
+- app/readers/base_reader.py
+- app/readers/txt_reader.py
 
 ## Chunkers
 

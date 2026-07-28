@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.12
+**Version:** 0.1.13
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : Application Development
 
-Step : Reader Framework
+Step : Reader Framework Integration
 
 Current Task :
 
-Implement Reader Framework
+Integrate Reader Framework with Document Loader
 
 Next Task :
 
-Implement TXT Reader
+Create DocumentLoader Reader Integration Test
 
 ---
 
@@ -90,6 +90,7 @@ Implement TXT Reader
 - File Validator
 - Metadata Extractor
 - Document Loader
+- Reader Framework
 
 ---
 

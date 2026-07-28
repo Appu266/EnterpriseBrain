@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.12
+  version: 0.1.13
 
 environment:
   python: "3.12.10"
@@ -89,7 +89,7 @@ progress:
 
   phase: "Application Development"
 
-  current_step: "Reader Framework"
+  current_step: "Reader Framework Integration"
 
   completed:
 
@@ -118,7 +118,7 @@ progress:
     - Database Table Creation Automation Created
     - PostgreSQL knowledge Schema Created
     - documents Table Created Successfully
-    - Bulk Document Insert Tested Successfully
+    - Bulk Document Insert Tested
     - SQLAlchemy Transaction Handling Verified
     - Repository Layer Structure Created
     - Document Repository Implemented
@@ -131,10 +131,14 @@ progress:
     - Document Loader Refactored
     - End-to-End Metadata Pipeline Tested Successfully
     - Documentation Generator Refactored
+    - Reader Framework Structure Created
+    - BaseReader Abstract Contract Implemented
+    - TXT Reader Implemented
+    - TXT Reader Independent Test Completed Successfully
 
-  current_task: "Implement Reader Framework"
+  current_task: "Integrate Reader Framework with Document Loader"
 
-  next_task: "Implement TXT Reader"
+  next_task: "Create DocumentLoader Reader Integration Test"
 
 database:
 
@@ -171,9 +175,9 @@ application_architecture:
     - File Validator
     - Metadata Extractor
     - Document Loader
+    - Reader Framework
 
   upcoming_pipeline:
-    - Reader
     - Chunker
     - Embedding Generator
     - Vector Storage
@@ -200,7 +204,9 @@ application_architecture:
       - app/extractors/metadata_extractor.py
       - app/ingestion/document_loader.py
 
-    readers: []
+    readers:
+      - app/readers/base_reader.py
+      - app/readers/txt_reader.py
 
     chunkers: []
 
