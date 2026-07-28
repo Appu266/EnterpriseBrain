@@ -1,0 +1,7 @@
+PACKAGE EMPLOYEE_PKG
+
+Procedure CREATE_EMPLOYEE
+
+Procedure UPDATE_EMPLOYEE
+
+This package manages employee related operations.
