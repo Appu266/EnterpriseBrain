@@ -1,19 +1,132 @@
-# EnterpriseBrain - Mentor Context
+# Mentor Context
 
-Project Version:
-0.1.11
+---
 
-Current Phase:
-Application Development
+# Project
 
-Current Step:
-Document Readers
+**Name:** EnterpriseBrain
 
-Completed:
-PostgreSQL Installed, pgAdmin Installed, Docker Installed, PyCharm Installed, Virtual Environment Created, python-dotenv Installed, PyYAML Installed, Pydantic Installed, Pydantic Settings Installed, SQLAlchemy Installed, psycopg Installed, requirements.txt Automation Completed, PROJECT_STATUS.md Automation Completed, MENTOR_CONTEXT.md Automation Completed, CHANGELOG.md Automation Completed, Environment Configuration Created, .env Configuration Loaded Successfully, Pydantic Settings Validation Tested, Database Connection Module Created, PostgreSQL Application Connection Tested Successfully, SQLAlchemy ORM Base Created, Document Model Created, Database Table Creation Automation Created, PostgreSQL knowledge Schema Created, documents Table Created Successfully, Bulk Document Insert Tested Successfully, SQLAlchemy Transaction Handling Verified, Repository Layer Structure Created, Document Repository Implemented, Service Layer Structure Created, Document Service Implemented, End-to-End Document Creation Flow Tested Successfully, Document Ingestion Module Created, File Validator Implemented, Metadata Extractor Implemented, Document Loader Refactored, End-to-End Document Metadata Pipeline Tested Successfully
+**Version:** 0.1.12
 
-Current Task:
+---
+
+# Vision
+
+## Current Goal
+
+Build an AI assistant that understands enterprise documents, especially PL/SQL documentation and database-related assets, and can answer project-specific questions.
+
+
+## Final Goal
+
+Build a multi-language enterprise knowledge assistant capable of understanding complete software systems including Database, Java, Spring Boot, Python, .NET, React, Angular, NodeJS, APIs, Infrastructure, CI/CD and Architecture directly from repositories and enterprise documents.
+
+
+---
+
+# Current Roadmap
+
+Current Phase : 1
+
+### Phase 1 - Document Knowledge Assistant
+Build a document-based enterprise assistant using local documents.
+
+
+### Phase 2 - Database Repository Assistant
+Understand complete database repositories including Oracle PL/SQL.
+
+
+### Phase 3 - Backend Repository Assistant
+Understand Java, Spring Boot, Python and APIs.
+
+
+### Phase 4 - Frontend Repository Assistant
+Understand React, Angular and NodeJS projects.
+
+
+### Phase 5 - EnterpriseBrain
+Unified enterprise assistant capable of understanding complete enterprise applications.
+
+
+
+
+---
+
+# Current Progress
+
+Phase : Application Development
+
+Step : Reader Framework
+
+Current Task :
+
 Implement Reader Framework
 
-Next Task:
+Next Task :
+
 Implement TXT Reader
+
+---
+
+# Current Architecture
+
+## Layers
+
+- Configuration
+- Database
+- ORM
+- Repository
+- Service
+- Ingestion
+- Readers
+- Chunking
+- Embeddings
+- Vector Store
+- Retrieval
+- LLM
+
+## Current Pipeline
+
+- File Validator
+- Metadata Extractor
+- Document Loader
+
+---
+
+# Architecture Decisions
+
+- 2026-07-28 : Repository Pattern adopted
+- 2026-07-28 : Service Layer adopted
+- 2026-07-28 : Knowledge schema introduced
+- 2026-07-28 : Validator, Extractor and Loader separated
+- 2026-07-28 : Documentation generation modularized
+
+---
+
+# Assistant Instructions
+
+- Never skip roadmap phases.
+- Always continue from current_task.
+- Prefer enterprise architecture.
+- Prefer modular design.
+- Avoid premature optimization.
+- Explain every important decision.
+- Keep documentation synchronized.
+- Test every completed milestone.
+
+---
+
+# User Learning Preferences
+
+- Teach step-by-step.
+- Explain why before how.
+- Assume beginner for unfamiliar topics.
+- Use enterprise best practices.
+- Build incrementally.
+- One task at a time.
+- Avoid unnecessary complexity.
+- Keep architecture consistent.
+
+---
+
+Last Updated : 2026-07-28

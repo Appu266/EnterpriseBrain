@@ -1,125 +1,94 @@
-# EnterpriseBrain - Architecture
-
-## Project Vision
-
-EnterpriseBrain is an AI-powered Enterprise Knowledge Assistant that enables users to search, retrieve, and understand enterprise documents using Retrieval-Augmented Generation (RAG), vector search, and Large Language Models (LLMs).
+# EnterpriseBrain Architecture
 
 ---
 
-# Technology Stack
+# Architecture Style
 
-| Layer | Technology | Status |
-|--------|------------|--------|
-| Programming Language | Python 3.12 | Finalized |
-| Database | PostgreSQL 18 | Finalized |
-| Database Administration | pgAdmin | Finalized |
-| Container Platform | Docker Desktop | Finalized |
-| IDE | PyCharm | Finalized |
-| Vector Extension | pgvector | Planned |
-| API Framework | FastAPI | Planned |
-| ORM | SQLAlchemy | Planned |
-| AI Framework | LangChain | Planned |
-| Embedding Model | TBD | Pending |
-| LLM | TBD | Pending |
+- Layered Architecture
+- Repository Pattern
+- Service Pattern
+- Factory Pattern (Upcoming)
+- Strategy Pattern (Upcoming)
 
 ---
 
-# High-Level Architecture
+# Layers
 
-User
-
-↓
-
-FastAPI
-
-↓
-
-Business Logic
-
-↓
-
-Vector Search
-
-↓
-
-PostgreSQL + pgvector
-
-↓
-
-Enterprise Documents
+- Configuration
+- Database
+- ORM
+- Repository
+- Service
+- Ingestion
+- Readers
+- Chunking
+- Embeddings
+- Vector Store
+- Retrieval
+- LLM
 
 ---
 
-# Directory Structure
+# Current Pipeline
 
-app/
-Business logic
-
-config/
-Application configuration
-
-data/
-Input documents
-
-docker/
-Container configuration
-
-docs/
-Documentation
-
-logs/
-Application logs
-
-scripts/
-Utility scripts
-
-storage/
-Generated application data
-
-tests/
-Automated testing
+- File Validator
+- Metadata Extractor
+- Document Loader
 
 ---
 
-# Architecture Principles
+# Upcoming Pipeline
 
-- Clean and modular architecture
-- Separation of concerns
-- Configuration outside code
-- Scalable project structure
-- Production-ready design
-- Docker-first deployment
-- PostgreSQL as the single database
-
----
-
-# Future Components
-
-- Authentication
-- Authorization
-- Document ingestion pipeline
-- Chunking engine
-- Embedding service
-- Semantic search
-- Prompt management
-- Conversation history
-- Monitoring
-- Logging
-- REST APIs
-- Admin dashboard
+- Reader
+- Chunker
+- Embedding Generator
+- Vector Storage
+- Retriever
+- LLM Response
 
 ---
 
-# Architecture Decision Log
+# Modules
 
-| Date | Decision |
-|------|----------|
-| 28-Jul-2026 | PostgreSQL selected as primary database |
-| 28-Jul-2026 | Docker selected for containerization |
-| 28-Jul-2026 | PyCharm selected as IDE |
-| 28-Jul-2026 | Enterprise project structure finalized |
+## Configuration
+
+- config/settings.py
+
+## Database
+
+- app/database.py
+- app/models/document.py
+
+## Repository
+
+- app/repositories/document_repository.py
+
+## Service
+
+- app/services/document_service.py
+
+## Ingestion
+
+- app/validators/file_validator.py
+- app/extractors/metadata_extractor.py
+- app/ingestion/document_loader.py
+
+## Readers
+
+
+
+## Chunkers
+
+
+
+## Embeddings
+
+
+
+## Vector Store
+
+
 
 ---
 
-Last Updated:
-28-Jul-2026
+Last Updated: 2026-07-28

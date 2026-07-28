@@ -1,17 +1,98 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.11
+  version: 0.1.12
 
 environment:
   python: "3.12.10"
   postgres: "18"
   docker: true
 
+vision:
+  product_name: EnterpriseBrain
+
+  current_goal: >
+    Build an AI assistant that understands enterprise documents,
+    especially PL/SQL documentation and database-related assets,
+    and can answer project-specific questions.
+
+  final_goal: >
+    Build a multi-language enterprise knowledge assistant capable of
+    understanding complete software systems including Database,
+    Java, Spring Boot, Python, .NET, React, Angular, NodeJS,
+    APIs, Infrastructure, CI/CD and Architecture directly from
+    repositories and enterprise documents.
+
+  current_scope:
+    - Local document ingestion
+    - TXT Reader
+    - PDF Reader
+    - DOCX Reader
+    - Chunking
+    - Embeddings
+    - Vector Database
+    - RAG based Question Answering
+
+  future_scope:
+    - Git Repository Ingestion
+    - PL/SQL Dependency Analysis
+    - Java Code Understanding
+    - Spring Boot Understanding
+    - Python Understanding
+    - React Understanding
+    - Angular Understanding
+    - NodeJS Understanding
+    - API Dependency Mapping
+    - Cross-language Impact Analysis
+    - Architecture Discovery
+    - Code Change Impact Prediction
+
+  non_goals:
+    - AI Code Generation
+    - Automated Code Modification
+    - IDE Replacement
+
+roadmap:
+
+  current_phase: 1
+
+  phases:
+
+    - phase: 1
+      name: "Document Knowledge Assistant"
+      goal: >
+        Build a document-based enterprise assistant using local
+        documents.
+
+    - phase: 2
+      name: "Database Repository Assistant"
+      goal: >
+        Understand complete database repositories including
+        Oracle PL/SQL.
+
+    - phase: 3
+      name: "Backend Repository Assistant"
+      goal: >
+        Understand Java, Spring Boot, Python and APIs.
+
+    - phase: 4
+      name: "Frontend Repository Assistant"
+      goal: >
+        Understand React, Angular and NodeJS projects.
+
+    - phase: 5
+      name: "EnterpriseBrain"
+      goal: >
+        Unified enterprise assistant capable of understanding
+        complete enterprise applications.
+
 progress:
+
   phase: "Application Development"
-  current_step: "Document Readers"
+
+  current_step: "Reader Framework"
 
   completed:
+
     - PostgreSQL Installed
     - pgAdmin Installed
     - Docker Installed
@@ -48,22 +129,29 @@ progress:
     - File Validator Implemented
     - Metadata Extractor Implemented
     - Document Loader Refactored
-    - End-to-End Document Metadata Pipeline Tested Successfully
+    - End-to-End Metadata Pipeline Tested Successfully
+    - Documentation Generator Refactored
 
   current_task: "Implement Reader Framework"
 
   next_task: "Implement TXT Reader"
 
-
 database:
+
   schemas:
     - knowledge
 
   tables:
     - knowledge.documents
 
-
 application_architecture:
+
+  architecture_style:
+    - Layered Architecture
+    - Repository Pattern
+    - Service Pattern
+    - Factory Pattern (Upcoming)
+    - Strategy Pattern (Upcoming)
 
   layers:
     - Configuration
@@ -72,25 +160,56 @@ application_architecture:
     - Repository
     - Service
     - Ingestion
+    - Readers
+    - Chunking
+    - Embeddings
+    - Vector Store
+    - Retrieval
+    - LLM
 
-  ingestion_pipeline:
+  current_pipeline:
+    - File Validator
+    - Metadata Extractor
+    - Document Loader
 
-    - FileValidator
+  upcoming_pipeline:
+    - Reader
+    - Chunker
+    - Embedding Generator
+    - Vector Storage
+    - Retriever
+    - LLM Response
 
-    - MetadataExtractor
+  modules:
 
-    - DocumentLoader
+    configuration:
+      - config/settings.py
 
-    - Reader (Upcoming)
+    database:
+      - app/database.py
+      - app/models/document.py
 
-    - Chunker (Upcoming)
+    repository:
+      - app/repositories/document_repository.py
 
-    - Embedding Generator (Upcoming)
+    service:
+      - app/services/document_service.py
 
-    - Vector Storage (Upcoming)
+    ingestion:
+      - app/validators/file_validator.py
+      - app/extractors/metadata_extractor.py
+      - app/ingestion/document_loader.py
 
+    readers: []
+
+    chunkers: []
+
+    embeddings: []
+
+    vector_store: []
 
 dependencies:
+
   update_requirements: true
 
   installed:
@@ -101,24 +220,59 @@ dependencies:
     - SQLAlchemy==2.0.51
     - psycopg==3.3.4
 
+assistant_context:
+
+  working_rules:
+
+    - Never skip roadmap phases.
+    - Always continue from current_task.
+    - Prefer enterprise architecture.
+    - Prefer modular design.
+    - Avoid premature optimization.
+    - Explain every important decision.
+    - Keep documentation synchronized.
+    - Test every completed milestone.
+
+user_learning_preferences:
+
+  mentoring_style:
+
+    - Teach step-by-step.
+    - Explain why before how.
+    - Assume beginner for unfamiliar topics.
+    - Use enterprise best practices.
+    - Build incrementally.
+    - One task at a time.
+    - Avoid unnecessary complexity.
+    - Keep architecture consistent.
 
 architecture_decisions:
 
   - date: "2026-07-28"
-    decision: "Repository Pattern adopted"
+    decision: Repository Pattern adopted
 
   - date: "2026-07-28"
-    decision: "Service Layer adopted"
+    decision: Service Layer adopted
 
   - date: "2026-07-28"
-    decision: "Knowledge schema introduced"
+    decision: Knowledge schema introduced
 
   - date: "2026-07-28"
-    decision: "Document ingestion separated into Validator, Extractor and Loader"
+    decision: Validator, Extractor and Loader separated
 
+  - date: "2026-07-28"
+    decision: Documentation generation modularized
+
+documentation:
+
+  generated_files:
+    - PROJECT_VISION.md
+    - PROJECT_STATUS.md
+    - MENTOR_CONTEXT.md
+    - ARCHITECTURE.md
+    - CHANGELOG.md
 
 changelog:
   enabled: true
-
 
 last_updated: "2026-07-28"
