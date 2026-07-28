@@ -1,0 +1,3 @@
+EnterpriseBrain is an AI-powered Enterprise Knowledge Assistant.
+
+This is the first sample document.
