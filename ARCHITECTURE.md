@@ -35,15 +35,17 @@
 - Metadata Extractor
 - Document Loader
 - Reader Framework
+- Chunker
+- Embedding Generator
+- pgvector Vector Storage
 
 ---
 
 # Upcoming Pipeline
 
-- Chunker
-- Embedding Generator
-- Vector Storage
+- Vector Similarity Search
 - Retriever
+- Context Builder
 - LLM Response
 
 ---
@@ -58,14 +60,17 @@
 
 - app/database.py
 - app/models/document.py
+- app/models/document_chunk.py
 
 ## Repository
 
 - app/repositories/document_repository.py
+- app/repositories/document_chunk_repository.py
 
 ## Service
 
 - app/services/document_service.py
+- app/services/chunk_service.py
 
 ## Ingestion
 
@@ -80,16 +85,17 @@
 
 ## Chunkers
 
-
+- app/chunkers/document_chunker.py
+- app/chunkers/text_chunker.py
 
 ## Embeddings
 
-
+- app/embeddings/embedding_generator.py
 
 ## Vector Store
 
-
+- pgvector
 
 ---
 
-Last Updated: 2026-07-28
+Last Updated: 2026-07-29

@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.13
+**Version:** 0.1.15
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : Application Development
 
-Step : Reader Framework Integration
+Step : Build Vector Similarity Search Layer
 
 Current Task :
 
-Integrate Reader Framework with Document Loader
+Implement Vector Similarity Search Layer
 
 Next Task :
 
-Create DocumentLoader Reader Integration Test
+Create Retrieval Service for RAG Pipeline
 
 ---
 
@@ -91,6 +91,9 @@ Create DocumentLoader Reader Integration Test
 - Metadata Extractor
 - Document Loader
 - Reader Framework
+- Chunker
+- Embedding Generator
+- pgvector Vector Storage
 
 ---
 
@@ -101,6 +104,9 @@ Create DocumentLoader Reader Integration Test
 - 2026-07-28 : Knowledge schema introduced
 - 2026-07-28 : Validator, Extractor and Loader separated
 - 2026-07-28 : Documentation generation modularized
+- 2026-07-29 : pgvector selected for vector storage
+- 2026-07-29 : Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
+- 2026-07-29 : Embedding vectors stored with document chunks using pgvector
 
 ---
 
@@ -130,4 +136,4 @@ Create DocumentLoader Reader Integration Test
 
 ---
 
-Last Updated : 2026-07-28
+Last Updated : 2026-07-29

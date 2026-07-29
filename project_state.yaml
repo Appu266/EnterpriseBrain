@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.13
+  version: 0.1.15
 
 environment:
   python: "3.12.10"
@@ -51,6 +51,7 @@ vision:
     - Automated Code Modification
     - IDE Replacement
 
+
 roadmap:
 
   current_phase: 1
@@ -85,11 +86,12 @@ roadmap:
         Unified enterprise assistant capable of understanding
         complete enterprise applications.
 
+
 progress:
 
   phase: "Application Development"
 
-  current_step: "Reader Framework Integration"
+  current_step: "Build Vector Similarity Search Layer"
 
   completed:
 
@@ -135,10 +137,25 @@ progress:
     - BaseReader Abstract Contract Implemented
     - TXT Reader Implemented
     - TXT Reader Independent Test Completed Successfully
+    - pgvector Extension Installed
+    - pgvector Extension Enabled Through Python Automation
+    - Document Chunk Model Created
+    - document_chunks Table Created Successfully
+    - Chunk Repository Implemented
+    - Chunk Service Implemented
+    - Text Chunking Pipeline Tested Successfully
+    - sentence-transformers Installed
+    - Embedding Generator Implemented
+    - Sentence Transformer Model Integration Tested Successfully
+    - 384 Dimension Embeddings Generated Successfully
+    - Document Chunk Embeddings Stored in PostgreSQL using pgvector
+    - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
 
-  current_task: "Integrate Reader Framework with Document Loader"
 
-  next_task: "Create DocumentLoader Reader Integration Test"
+  current_task: "Implement Vector Similarity Search Layer"
+
+  next_task: "Create Retrieval Service for RAG Pipeline"
+
 
 database:
 
@@ -147,6 +164,8 @@ database:
 
   tables:
     - knowledge.documents
+    - knowledge.document_chunks
+
 
 application_architecture:
 
@@ -156,6 +175,7 @@ application_architecture:
     - Service Pattern
     - Factory Pattern (Upcoming)
     - Strategy Pattern (Upcoming)
+
 
   layers:
     - Configuration
@@ -171,18 +191,25 @@ application_architecture:
     - Retrieval
     - LLM
 
+
   current_pipeline:
+
     - File Validator
     - Metadata Extractor
     - Document Loader
     - Reader Framework
-
-  upcoming_pipeline:
     - Chunker
     - Embedding Generator
-    - Vector Storage
+    - pgvector Vector Storage
+
+
+  upcoming_pipeline:
+
+    - Vector Similarity Search
     - Retriever
+    - Context Builder
     - LLM Response
+
 
   modules:
 
@@ -192,12 +219,15 @@ application_architecture:
     database:
       - app/database.py
       - app/models/document.py
+      - app/models/document_chunk.py
 
     repository:
       - app/repositories/document_repository.py
+      - app/repositories/document_chunk_repository.py
 
     service:
       - app/services/document_service.py
+      - app/services/chunk_service.py
 
     ingestion:
       - app/validators/file_validator.py
@@ -208,23 +238,31 @@ application_architecture:
       - app/readers/base_reader.py
       - app/readers/txt_reader.py
 
-    chunkers: []
+    chunkers:
+      - app/chunkers/document_chunker.py
+      - app/chunkers/text_chunker.py
 
-    embeddings: []
+    embeddings:
+      - app/embeddings/embedding_generator.py
 
-    vector_store: []
+    vector_store:
+      - pgvector
+
 
 dependencies:
 
   update_requirements: true
 
   installed:
+
     - python-dotenv==1.2.2
     - PyYAML==6.0.3
     - pydantic==2.13.4
     - pydantic-settings==2.14.2
     - SQLAlchemy==2.0.51
     - psycopg==3.3.4
+    - sentence-transformers==5.6.1
+
 
 assistant_context:
 
@@ -239,6 +277,7 @@ assistant_context:
     - Keep documentation synchronized.
     - Test every completed milestone.
 
+
 user_learning_preferences:
 
   mentoring_style:
@@ -251,6 +290,7 @@ user_learning_preferences:
     - One task at a time.
     - Avoid unnecessary complexity.
     - Keep architecture consistent.
+
 
 architecture_decisions:
 
@@ -269,6 +309,16 @@ architecture_decisions:
   - date: "2026-07-28"
     decision: Documentation generation modularized
 
+  - date: "2026-07-29"
+    decision: pgvector selected for vector storage
+
+  - date: "2026-07-29"
+    decision: Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
+
+  - date: "2026-07-29"
+    decision: Embedding vectors stored with document chunks using pgvector
+
+
 documentation:
 
   generated_files:
@@ -278,7 +328,9 @@ documentation:
     - ARCHITECTURE.md
     - CHANGELOG.md
 
+
 changelog:
   enabled: true
 
-last_updated: "2026-07-28"
+
+last_updated: "2026-07-29"

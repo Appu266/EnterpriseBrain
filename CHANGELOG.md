@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.13
+0.1.15
 
 ---
 
@@ -50,8 +50,21 @@
 - BaseReader Abstract Contract Implemented
 - TXT Reader Implemented
 - TXT Reader Independent Test Completed Successfully
+- pgvector Extension Installed
+- pgvector Extension Enabled Through Python Automation
+- Document Chunk Model Created
+- document_chunks Table Created Successfully
+- Chunk Repository Implemented
+- Chunk Service Implemented
+- Text Chunking Pipeline Tested Successfully
+- sentence-transformers Installed
+- Embedding Generator Implemented
+- Sentence Transformer Model Integration Tested Successfully
+- 384 Dimension Embeddings Generated Successfully
+- Document Chunk Embeddings Stored in PostgreSQL using pgvector
+- End-to-End Chunking to Vector Storage Pipeline Tested Successfully
 
 
 ---
 
-Last Updated: 2026-07-28
+Last Updated: 2026-07-29
