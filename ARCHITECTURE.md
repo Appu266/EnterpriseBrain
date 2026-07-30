@@ -25,6 +25,8 @@
 - Embeddings
 - Vector Store
 - Retrieval
+- Context Builder
+- QA
 - LLM
 
 ---
@@ -39,14 +41,17 @@
 - Embedding Generator
 - pgvector Vector Storage
 - Vector Similarity Search
+- Retrieval Service
+- Context Builder Service
+- QA Service
 
 ---
 
 # Upcoming Pipeline
 
-- Retriever
-- Context Builder
-- LLM Response
+- Ollama LLM Integration
+- Prompt Engineering Layer
+- RAG Answer Generation
 
 ---
 
@@ -71,6 +76,9 @@
 
 - app/services/document_service.py
 - app/services/chunk_service.py
+- app/services/retrieval_service.py
+- app/services/context_builder_service.py
+- app/services/qa_service.py
 
 ## Ingestion
 

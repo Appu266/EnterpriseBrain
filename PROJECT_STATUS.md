@@ -2,13 +2,13 @@
 
 ## Current Phase
 
-Application Development
+RAG Pipeline Development
 
 ---
 
 ## Current Step
 
-Build Retrieval Service for RAG Pipeline
+Build LLM Integration Layer for RAG Pipeline
 
 ---
 
@@ -71,18 +71,23 @@ Build Retrieval Service for RAG Pipeline
 - [x] End-to-End Chunking to Vector Storage Pipeline Tested Successfully
 - [x] Vector Similarity Search Layer Implemented
 - [x] Vector Similarity Search Tested Successfully
+- [x] Retrieval Service Implemented
+- [x] Retrieval Service Tested Successfully
+- [x] Context Builder Service Implemented
+- [x] Context Builder Service Tested Successfully
+- [x] QA Flow Tested Successfully
 
 ---
 
 ## Current Task
 
-Create Retrieval Service for RAG Pipeline
+Integrate LLM Layer with QA Pipeline
 
 ---
 
 ## Next Task
 
-Create Context Builder for RAG Pipeline
+Implement Ollama LLM Provider
 
 ---
 

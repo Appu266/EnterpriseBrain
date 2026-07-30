@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.16
+**Version:** 0.1.17
 
 ---
 
@@ -54,17 +54,17 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 # Current Progress
 
-Phase : Application Development
+Phase : RAG Pipeline Development
 
-Step : Build Retrieval Service for RAG Pipeline
+Step : Build LLM Integration Layer for RAG Pipeline
 
 Current Task :
 
-Create Retrieval Service for RAG Pipeline
+Integrate LLM Layer with QA Pipeline
 
 Next Task :
 
-Create Context Builder for RAG Pipeline
+Implement Ollama LLM Provider
 
 ---
 
@@ -83,6 +83,8 @@ Create Context Builder for RAG Pipeline
 - Embeddings
 - Vector Store
 - Retrieval
+- Context Builder
+- QA
 - LLM
 
 ## Current Pipeline
@@ -95,6 +97,9 @@ Create Context Builder for RAG Pipeline
 - Embedding Generator
 - pgvector Vector Storage
 - Vector Similarity Search
+- Retrieval Service
+- Context Builder Service
+- QA Service
 
 ---
 
@@ -109,6 +114,8 @@ Create Context Builder for RAG Pipeline
 - 2026-07-29 : Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
 - 2026-07-29 : Embedding vectors stored with document chunks using pgvector
 - 2026-07-30 : Cosine distance selected for vector similarity search
+- 2026-07-30 : Retrieval Service, Context Builder and QA Service introduced for RAG orchestration
+- 2026-07-30 : LLM abstraction layer introduced to support multiple LLM providers
 
 ---
 
@@ -133,6 +140,7 @@ Create Context Builder for RAG Pipeline
 # User Learning Preferences
 
 - Teach step-by-step.
+- Give whole updated file instead of suggesting manual changes.
 - Explain why before how.
 - Assume beginner for unfamiliar topics.
 - Use enterprise best practices.

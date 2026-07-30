@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.16
+  version: 0.1.17
 
 environment:
   python: "3.12.10"
@@ -9,19 +9,16 @@ environment:
 
 vision:
   product_name: EnterpriseBrain
-
   current_goal: >
     Build an AI assistant that understands enterprise documents,
     especially PL/SQL documentation and database-related assets,
     and can answer project-specific questions.
-
   final_goal: >
     Build a multi-language enterprise knowledge assistant capable of
     understanding complete software systems including Database,
     Java, Spring Boot, Python, .NET, React, Angular, NodeJS,
     APIs, Infrastructure, CI/CD and Architecture directly from
     repositories and enterprise documents.
-
   current_scope:
     - Local document ingestion
     - TXT Reader
@@ -31,7 +28,6 @@ vision:
     - Embeddings
     - Vector Database
     - RAG based Question Answering
-
   future_scope:
     - Git Repository Ingestion
     - PL/SQL Dependency Analysis
@@ -45,56 +41,42 @@ vision:
     - Cross-language Impact Analysis
     - Architecture Discovery
     - Code Change Impact Prediction
-
   non_goals:
     - AI Code Generation
     - Automated Code Modification
     - IDE Replacement
 
-
 roadmap:
-
   current_phase: 1
-
   phases:
-
     - phase: 1
       name: "Document Knowledge Assistant"
       goal: >
         Build a document-based enterprise assistant using local
         documents.
-
     - phase: 2
       name: "Database Repository Assistant"
       goal: >
         Understand complete database repositories including
         Oracle PL/SQL.
-
     - phase: 3
       name: "Backend Repository Assistant"
       goal: >
         Understand Java, Spring Boot, Python and APIs.
-
     - phase: 4
       name: "Frontend Repository Assistant"
       goal: >
         Understand React, Angular and NodeJS projects.
-
     - phase: 5
       name: "EnterpriseBrain"
       goal: >
         Unified enterprise assistant capable of understanding
         complete enterprise applications.
 
-
 progress:
-
-  phase: "Application Development"
-
-  current_step: "Build Retrieval Service for RAG Pipeline"
-
+  phase: "RAG Pipeline Development"
+  current_step: "Build LLM Integration Layer for RAG Pipeline"
   completed:
-
     - PostgreSQL Installed
     - pgAdmin Installed
     - Docker Installed
@@ -152,33 +134,28 @@ progress:
     - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
     - Vector Similarity Search Layer Implemented
     - Vector Similarity Search Tested Successfully
-
-
-  current_task: "Create Retrieval Service for RAG Pipeline"
-
-  next_task: "Create Context Builder for RAG Pipeline"
-
+    - Retrieval Service Implemented
+    - Retrieval Service Tested Successfully
+    - Context Builder Service Implemented
+    - Context Builder Service Tested Successfully
+    - QA Flow Tested Successfully
+  current_task: "Integrate LLM Layer with QA Pipeline"
+  next_task: "Implement Ollama LLM Provider"
 
 database:
-
   schemas:
     - knowledge
-
   tables:
     - knowledge.documents
     - knowledge.document_chunks
 
-
 application_architecture:
-
   architecture_style:
     - Layered Architecture
     - Repository Pattern
     - Service Pattern
     - Factory Pattern (Upcoming)
     - Strategy Pattern (Upcoming)
-
-
   layers:
     - Configuration
     - Database
@@ -191,11 +168,10 @@ application_architecture:
     - Embeddings
     - Vector Store
     - Retrieval
+    - Context Builder
+    - QA
     - LLM
-
-
   current_pipeline:
-
     - File Validator
     - Metadata Extractor
     - Document Loader
@@ -204,59 +180,51 @@ application_architecture:
     - Embedding Generator
     - pgvector Vector Storage
     - Vector Similarity Search
-
-
+    - Retrieval Service
+    - Context Builder Service
+    - QA Service
   upcoming_pipeline:
-
-    - Retriever
-    - Context Builder
-    - LLM Response
-
+    - Ollama LLM Integration
+    - Prompt Engineering Layer
+    - RAG Answer Generation
 
   modules:
-
     configuration:
       - config/settings.py
-
     database:
       - app/database.py
       - app/models/document.py
       - app/models/document_chunk.py
-
     repository:
       - app/repositories/document_repository.py
       - app/repositories/document_chunk_repository.py
-
     service:
       - app/services/document_service.py
       - app/services/chunk_service.py
-
+      - app/services/retrieval_service.py
+      - app/services/context_builder_service.py
+      - app/services/qa_service.py
     ingestion:
       - app/validators/file_validator.py
       - app/extractors/metadata_extractor.py
       - app/ingestion/document_loader.py
-
     readers:
       - app/readers/base_reader.py
       - app/readers/txt_reader.py
-
     chunkers:
       - app/chunkers/document_chunker.py
       - app/chunkers/text_chunker.py
-
     embeddings:
       - app/embeddings/embedding_generator.py
-
     vector_store:
       - pgvector
-
+    llm:
+      - app/llm/base_llm.py
+      - app/llm/ollama_llm.py
 
 dependencies:
-
   update_requirements: true
-
   installed:
-
     - python-dotenv==1.2.2
     - PyYAML==6.0.3
     - pydantic==2.13.4
@@ -266,11 +234,8 @@ dependencies:
     - pgvector==0.5.0
     - sentence-transformers==5.6.1
 
-
 assistant_context:
-
   working_rules:
-
     - Never skip roadmap phases.
     - Always continue from current_task.
     - Prefer enterprise architecture.
@@ -285,12 +250,10 @@ assistant_context:
     - Summarize completed changes after each verified milestone.
     - Do not edit project files; the user applies all changes manually.
 
-
 user_learning_preferences:
-
   mentoring_style:
-
     - Teach step-by-step.
+    - Give whole updated file instead of suggesting manual changes.
     - Explain why before how.
     - Assume beginner for unfamiliar topics.
     - Use enterprise best practices.
@@ -299,39 +262,31 @@ user_learning_preferences:
     - Avoid unnecessary complexity.
     - Keep architecture consistent.
 
-
 architecture_decisions:
-
   - date: "2026-07-28"
     decision: Repository Pattern adopted
-
   - date: "2026-07-28"
     decision: Service Layer adopted
-
   - date: "2026-07-28"
     decision: Knowledge schema introduced
-
   - date: "2026-07-28"
     decision: Validator, Extractor and Loader separated
-
   - date: "2026-07-28"
     decision: Documentation generation modularized
-
   - date: "2026-07-29"
     decision: pgvector selected for vector storage
-
   - date: "2026-07-29"
     decision: Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
-
   - date: "2026-07-29"
     decision: Embedding vectors stored with document chunks using pgvector
-
   - date: "2026-07-30"
     decision: Cosine distance selected for vector similarity search
-
+  - date: "2026-07-30"
+    decision: Retrieval Service, Context Builder and QA Service introduced for RAG orchestration
+  - date: "2026-07-30"
+    decision: LLM abstraction layer introduced to support multiple LLM providers
 
 documentation:
-
   generated_files:
     - PROJECT_VISION.md
     - PROJECT_STATUS.md
@@ -339,13 +294,7 @@ documentation:
     - ARCHITECTURE.md
     - CHANGELOG.md
 
-
 changelog:
   enabled: true
 
-
-<<<<<<< HEAD
-last_updated: "2026-07-29"
-=======
 last_updated: "2026-07-30"
->>>>>>> ee876c6 (retrieval  service added)

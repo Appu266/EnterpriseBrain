@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.16
+0.1.17
 
 ---
 
@@ -65,6 +65,11 @@
 - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
 - Vector Similarity Search Layer Implemented
 - Vector Similarity Search Tested Successfully
+- Retrieval Service Implemented
+- Retrieval Service Tested Successfully
+- Context Builder Service Implemented
+- Context Builder Service Tested Successfully
+- QA Flow Tested Successfully
 
 
 ---
