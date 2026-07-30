@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.15
+**Version:** 0.1.16
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : Application Development
 
-Step : Build Vector Similarity Search Layer
+Step : Build Retrieval Service for RAG Pipeline
 
 Current Task :
 
-Implement Vector Similarity Search Layer
+Create Retrieval Service for RAG Pipeline
 
 Next Task :
 
-Create Retrieval Service for RAG Pipeline
+Create Context Builder for RAG Pipeline
 
 ---
 
@@ -94,6 +94,7 @@ Create Retrieval Service for RAG Pipeline
 - Chunker
 - Embedding Generator
 - pgvector Vector Storage
+- Vector Similarity Search
 
 ---
 
@@ -107,6 +108,7 @@ Create Retrieval Service for RAG Pipeline
 - 2026-07-29 : pgvector selected for vector storage
 - 2026-07-29 : Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
 - 2026-07-29 : Embedding vectors stored with document chunks using pgvector
+- 2026-07-30 : Cosine distance selected for vector similarity search
 
 ---
 
@@ -120,6 +122,11 @@ Create Retrieval Service for RAG Pipeline
 - Explain every important decision.
 - Keep documentation synchronized.
 - Test every completed milestone.
+- Provide exact terminal commands when a new file must be created.
+- Provide complete replacement content for every new or modified file.
+- Explain the purpose and expected outcome of each change before providing code.
+- Summarize completed changes after each verified milestone.
+- Do not edit project files; the user applies all changes manually.
 
 ---
 
@@ -136,4 +143,4 @@ Create Retrieval Service for RAG Pipeline
 
 ---
 
-Last Updated : 2026-07-29
+Last Updated : 2026-07-30

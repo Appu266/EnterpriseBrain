@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.15
+  version: 0.1.16
 
 environment:
   python: "3.12.10"
@@ -91,7 +91,7 @@ progress:
 
   phase: "Application Development"
 
-  current_step: "Build Vector Similarity Search Layer"
+  current_step: "Build Retrieval Service for RAG Pipeline"
 
   completed:
 
@@ -150,11 +150,13 @@ progress:
     - 384 Dimension Embeddings Generated Successfully
     - Document Chunk Embeddings Stored in PostgreSQL using pgvector
     - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
+    - Vector Similarity Search Layer Implemented
+    - Vector Similarity Search Tested Successfully
 
 
-  current_task: "Implement Vector Similarity Search Layer"
+  current_task: "Create Retrieval Service for RAG Pipeline"
 
-  next_task: "Create Retrieval Service for RAG Pipeline"
+  next_task: "Create Context Builder for RAG Pipeline"
 
 
 database:
@@ -201,11 +203,11 @@ application_architecture:
     - Chunker
     - Embedding Generator
     - pgvector Vector Storage
+    - Vector Similarity Search
 
 
   upcoming_pipeline:
 
-    - Vector Similarity Search
     - Retriever
     - Context Builder
     - LLM Response
@@ -277,6 +279,11 @@ assistant_context:
     - Explain every important decision.
     - Keep documentation synchronized.
     - Test every completed milestone.
+    - Provide exact terminal commands when a new file must be created.
+    - Provide complete replacement content for every new or modified file.
+    - Explain the purpose and expected outcome of each change before providing code.
+    - Summarize completed changes after each verified milestone.
+    - Do not edit project files; the user applies all changes manually.
 
 
 user_learning_preferences:
@@ -319,6 +326,9 @@ architecture_decisions:
   - date: "2026-07-29"
     decision: Embedding vectors stored with document chunks using pgvector
 
+  - date: "2026-07-30"
+    decision: Cosine distance selected for vector similarity search
+
 
 documentation:
 
@@ -334,4 +344,8 @@ changelog:
   enabled: true
 
 
+<<<<<<< HEAD
 last_updated: "2026-07-29"
+=======
+last_updated: "2026-07-30"
+>>>>>>> ee876c6 (retrieval  service added)

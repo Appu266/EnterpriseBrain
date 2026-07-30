@@ -38,12 +38,12 @@
 - Chunker
 - Embedding Generator
 - pgvector Vector Storage
+- Vector Similarity Search
 
 ---
 
 # Upcoming Pipeline
 
-- Vector Similarity Search
 - Retriever
 - Context Builder
 - LLM Response
@@ -98,4 +98,4 @@
 
 ---
 
-Last Updated: 2026-07-29
+Last Updated: 2026-07-30

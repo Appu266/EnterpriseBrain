@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.15
+0.1.16
 
 ---
 
@@ -63,8 +63,10 @@
 - 384 Dimension Embeddings Generated Successfully
 - Document Chunk Embeddings Stored in PostgreSQL using pgvector
 - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
+- Vector Similarity Search Layer Implemented
+- Vector Similarity Search Tested Successfully
 
 
 ---
 
-Last Updated: 2026-07-29
+Last Updated: 2026-07-30

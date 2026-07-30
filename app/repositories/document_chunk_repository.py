@@ -1,3 +1,4 @@
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models.document_chunk import DocumentChunk
@@ -11,7 +12,6 @@ class DocumentChunkRepository:
     ):
 
         self.db = db
-
 
     def create(
         self,
@@ -45,3 +45,29 @@ class DocumentChunkRepository:
         self.db.commit()
 
         return document_chunks
+
+    def find_similar(
+        self,
+        query_embedding: list[float],
+        limit: int = 5
+    ) -> list[tuple[DocumentChunk, float]]:
+
+        distance = DocumentChunk.embedding.cosine_distance(
+            query_embedding
+        ).label("distance")
+
+        statement = (
+            select(
+                DocumentChunk,
+                distance
+            )
+            .where(
+                DocumentChunk.embedding.is_not(None)
+            )
+            .order_by(distance)
+            .limit(limit)
+        )
+
+        return self.db.execute(
+            statement
+        ).all()
