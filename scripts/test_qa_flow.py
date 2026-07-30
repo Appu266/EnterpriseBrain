@@ -11,17 +11,7 @@ from app.repositories.document_chunk_repository import DocumentChunkRepository
 from app.services.retrieval_service import RetrievalService
 from app.services.context_builder_service import ContextBuilderService
 from app.services.qa_service import QAService
-from app.llm.base_llm import BaseLLM
-
-
-class MockLLM(BaseLLM):
-
-    def generate(
-        self,
-        prompt: str
-    ) -> str:
-
-        return prompt
+from app.llm.ollama_llm import OllamaLLM
 
 
 def main():
@@ -41,7 +31,9 @@ def main():
             context_builder
         )
 
-        llm = MockLLM()
+        llm = OllamaLLM(
+            model_name="llama3"
+        )
 
         qa_service = QAService(
             retrieval_service,
