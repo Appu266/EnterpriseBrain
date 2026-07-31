@@ -26,8 +26,6 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 
 - Local document ingestion
 - TXT Reader
-- PDF Reader
-- DOCX Reader
 - Chunking
 - Embeddings
 - Vector Database
@@ -37,6 +35,8 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 
 # Future Scope
 
+- PDF Reader
+- DOCX Reader
 - Git Repository Ingestion
 - PL/SQL Dependency Analysis
 - Java Code Understanding
@@ -119,4 +119,4 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 ---
 
-Last Updated: 2026-07-30
+Last Updated: 2026-07-31

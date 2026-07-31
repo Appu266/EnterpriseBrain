@@ -44,14 +44,17 @@
 - Retrieval Service
 - Context Builder Service
 - QA Service
+- Ollama LLM Integration
+- RAG Answer Generation Validation
 
 ---
 
 # Upcoming Pipeline
 
-- Ollama LLM Integration
 - Prompt Engineering Layer
-- RAG Answer Generation
+- Enterprise Document Ingestion
+- Metadata Enhancement
+- Document Classification
 
 ---
 
@@ -106,4 +109,4 @@
 
 ---
 
-Last Updated: 2026-07-30
+Last Updated: 2026-07-31
