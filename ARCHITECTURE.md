@@ -37,6 +37,7 @@
 - Metadata Extractor
 - Document Loader
 - Reader Framework
+- ProcessingDocument In-Memory Model
 - Chunker
 - Embedding Generator
 - pgvector Vector Storage
@@ -51,6 +52,7 @@
 
 # Upcoming Pipeline
 
+- ProcessingDocument Pipeline Propagation
 - Prompt Engineering Layer
 - Enterprise Document Ingestion
 - Metadata Enhancement
@@ -69,6 +71,7 @@
 - app/database.py
 - app/models/document.py
 - app/models/document_chunk.py
+- app/models/processing_document.py
 
 ## Repository
 
@@ -109,4 +112,4 @@
 
 ---
 
-Last Updated: 2026-07-31
+Last Updated: 2026-08-01

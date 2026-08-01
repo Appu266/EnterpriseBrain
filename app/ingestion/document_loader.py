@@ -25,16 +25,19 @@ class DocumentLoader:
         # Validate file
         self.validator.validate(file_path)
 
-        # Read file content
-        content = self.reader.read(file_path)
+        # Read document
+        document = self.reader.read(file_path)
 
         # Extract metadata
         metadata = self.metadata_extractor.extract(file_path)
 
-        # Generate chunks
-        chunks = self.chunker.chunk(content)
+        # Attach metadata to processing document
+        document.metadata = metadata
 
-        metadata["content"] = content
+        # Generate chunks
+        chunks = self.chunker.chunk(document.content)
+
+        metadata["content"] = document.content
         metadata["chunks"] = chunks
 
         return metadata
