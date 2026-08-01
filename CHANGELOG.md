@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.21
+0.1.22
 
 ---
 
@@ -98,6 +98,37 @@
 - Graceful Keyboard Interrupt Handling Implemented
 - Multiple Questions Against One Ingested Document Validated Successfully
 - First Interactive EnterpriseBrain Assistant Implemented Successfully
+- Complex Synthetic PL/SQL Package Created for Evaluation
+- Complex PL/SQL Package Ingestion Tested Successfully
+- Complex PL/SQL Package Question Answering Tested Successfully
+- Public Procedure and Function Identification Validated
+- PL/SQL Procedure Explanation Validated
+- PL/SQL Table Usage Identification Validated
+- PL/SQL Transaction Handling Questions Validated
+- PL/SQL Validation and Exception Questions Validated
+- PL/SQL Internal Dependency Questions Validated
+- RAG Retrieval Limit Reduced for Concise Context
+- PL/SQL-Specific QA Prompt Introduced
+- Ollama Response Length Limited for Faster Generation
+- Ollama Model Keep-Alive Configuration Introduced
+- Heavy AI Component Imports Deferred Until After Document Selection
+- Assistant Component Loading Progress Messages Added
+- Local LLM Performance Bottleneck Identified
+- llama3 Local Model Removed
+- qwen2.5 1.5B Local Model Installed
+- qwen2.5 1.5B Direct Ollama Performance Validated Successfully
+- Interactive Assistant Migrated to qwen2.5 1.5B
+- Question Answer Time Reduced from More Than Two Minutes to Approximately Five to Ten Seconds
+- Application Import Performance Measured
+- Sentence Transformer Import Performance Measured
+- Embedding Model Initialization Performance Measured
+- Complex Document Embedding Performance Measured
+- Ollama Base URL Added to Application Settings
+- Ollama Model Name Added to Application Settings
+- OllamaLLM Refactored to Use Central Application Configuration
+- Hardcoded LLM Model Removed from Interactive Assistant
+- Configurable Local LLM Integration Tested Successfully
+- Interactive PL/SQL Assistant Revalidated After LLM Configuration Refactoring
 
 
 ---

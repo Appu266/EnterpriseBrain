@@ -7,6 +7,7 @@
 - Layered Architecture
 - Repository Pattern
 - Service Pattern
+- Configuration-Driven LLM Integration
 - Factory Pattern (Upcoming)
 - Strategy Pattern (Upcoming)
 
@@ -29,12 +30,14 @@
 - QA
 - LLM
 - CLI
+- Web UI (Upcoming)
 
 ---
 
 # Current Pipeline
 
 - PL/SQL Document Path Input
+- Deferred AI Component Loading
 - File Validator
 - Metadata Extractor
 - Document Loader
@@ -44,13 +47,15 @@
 - ProcessingDocument Chunk Generation
 - Document Database Record Creation
 - Document Chunker
-- Embedding Generator
+- Sentence Transformer Embedding Generator
 - pgvector Vector Storage
 - Document-Scoped Vector Similarity Search
 - Retrieval Service
 - Context Builder Service
+- PL/SQL-Specific QA Prompt
 - QA Service
-- Ollama LLM Integration
+- Configurable Ollama LLM Integration
+- qwen2.5 1.5B Local Inference
 - Interactive Question Loop
 - Graceful Assistant Shutdown
 
@@ -58,10 +63,15 @@
 
 # Upcoming Pipeline
 
-- Real PL/SQL Package Evaluation
+- Basic Web UI
+- Browser-Based PL/SQL Document Upload
+- Browser-Based Question Answering
+- End-to-End User Experience Validation
 - Retrieval Quality Improvement
-- Prompt Engineering Layer
+- Prompt Quality Improvement
 - Source Attribution Improvement
+- Hash-Based Document Change Detection
+- Persistent Application Runtime
 - Enterprise Document Ingestion
 - Metadata Enhancement
 - Document Classification

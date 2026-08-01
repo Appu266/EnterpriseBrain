@@ -1,23 +1,5 @@
 from pathlib import Path
 
-from app.chunkers.document_chunker import DocumentChunker
-from app.chunkers.text_chunker import TextChunker
-from app.database import SessionLocal
-from app.embeddings.embedding_generator import EmbeddingGenerator
-from app.ingestion.document_loader import DocumentLoader
-from app.llm.ollama_llm import OllamaLLM
-from app.readers.txt_reader import TXTReader
-from app.repositories.document_chunk_repository import (
-    DocumentChunkRepository
-)
-from app.services.chunk_service import ChunkService
-from app.services.context_builder_service import (
-    ContextBuilderService
-)
-from app.services.document_service import DocumentService
-from app.services.qa_service import QAService
-from app.services.retrieval_service import RetrievalService
-
 
 def run_assistant() -> None:
     print("\nEnterpriseBrain - PL/SQL Assistant\n")
@@ -29,6 +11,26 @@ def run_assistant() -> None:
     if not file_path:
         print("\nDocument path cannot be empty.")
         return
+
+    print("\nLoading EnterpriseBrain components...")
+
+    from app.chunkers.document_chunker import DocumentChunker
+    from app.chunkers.text_chunker import TextChunker
+    from app.database import SessionLocal
+    from app.embeddings.embedding_generator import EmbeddingGenerator
+    from app.ingestion.document_loader import DocumentLoader
+    from app.llm.ollama_llm import OllamaLLM
+    from app.readers.txt_reader import TXTReader
+    from app.repositories.document_chunk_repository import (
+        DocumentChunkRepository
+    )
+    from app.services.chunk_service import ChunkService
+    from app.services.context_builder_service import (
+        ContextBuilderService
+    )
+    from app.services.document_service import DocumentService
+    from app.services.qa_service import QAService
+    from app.services.retrieval_service import RetrievalService
 
     db = SessionLocal()
 
@@ -65,6 +67,8 @@ def run_assistant() -> None:
             db
         )
 
+        print("Loading embedding model...")
+
         embedding_generator = EmbeddingGenerator()
 
         chunk_service = ChunkService(
@@ -72,6 +76,8 @@ def run_assistant() -> None:
             repository=chunk_repository,
             embedding_generator=embedding_generator
         )
+
+        print("Generating and storing document embeddings...")
 
         stored_chunks = chunk_service.create_and_store_chunks(
             document_id=stored_document.id,
@@ -87,9 +93,7 @@ def run_assistant() -> None:
             document_id=stored_document.id
         )
 
-        llm = OllamaLLM(
-            model_name="llama3"
-        )
+        llm = OllamaLLM()
 
         qa_service = QAService(
             retrieval_service=retrieval_service,

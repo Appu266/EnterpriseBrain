@@ -28,15 +28,19 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 - TXT Reader
 - PL/SQL Document Question Answering
 - Interactive CLI Assistant
+- Complex PL/SQL Package Evaluation
 - Chunking
 - Embeddings
 - Vector Database
+- Document-Scoped Retrieval
 - RAG based Question Answering
+- Configurable Local LLM
 
 ---
 
 # Future Scope
 
+- Basic Web UI
 - PDF Reader
 - DOCX Reader
 - Git Repository Ingestion
@@ -118,6 +122,11 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 - One task at a time.
 - Avoid unnecessary complexity.
 - Keep architecture consistent.
+- Provide PowerShell commands for creating every new file or folder.
+- Return the complete updated project_state.yaml after verified milestones.
+- Split project_state.yaml into contiguous parts only when required.
+- Avoid repeating questions whose answers are already available.
+- Prefer implementation over repeated architecture discussion.
 
 ---
 

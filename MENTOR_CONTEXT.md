@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.21
+**Version:** 0.1.22
 
 ---
 
@@ -54,17 +54,17 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 # Current Progress
 
-Phase : RAG Pipeline Development
+Phase : PL/SQL Assistant MVP Development
 
-Step : First End-to-End EnterpriseBrain Assistant
+Step : Stabilize PL/SQL Assistant Quality and Performance Before Web UI
 
 Current Task :
 
-Evaluate RAG Quality Using Real PL/SQL Packages
+Complete PL/SQL Assistant MVP Stabilization and Prepare Basic Web UI
 
 Next Task :
 
-Improve Retrieval and Prompt Quality
+Build Basic Web UI for End-to-End User Validation
 
 ---
 
@@ -87,10 +87,12 @@ Improve Retrieval and Prompt Quality
 - QA
 - LLM
 - CLI
+- Web UI (Upcoming)
 
 ## Current Pipeline
 
 - PL/SQL Document Path Input
+- Deferred AI Component Loading
 - File Validator
 - Metadata Extractor
 - Document Loader
@@ -100,13 +102,15 @@ Improve Retrieval and Prompt Quality
 - ProcessingDocument Chunk Generation
 - Document Database Record Creation
 - Document Chunker
-- Embedding Generator
+- Sentence Transformer Embedding Generator
 - pgvector Vector Storage
 - Document-Scoped Vector Similarity Search
 - Retrieval Service
 - Context Builder Service
+- PL/SQL-Specific QA Prompt
 - QA Service
-- Ollama LLM Integration
+- Configurable Ollama LLM Integration
+- qwen2.5 1.5B Local Inference
 - Interactive Question Loop
 - Graceful Assistant Shutdown
 
@@ -131,6 +135,18 @@ Improve Retrieval and Prompt Quality
 - 2026-08-01 : Interactive CLI assistant introduced as the first user-facing EnterpriseBrain interface
 - 2026-08-01 : Retrieval restricted to the currently ingested document to prevent cross-document contamination of answers
 - 2026-08-01 : EnterpriseBrain milestone achieved with the first complete end-to-end document ingestion and question-answering workflow
+- 2026-08-01 : Complex synthetic PL/SQL package adopted for realistic MVP quality evaluation
+- 2026-08-01 : PL/SQL-specific prompting introduced to improve grounded and concise answers
+- 2026-08-01 : Retrieved context reduced to three chunks to balance answer quality and local inference performance
+- 2026-08-01 : Ollama generation limited to 250 predicted tokens with low temperature for faster and more deterministic responses
+- 2026-08-01 : Heavy AI imports deferred until after document-path input to improve perceived CLI responsiveness
+- 2026-08-01 : llama3 removed because its local inference speed was impractical on the available 8 GB development laptop
+- 2026-08-01 : qwen2.5:1.5b selected as the default local development LLM after reducing answer time from more than two minutes to approximately five to ten seconds
+- 2026-08-01 : Ollama model name and base URL externalized through central application settings
+- 2026-08-01 : Reusing stored document embeddings without source-content verification rejected to prevent stale-document answers
+- 2026-08-01 : Current MVP will re-ingest the latest source file until SHA-256 based document change detection is implemented
+- 2026-08-01 : Basic browser UI must be completed and validated before expanding EnterpriseBrain beyond the initial PL/SQL assistant scope
+- 2026-08-01 : Assistant quality and correctness take priority over aggressive startup-time optimization
 
 ---
 
@@ -149,6 +165,13 @@ Improve Retrieval and Prompt Quality
 - Explain the purpose and expected outcome of each change before providing code.
 - Summarize completed changes after each verified milestone.
 - Do not edit project files; the user applies all changes manually.
+- Treat project_state.yaml as the single source of truth.
+- Read committed project files directly from GitHub whenever available.
+- Do not ask the user to paste files that are already committed to GitHub.
+- Focus on completing the basic PL/SQL assistant end to end before expanding to additional file types.
+- Complete basic UI validation before starting the next major capability iteration.
+- Do not compromise answer correctness for performance improvements.
+- Re-ingest the latest document content until reliable content-hash change detection is implemented.
 
 ---
 
@@ -163,6 +186,11 @@ Improve Retrieval and Prompt Quality
 - One task at a time.
 - Avoid unnecessary complexity.
 - Keep architecture consistent.
+- Provide PowerShell commands for creating every new file or folder.
+- Return the complete updated project_state.yaml after verified milestones.
+- Split project_state.yaml into contiguous parts only when required.
+- Avoid repeating questions whose answers are already available.
+- Prefer implementation over repeated architecture discussion.
 
 ---
 
