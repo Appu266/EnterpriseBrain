@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.20
+  version: 0.1.21
 
 environment:
   python: "3.12.10"
@@ -22,6 +22,8 @@ vision:
   current_scope:
     - Local document ingestion
     - TXT Reader
+    - PL/SQL Document Question Answering
+    - Interactive CLI Assistant
     - Chunking
     - Embeddings
     - Vector Database
@@ -75,7 +77,7 @@ roadmap:
 
 progress:
   phase: "RAG Pipeline Development"
-  current_step: "Improve RAG Pipeline Quality and Prepare Enterprise Document Ingestion"
+  current_step: "First End-to-End EnterpriseBrain Assistant"
   completed:
     - PostgreSQL Installed
     - pgAdmin Installed
@@ -152,8 +154,23 @@ progress:
     - Document Loader Test Refactored for ProcessingDocument
     - ProcessingDocument Metadata and Chunk Propagation Validated Successfully
     - End-to-End ProcessingDocument Ingestion Flow Validated Successfully
-  current_task: "Improve RAG Answer Quality and Prepare Enterprise Document Ingestion"
-  next_task: "Design Enterprise Document Ingestion Framework"
+    - Interactive PL/SQL Assistant Script Created
+    - PL/SQL Document Path Input Implemented
+    - PL/SQL Document Ingestion Orchestration Implemented
+    - Document Record Creation Integrated into Assistant
+    - Document Chunking and Embedding Storage Integrated into Assistant
+    - Interactive Question Loop Implemented
+    - QA Service Integrated into Interactive Assistant
+    - First End-to-End PL/SQL Assistant Validation Completed Successfully
+    - Retrieval Restricted to Current Uploaded Document
+    - Document-Specific Vector Similarity Search Implemented
+    - Current Document ID Propagated Through Retrieval Service
+    - Graceful Assistant Exit Using Exit Command Implemented
+    - Graceful Keyboard Interrupt Handling Implemented
+    - Multiple Questions Against One Ingested Document Validated Successfully
+    - First Interactive EnterpriseBrain Assistant Implemented Successfully
+  current_task: "Evaluate RAG Quality Using Real PL/SQL Packages"
+  next_task: "Improve Retrieval and Prompt Quality"
 database:
   schemas:
     - knowledge
@@ -183,7 +200,9 @@ application_architecture:
     - Context Builder
     - QA
     - LLM
+    - CLI
   current_pipeline:
+    - PL/SQL Document Path Input
     - File Validator
     - Metadata Extractor
     - Document Loader
@@ -191,17 +210,22 @@ application_architecture:
     - ProcessingDocument In-Memory Model
     - ProcessingDocument Metadata Enrichment
     - ProcessingDocument Chunk Generation
-    - Chunker
+    - Document Database Record Creation
+    - Document Chunker
     - Embedding Generator
     - pgvector Vector Storage
-    - Vector Similarity Search
+    - Document-Scoped Vector Similarity Search
     - Retrieval Service
     - Context Builder Service
     - QA Service
     - Ollama LLM Integration
-    - RAG Answer Generation Validation
+    - Interactive Question Loop
+    - Graceful Assistant Shutdown
   upcoming_pipeline:
+    - Real PL/SQL Package Evaluation
+    - Retrieval Quality Improvement
     - Prompt Engineering Layer
+    - Source Attribution Improvement
     - Enterprise Document Ingestion
     - Metadata Enhancement
     - Document Classification
@@ -239,7 +263,8 @@ application_architecture:
     llm:
       - app/llm/base_llm.py
       - app/llm/ollama_llm.py
-
+    cli:
+      - scripts/plsql_assistant.py
 dependencies:
   update_requirements: true
   installed:
@@ -309,6 +334,12 @@ architecture_decisions:
     decision: ProcessingDocument introduced as the canonical in-memory model for documents flowing through the ingestion pipeline
   - date: "2026-08-01"
     decision: DocumentLoader standardized to return ProcessingDocument with metadata and generated chunks attached
+  - date: "2026-08-01"
+    decision: Interactive CLI assistant introduced as the first user-facing EnterpriseBrain interface
+  - date: "2026-08-01"
+    decision: Retrieval restricted to the currently ingested document to prevent cross-document contamination of answers
+  - date: "2026-08-01"
+    decision: EnterpriseBrain milestone achieved with the first complete end-to-end document ingestion and question-answering workflow
 
 documentation:
   generated_files:
@@ -320,4 +351,5 @@ documentation:
 
 changelog:
   enabled: true
+
 last_updated: "2026-08-01"

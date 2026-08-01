@@ -49,21 +49,28 @@ class DocumentChunkRepository:
     def find_similar(
         self,
         query_embedding: list[float],
-        limit: int = 5
+        limit: int = 5,
+        document_id: int | None = None
     ) -> list[tuple[DocumentChunk, float]]:
 
         distance = DocumentChunk.embedding.cosine_distance(
             query_embedding
         ).label("distance")
 
+        statement = select(
+            DocumentChunk,
+            distance
+        ).where(
+            DocumentChunk.embedding.is_not(None)
+        )
+
+        if document_id is not None:
+            statement = statement.where(
+                DocumentChunk.document_id == document_id
+            )
+
         statement = (
-            select(
-                DocumentChunk,
-                distance
-            )
-            .where(
-                DocumentChunk.embedding.is_not(None)
-            )
+            statement
             .order_by(distance)
             .limit(limit)
         )

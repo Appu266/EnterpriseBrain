@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.20
+**Version:** 0.1.21
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : RAG Pipeline Development
 
-Step : Improve RAG Pipeline Quality and Prepare Enterprise Document Ingestion
+Step : First End-to-End EnterpriseBrain Assistant
 
 Current Task :
 
-Improve RAG Answer Quality and Prepare Enterprise Document Ingestion
+Evaluate RAG Quality Using Real PL/SQL Packages
 
 Next Task :
 
-Design Enterprise Document Ingestion Framework
+Improve Retrieval and Prompt Quality
 
 ---
 
@@ -86,9 +86,11 @@ Design Enterprise Document Ingestion Framework
 - Context Builder
 - QA
 - LLM
+- CLI
 
 ## Current Pipeline
 
+- PL/SQL Document Path Input
 - File Validator
 - Metadata Extractor
 - Document Loader
@@ -96,15 +98,17 @@ Design Enterprise Document Ingestion Framework
 - ProcessingDocument In-Memory Model
 - ProcessingDocument Metadata Enrichment
 - ProcessingDocument Chunk Generation
-- Chunker
+- Document Database Record Creation
+- Document Chunker
 - Embedding Generator
 - pgvector Vector Storage
-- Vector Similarity Search
+- Document-Scoped Vector Similarity Search
 - Retrieval Service
 - Context Builder Service
 - QA Service
 - Ollama LLM Integration
-- RAG Answer Generation Validation
+- Interactive Question Loop
+- Graceful Assistant Shutdown
 
 ---
 
@@ -124,6 +128,9 @@ Design Enterprise Document Ingestion Framework
 - 2026-07-31 : First end-to-end RAG pipeline validation completed successfully using QA flow test
 - 2026-08-01 : ProcessingDocument introduced as the canonical in-memory model for documents flowing through the ingestion pipeline
 - 2026-08-01 : DocumentLoader standardized to return ProcessingDocument with metadata and generated chunks attached
+- 2026-08-01 : Interactive CLI assistant introduced as the first user-facing EnterpriseBrain interface
+- 2026-08-01 : Retrieval restricted to the currently ingested document to prevent cross-document contamination of answers
+- 2026-08-01 : EnterpriseBrain milestone achieved with the first complete end-to-end document ingestion and question-answering workflow
 
 ---
 

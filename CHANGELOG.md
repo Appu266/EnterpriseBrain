@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.20
+0.1.21
 
 ---
 
@@ -83,6 +83,21 @@
 - Document Loader Test Refactored for ProcessingDocument
 - ProcessingDocument Metadata and Chunk Propagation Validated Successfully
 - End-to-End ProcessingDocument Ingestion Flow Validated Successfully
+- Interactive PL/SQL Assistant Script Created
+- PL/SQL Document Path Input Implemented
+- PL/SQL Document Ingestion Orchestration Implemented
+- Document Record Creation Integrated into Assistant
+- Document Chunking and Embedding Storage Integrated into Assistant
+- Interactive Question Loop Implemented
+- QA Service Integrated into Interactive Assistant
+- First End-to-End PL/SQL Assistant Validation Completed Successfully
+- Retrieval Restricted to Current Uploaded Document
+- Document-Specific Vector Similarity Search Implemented
+- Current Document ID Propagated Through Retrieval Service
+- Graceful Assistant Exit Using Exit Command Implemented
+- Graceful Keyboard Interrupt Handling Implemented
+- Multiple Questions Against One Ingested Document Validated Successfully
+- First Interactive EnterpriseBrain Assistant Implemented Successfully
 
 
 ---

@@ -28,11 +28,13 @@
 - Context Builder
 - QA
 - LLM
+- CLI
 
 ---
 
 # Current Pipeline
 
+- PL/SQL Document Path Input
 - File Validator
 - Metadata Extractor
 - Document Loader
@@ -40,21 +42,26 @@
 - ProcessingDocument In-Memory Model
 - ProcessingDocument Metadata Enrichment
 - ProcessingDocument Chunk Generation
-- Chunker
+- Document Database Record Creation
+- Document Chunker
 - Embedding Generator
 - pgvector Vector Storage
-- Vector Similarity Search
+- Document-Scoped Vector Similarity Search
 - Retrieval Service
 - Context Builder Service
 - QA Service
 - Ollama LLM Integration
-- RAG Answer Generation Validation
+- Interactive Question Loop
+- Graceful Assistant Shutdown
 
 ---
 
 # Upcoming Pipeline
 
+- Real PL/SQL Package Evaluation
+- Retrieval Quality Improvement
 - Prompt Engineering Layer
+- Source Attribution Improvement
 - Enterprise Document Ingestion
 - Metadata Enhancement
 - Document Classification

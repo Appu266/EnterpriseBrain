@@ -26,6 +26,8 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 
 - Local document ingestion
 - TXT Reader
+- PL/SQL Document Question Answering
+- Interactive CLI Assistant
 - Chunking
 - Embeddings
 - Vector Database

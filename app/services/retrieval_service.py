@@ -13,13 +13,14 @@ class RetrievalService:
         self,
         repository: DocumentChunkRepository,
         embedding_generator: EmbeddingGenerator,
-        context_builder: ContextBuilderService
+        context_builder: ContextBuilderService,
+        document_id: int | None = None
     ):
 
         self.repository = repository
         self.embedding_generator = embedding_generator
         self.context_builder = context_builder
-
+        self.document_id = document_id
 
     def retrieve(
         self,
@@ -38,7 +39,8 @@ class RetrievalService:
 
         chunks = self.repository.find_similar(
             query_embedding=query_embedding,
-            limit=limit
+            limit=limit,
+            document_id=self.document_id
         )
 
         return self.context_builder.build_context(
