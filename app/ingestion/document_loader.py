@@ -1,7 +1,8 @@
-from app.validators.file_validator import FileValidator
-from app.extractors.metadata_extractor import MetadataExtractor
-from app.readers.base_reader import BaseReader
 from app.chunkers.text_chunker import TextChunker
+from app.extractors.metadata_extractor import MetadataExtractor
+from app.models.processing_document import ProcessingDocument
+from app.readers.base_reader import BaseReader
+from app.validators.file_validator import FileValidator
 
 
 class DocumentLoader:
@@ -20,7 +21,7 @@ class DocumentLoader:
     def load(
         self,
         file_path: str
-    ) -> dict:
+    ) -> ProcessingDocument:
 
         # Validate file
         self.validator.validate(file_path)
@@ -28,16 +29,10 @@ class DocumentLoader:
         # Read document
         document = self.reader.read(file_path)
 
-        # Extract metadata
-        metadata = self.metadata_extractor.extract(file_path)
+        # Extract and attach metadata
+        document.metadata = self.metadata_extractor.extract(file_path)
 
-        # Attach metadata to processing document
-        document.metadata = metadata
+        # Generate and attach chunks
+        document.chunks = self.chunker.chunk(document.content)
 
-        # Generate chunks
-        chunks = self.chunker.chunk(document.content)
-
-        metadata["content"] = document.content
-        metadata["chunks"] = chunks
-
-        return metadata
+        return document

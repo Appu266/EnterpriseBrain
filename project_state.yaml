@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.19
+  version: 0.1.20
 
 environment:
   python: "3.12.10"
@@ -147,8 +147,13 @@ progress:
     - Document Loader Integrated with ProcessingDocument
     - ProcessingDocument Reader Validation Completed Successfully
     - ProcessingDocument Document Loader Validation Completed Successfully
-  current_task: "Propagate ProcessingDocument Through the Document Ingestion Pipeline"
-  next_task: "Improve RAG Answer Quality and Prepare Enterprise Document Ingestion"
+    - ProcessingDocument Extended with Chunk Support
+    - Document Loader Refactored to Return ProcessingDocument
+    - Document Loader Test Refactored for ProcessingDocument
+    - ProcessingDocument Metadata and Chunk Propagation Validated Successfully
+    - End-to-End ProcessingDocument Ingestion Flow Validated Successfully
+  current_task: "Improve RAG Answer Quality and Prepare Enterprise Document Ingestion"
+  next_task: "Design Enterprise Document Ingestion Framework"
 database:
   schemas:
     - knowledge
@@ -184,6 +189,8 @@ application_architecture:
     - Document Loader
     - Reader Framework
     - ProcessingDocument In-Memory Model
+    - ProcessingDocument Metadata Enrichment
+    - ProcessingDocument Chunk Generation
     - Chunker
     - Embedding Generator
     - pgvector Vector Storage
@@ -194,7 +201,6 @@ application_architecture:
     - Ollama LLM Integration
     - RAG Answer Generation Validation
   upcoming_pipeline:
-    - ProcessingDocument Pipeline Propagation
     - Prompt Engineering Layer
     - Enterprise Document Ingestion
     - Metadata Enhancement
@@ -301,6 +307,8 @@ architecture_decisions:
     decision: First end-to-end RAG pipeline validation completed successfully using QA flow test
   - date: "2026-08-01"
     decision: ProcessingDocument introduced as the canonical in-memory model for documents flowing through the ingestion pipeline
+  - date: "2026-08-01"
+    decision: DocumentLoader standardized to return ProcessingDocument with metadata and generated chunks attached
 
 documentation:
   generated_files:

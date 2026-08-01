@@ -38,6 +38,8 @@
 - Document Loader
 - Reader Framework
 - ProcessingDocument In-Memory Model
+- ProcessingDocument Metadata Enrichment
+- ProcessingDocument Chunk Generation
 - Chunker
 - Embedding Generator
 - pgvector Vector Storage
@@ -52,7 +54,6 @@
 
 # Upcoming Pipeline
 
-- ProcessingDocument Pipeline Propagation
 - Prompt Engineering Layer
 - Enterprise Document Ingestion
 - Metadata Enhancement

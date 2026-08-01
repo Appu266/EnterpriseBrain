@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.19
+**Version:** 0.1.20
 
 ---
 
@@ -60,11 +60,11 @@ Step : Improve RAG Pipeline Quality and Prepare Enterprise Document Ingestion
 
 Current Task :
 
-Propagate ProcessingDocument Through the Document Ingestion Pipeline
+Improve RAG Answer Quality and Prepare Enterprise Document Ingestion
 
 Next Task :
 
-Improve RAG Answer Quality and Prepare Enterprise Document Ingestion
+Design Enterprise Document Ingestion Framework
 
 ---
 
@@ -94,6 +94,8 @@ Improve RAG Answer Quality and Prepare Enterprise Document Ingestion
 - Document Loader
 - Reader Framework
 - ProcessingDocument In-Memory Model
+- ProcessingDocument Metadata Enrichment
+- ProcessingDocument Chunk Generation
 - Chunker
 - Embedding Generator
 - pgvector Vector Storage
@@ -121,6 +123,7 @@ Improve RAG Answer Quality and Prepare Enterprise Document Ingestion
 - 2026-07-30 : LLM abstraction layer introduced to support multiple LLM providers
 - 2026-07-31 : First end-to-end RAG pipeline validation completed successfully using QA flow test
 - 2026-08-01 : ProcessingDocument introduced as the canonical in-memory model for documents flowing through the ingestion pipeline
+- 2026-08-01 : DocumentLoader standardized to return ProcessingDocument with metadata and generated chunks attached
 
 ---
 

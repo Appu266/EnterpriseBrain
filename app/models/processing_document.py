@@ -16,3 +16,4 @@ class ProcessingDocument:
     file_path: str
     content: str
     metadata: dict[str, Any] = field(default_factory=dict)
+    chunks: list[str] = field(default_factory=list)

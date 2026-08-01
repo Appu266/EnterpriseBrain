@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.19
+0.1.20
 
 ---
 
@@ -78,6 +78,11 @@
 - Document Loader Integrated with ProcessingDocument
 - ProcessingDocument Reader Validation Completed Successfully
 - ProcessingDocument Document Loader Validation Completed Successfully
+- ProcessingDocument Extended with Chunk Support
+- Document Loader Refactored to Return ProcessingDocument
+- Document Loader Test Refactored for ProcessingDocument
+- ProcessingDocument Metadata and Chunk Propagation Validated Successfully
+- End-to-End ProcessingDocument Ingestion Flow Validated Successfully
 
 
 ---
