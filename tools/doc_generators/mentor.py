@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from doc_generators.constants import PROJECT_MANIFEST_DIR
+
 
 def generate_mentor_context(state: dict, root: Path) -> None:
     """
@@ -126,7 +128,7 @@ Next Task :
 Last Updated : {state["last_updated"]}
 """
 
-    (root / "MENTOR_CONTEXT.md").write_text(
+    (PROJECT_MANIFEST_DIR / "MENTOR_CONTEXT.md").write_text(
         content,
         encoding="utf-8",
     )

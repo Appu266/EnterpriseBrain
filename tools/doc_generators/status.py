@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from doc_generators.constants import PROJECT_MANIFEST_DIR
+
 
 def generate_project_status(state: dict, root: Path) -> None:
     """
@@ -48,7 +50,7 @@ def generate_project_status(state: dict, root: Path) -> None:
 Last Updated: {state["last_updated"]}
 """
 
-    (root / "PROJECT_STATUS.md").write_text(
+    (PROJECT_MANIFEST_DIR / "PROJECT_STATUS.md").write_text(
         content,
         encoding="utf-8",
     )

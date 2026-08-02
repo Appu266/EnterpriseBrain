@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from doc_generators.constants import PROJECT_MANIFEST_DIR
+
 
 def _bullet(items: list) -> str:
     return "\n".join(f"- {item}" for item in items)
@@ -85,7 +87,7 @@ def generate_architecture(state: dict, root: Path) -> None:
 Last Updated: {state["last_updated"]}
 """
 
-    (root / "ARCHITECTURE.md").write_text(
+    (PROJECT_MANIFEST_DIR / "ARCHITECTURE.md").write_text(
         content,
         encoding="utf-8",
     )

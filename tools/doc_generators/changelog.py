@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from doc_generators.constants import PROJECT_MANIFEST_DIR
+
 
 def generate_changelog(state: dict, root: Path) -> None:
     """
@@ -30,7 +32,7 @@ def generate_changelog(state: dict, root: Path) -> None:
 Last Updated: {state["last_updated"]}
 """
 
-    (root / "CHANGELOG.md").write_text(
+    (PROJECT_MANIFEST_DIR / "CHANGELOG.md").write_text(
         content,
         encoding="utf-8",
     )
