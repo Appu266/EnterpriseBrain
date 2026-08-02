@@ -14,13 +14,24 @@ class RetrievalService:
         repository: DocumentChunkRepository,
         embedding_generator: EmbeddingGenerator,
         context_builder: ContextBuilderService,
-        document_id: int | None = None
+        document_id: int | None = None,
+        document_ids: list[int] | None = None
     ):
+
+        if (
+            document_id is not None
+            and document_ids is not None
+        ):
+            raise ValueError(
+                "Provide either document_id or document_ids, "
+                "not both."
+            )
 
         self.repository = repository
         self.embedding_generator = embedding_generator
         self.context_builder = context_builder
         self.document_id = document_id
+        self.document_ids = document_ids
 
     def retrieve(
         self,
@@ -40,7 +51,8 @@ class RetrievalService:
         chunks = self.repository.find_similar(
             query_embedding=query_embedding,
             limit=limit,
-            document_id=self.document_id
+            document_id=self.document_id,
+            document_ids=self.document_ids
         )
 
         return self.context_builder.build_context(

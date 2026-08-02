@@ -10,7 +10,6 @@ class DocumentChunkRepository:
         self,
         db: Session
     ):
-
         self.db = db
 
     def create(
@@ -50,8 +49,21 @@ class DocumentChunkRepository:
         self,
         query_embedding: list[float],
         limit: int = 5,
-        document_id: int | None = None
+        document_id: int | None = None,
+        document_ids: list[int] | None = None
     ) -> list[tuple[DocumentChunk, float]]:
+
+        if (
+            document_id is not None
+            and document_ids is not None
+        ):
+            raise ValueError(
+                "Provide either document_id or document_ids, "
+                "not both."
+            )
+
+        if document_ids is not None and not document_ids:
+            return []
 
         distance = DocumentChunk.embedding.cosine_distance(
             query_embedding
@@ -67,6 +79,13 @@ class DocumentChunkRepository:
         if document_id is not None:
             statement = statement.where(
                 DocumentChunk.document_id == document_id
+            )
+
+        if document_ids is not None:
+            statement = statement.where(
+                DocumentChunk.document_id.in_(
+                    document_ids
+                )
             )
 
         statement = (
