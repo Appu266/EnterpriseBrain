@@ -4,7 +4,6 @@ import shutil
 import subprocess
 import sys
 from copy import deepcopy
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -24,13 +23,6 @@ UPDATE_FILE = (
     / "project_manifest"
     / "updates"
     / "project_update.yaml"
-)
-
-HISTORY_DIRECTORY = (
-    ROOT
-    / "project_manifest"
-    / "updates"
-    / "history"
 )
 
 UPDATE_DOCS_SCRIPT = (
@@ -426,6 +418,7 @@ def apply_changelog_changes(
         "a mapping or a list."
     )
 
+
 def apply_update(
     state: dict[str, Any],
     update: dict[str, Any]
@@ -618,46 +611,6 @@ def run_documentation_generator() -> None:
         )
 
 
-def archive_update(
-    update_file: Path,
-    update: dict[str, Any]
-) -> Path:
-    """
-    Save a timestamped snapshot of the permanent project update file.
-    """
-
-    HISTORY_DIRECTORY.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    update_id = str(
-        update["update"]["id"]
-    )
-
-    update_date = str(
-        update["update"]["date"]
-    )
-
-    safe_timestamp = datetime.now().strftime(
-        "%H%M%S"
-    )
-
-    archive_name = (
-        f"{update_date}_{safe_timestamp}_"
-        f"{update_id}.yaml"
-    )
-
-    archive_path = (
-        HISTORY_DIRECTORY / archive_name
-    )
-
-    shutil.copy2(
-        update_file,
-        archive_path
-    )
-
-    return archive_path
 
 def main() -> None:
 
@@ -706,11 +659,6 @@ def main() -> None:
 
         run_documentation_generator()
 
-        archived_file = archive_update(
-            update_file,
-            update
-        )
-
     except Exception:
         restore_backups(
             backups
@@ -728,10 +676,6 @@ def main() -> None:
     )
     print(
         "Documentation regenerated successfully."
-    )
-    print(
-        f"Applied update archived as: "
-        f"{archived_file.name}"
     )
     print()
     print("=" * 60)
