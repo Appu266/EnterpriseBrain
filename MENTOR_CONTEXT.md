@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.23
+**Version:** 0.1.24
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : PL/SQL Assistant MVP Development
 
-Step : Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
+Step : Basic Browser UI Development
 
 Current Task :
 
-Introduce Deterministic PL/SQL Structural Analysis for Exact Questions
+Implement Streamlit Document Upload and Question Answering Interface
 
 Next Task :
 
-Implement Table Extraction Without Depending on the Local LLM
+Validate the Complete Browser-Based Document Assistant End to End
 
 ---
 
@@ -88,6 +88,7 @@ Implement Table Extraction Without Depending on the Local LLM
 - LLM
 - CLI
 - Web UI (Upcoming)
+- Presentation
 
 ## Current Pipeline
 
@@ -149,6 +150,8 @@ Implement Table Extraction Without Depending on the Local LLM
 - 2026-08-01 : Assistant quality and correctness take priority over aggressive startup-time optimization
 - 2026-08-02 : User Mode hides internal SQL, retrieval, embedding and ingestion diagnostics while DEBUG mode preserves them for development
 - 2026-08-02 : Exact PL/SQL structural questions such as table extraction will use deterministic analysis instead of relying exclusively on the local 1.5B LLM
+- 2026-08-02 : DocumentAssistantService adopted as the generic application entry point shared by CLI, Streamlit and future API-based Angular or React interfaces
+- 2026-08-02 : Presentation interfaces must contain no document ingestion, retrieval, embedding or LLM orchestration logic
 
 ---
 

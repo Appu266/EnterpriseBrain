@@ -31,6 +31,7 @@
 - LLM
 - CLI
 - Web UI (Upcoming)
+- Presentation
 
 ---
 
@@ -63,7 +64,10 @@
 
 # Upcoming Pipeline
 
-- Basic Web UI
+- End-to-End Browser Assistant Validation
+- Browser Session State Management
+- Streamlit Question Answering Interface
+- Streamlit Document Upload Interface
 - Browser-Based PL/SQL Document Upload
 - Browser-Based Question Answering
 - End-to-End User Experience Validation
@@ -103,6 +107,7 @@
 - app/services/retrieval_service.py
 - app/services/context_builder_service.py
 - app/services/qa_service.py
+- app/services/document_assistant_service.py
 
 ## Ingestion
 

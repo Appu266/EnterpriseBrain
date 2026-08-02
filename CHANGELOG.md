@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.23
+0.1.24
 
 ---
 
@@ -142,6 +142,15 @@
 - PL/SQL QA Prompt Strengthened for Structural Code Questions
 - Retrieval Quality Verified Using Debug Context
 - Local 1.5B LLM Exhaustive Extraction Limitation Identified
+- Generic DocumentAssistantService Introduced
+- Document Ingestion Orchestration Extracted from CLI
+- Document Question Answering Orchestration Extracted from CLI
+- CLI Refactored to Use DocumentAssistantService
+- DocumentAssistantService Validated Through Existing CLI
+- DocumentAssistantService Public API Introduced
+- Active Document State Management Introduced
+- Document Assistant Close Operation Introduced
+- Streamlit Installed for Basic Browser UI
 
 
 ---

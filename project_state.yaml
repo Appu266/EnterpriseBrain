@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.23
+  version: 0.1.24
 environment:
   python: 3.12.10
   postgres: '18'
@@ -28,6 +28,8 @@ vision:
   - Document-Scoped Retrieval
   - RAG based Question Answering
   - Configurable Local LLM
+  - Generic Document Assistant Application Service
+  - Basic Browser UI Development
   future_scope:
   - Basic Web UI
   - PDF Reader
@@ -78,7 +80,7 @@ roadmap:
       '
 progress:
   phase: PL/SQL Assistant MVP Development
-  current_step: Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
+  current_step: Basic Browser UI Development
   completed:
   - PostgreSQL Installed
   - pgAdmin Installed
@@ -214,8 +216,17 @@ progress:
   - PL/SQL QA Prompt Strengthened for Structural Code Questions
   - Retrieval Quality Verified Using Debug Context
   - Local 1.5B LLM Exhaustive Extraction Limitation Identified
-  current_task: Introduce Deterministic PL/SQL Structural Analysis for Exact Questions
-  next_task: Implement Table Extraction Without Depending on the Local LLM
+  - Generic DocumentAssistantService Introduced
+  - Document Ingestion Orchestration Extracted from CLI
+  - Document Question Answering Orchestration Extracted from CLI
+  - CLI Refactored to Use DocumentAssistantService
+  - DocumentAssistantService Validated Through Existing CLI
+  - DocumentAssistantService Public API Introduced
+  - Active Document State Management Introduced
+  - Document Assistant Close Operation Introduced
+  - Streamlit Installed for Basic Browser UI
+  current_task: Implement Streamlit Document Upload and Question Answering Interface
+  next_task: Validate the Complete Browser-Based Document Assistant End to End
 database:
   schemas:
   - knowledge
@@ -247,6 +258,7 @@ application_architecture:
   - LLM
   - CLI
   - Web UI (Upcoming)
+  - Presentation
   current_pipeline:
   - PL/SQL Document Path Input
   - Deferred AI Component Loading
@@ -271,7 +283,10 @@ application_architecture:
   - Interactive Question Loop
   - Graceful Assistant Shutdown
   upcoming_pipeline:
-  - Basic Web UI
+  - End-to-End Browser Assistant Validation
+  - Browser Session State Management
+  - Streamlit Question Answering Interface
+  - Streamlit Document Upload Interface
   - Browser-Based PL/SQL Document Upload
   - Browser-Based Question Answering
   - End-to-End User Experience Validation
@@ -300,6 +315,7 @@ application_architecture:
     - app/services/retrieval_service.py
     - app/services/context_builder_service.py
     - app/services/qa_service.py
+    - app/services/document_assistant_service.py
     ingestion:
     - app/validators/file_validator.py
     - app/extractors/metadata_extractor.py
@@ -322,6 +338,9 @@ application_architecture:
     test_documents:
     - tests/sample_plsql.txt
     - data/documents/employee_operations_pkg.txt
+    presentation:
+    - app/presentation/cli.py
+    - app/presentation/streamlit_ui.py
 dependencies:
   update_requirements: true
   installed:
@@ -334,6 +353,7 @@ dependencies:
   - pgvector==0.5.0
   - sentence-transformers==5.6.1
   - requests
+  - streamlit
 assistant_context:
   working_rules:
   - Never skip roadmap phases.
@@ -447,6 +467,12 @@ architecture_decisions:
 - date: '2026-08-02'
   decision: Exact PL/SQL structural questions such as table extraction will use deterministic analysis
     instead of relying exclusively on the local 1.5B LLM
+- date: '2026-08-02'
+  decision: DocumentAssistantService adopted as the generic application entry point shared by CLI, Streamlit
+    and future API-based Angular or React interfaces
+- date: '2026-08-02'
+  decision: Presentation interfaces must contain no document ingestion, retrieval, embedding or LLM orchestration
+    logic
 documentation:
   generated_files:
   - PROJECT_VISION.md

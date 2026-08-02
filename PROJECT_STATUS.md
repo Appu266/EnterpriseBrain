@@ -8,7 +8,7 @@ PL/SQL Assistant MVP Development
 
 ## Current Step
 
-Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
+Basic Browser UI Development
 
 ---
 
@@ -148,18 +148,27 @@ Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
 - [x] PL/SQL QA Prompt Strengthened for Structural Code Questions
 - [x] Retrieval Quality Verified Using Debug Context
 - [x] Local 1.5B LLM Exhaustive Extraction Limitation Identified
+- [x] Generic DocumentAssistantService Introduced
+- [x] Document Ingestion Orchestration Extracted from CLI
+- [x] Document Question Answering Orchestration Extracted from CLI
+- [x] CLI Refactored to Use DocumentAssistantService
+- [x] DocumentAssistantService Validated Through Existing CLI
+- [x] DocumentAssistantService Public API Introduced
+- [x] Active Document State Management Introduced
+- [x] Document Assistant Close Operation Introduced
+- [x] Streamlit Installed for Basic Browser UI
 
 ---
 
 ## Current Task
 
-Introduce Deterministic PL/SQL Structural Analysis for Exact Questions
+Implement Streamlit Document Upload and Question Answering Interface
 
 ---
 
 ## Next Task
 
-Implement Table Extraction Without Depending on the Local LLM
+Validate the Complete Browser-Based Document Assistant End to End
 
 ---
 

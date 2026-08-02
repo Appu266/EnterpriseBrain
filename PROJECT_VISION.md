@@ -35,6 +35,8 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 - Document-Scoped Retrieval
 - RAG based Question Answering
 - Configurable Local LLM
+- Generic Document Assistant Application Service
+- Basic Browser UI Development
 
 ---
 
