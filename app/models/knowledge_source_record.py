@@ -1,30 +1,50 @@
+from __future__ import annotations
+
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import (
     Boolean,
     DateTime,
     Integer,
-    String
+    String,
+    UniqueConstraint,
+    func
 )
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
+
+if TYPE_CHECKING:
+    from app.models.document import Document
+    from app.models.indexing_run import IndexingRun
 
 
 class KnowledgeSourceRecord(Base):
     """
-    Persistent database record for one EnterpriseBrain knowledge source.
+    Persistent record representing one source of enterprise knowledge.
 
-    A knowledge source may represent a local document, local folder,
-    Git repository, Confluence space, Jira project, SharePoint location,
-    database, or another future connector.
+    Examples:
+    - Git repository
+    - Local folder
+    - Individual file
+    - Confluence space
+    - Jira project
+    - Database
     """
 
     __tablename__ = "knowledge_sources"
 
-    __table_args__ = {
-        "schema": "knowledge"
-    }
+    __table_args__ = (
+        UniqueConstraint(
+            "source_type",
+            "location",
+            name="uq_knowledge_sources_type_location"
+        ),
+        {
+            "schema": "knowledge"
+        }
+    )
 
     id: Mapped[int] = mapped_column(
         Integer,
@@ -39,7 +59,8 @@ class KnowledgeSourceRecord(Base):
 
     source_type: Mapped[str] = mapped_column(
         String(50),
-        nullable=False
+        nullable=False,
+        index=True
     )
 
     location: Mapped[str] = mapped_column(
@@ -50,41 +71,43 @@ class KnowledgeSourceRecord(Base):
     indexing_status: Mapped[str] = mapped_column(
         String(50),
         nullable=False,
-        default="registered"
+        default="registered",
+        index=True
     )
 
     is_active: Mapped[bool] = mapped_column(
         Boolean,
         nullable=False,
-        default=True
-    )
-
-    document_count: Mapped[int] = mapped_column(
-        Integer,
-        nullable=False,
-        default=0
-    )
-
-    chunk_count: Mapped[int] = mapped_column(
-        Integer,
-        nullable=False,
-        default=0
+        default=True,
+        index=True
     )
 
     last_indexed_at: Mapped[datetime | None] = mapped_column(
-        DateTime,
+        DateTime(timezone=True),
         nullable=True
     )
 
     created_at: Mapped[datetime] = mapped_column(
-        DateTime,
+        DateTime(timezone=True),
         nullable=False,
-        default=datetime.utcnow
+        server_default=func.now()
     )
 
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime,
+        DateTime(timezone=True),
         nullable=False,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow
+        server_default=func.now(),
+        onupdate=func.now()
+    )
+
+    indexing_runs: Mapped[list[IndexingRun]] = relationship(
+        back_populates="knowledge_source",
+        cascade="all, delete-orphan",
+        passive_deletes=True
+    )
+
+    documents: Mapped[list[Document]] = relationship(
+        back_populates="knowledge_source",
+        cascade="all, delete-orphan",
+        passive_deletes=True
     )
