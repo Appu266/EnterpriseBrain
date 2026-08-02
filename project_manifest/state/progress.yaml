@@ -1,6 +1,6 @@
 progress:
   phase: Phase 2 - Database Repository Assistant
-  current_step: Knowledge Source Persistence and Database Redesign
+  current_step: Repository-Scoped Retrieval
   completed:
   - PostgreSQL Installed
   - pgAdmin Installed
@@ -177,8 +177,30 @@ progress:
   - Reader Factory Test Completed Successfully
   - Repository Reader Test Completed Successfully
   - Repository Ingestion Test Completed Successfully
-  current_task: Redesign the database schema around persistent knowledge sources
-  next_task: Add knowledge-source relationships to documents and indexing runs
+  - Persistent Knowledge Source Database Table Implemented
+  - Persistent Indexing Run Database Table Implemented
+  - Knowledge Source Repository Implemented
+  - Knowledge Source Service Implemented
+  - Indexing Run Repository Implemented
+  - Indexing Run Service Implemented
+  - Documents Linked to Persistent Knowledge Sources
+  - Documents Linked to Indexing Runs
+  - Document Database Model Redesigned Successfully
+  - Document Service Updated for Persistent Ingestion
+  - Duplicate Source-and-Path Document Registration Prevented
+  - Document Service Integration Validated Successfully
+  - Standalone Document Ingestion Connected to Knowledge Sources
+  - Standalone Document Ingestion Connected to Indexing Runs
+  - Repository Ingestion Connected to Knowledge Sources
+  - Repository Ingestion Connected to Indexing Runs
+  - Repository Indexing Counters Persisted Successfully
+  - Failed Indexing Runs Recorded Successfully
+  - Repository Ingestion Persistence Validated Successfully
+  - Standalone Document Assistant Revalidated Successfully
+  - Document Chunk Vector Dimension Corrected to 384
+  - End-to-End Persistent Ingestion Foundation Completed
+  current_task: Implement retrieval across all documents belonging to one repository knowledge source
+  next_task: Build repository-level question answering with cross-file context
 quality_backlog:
   source_phase: 1
   status: deferred

@@ -4,6 +4,8 @@ database:
   tables:
   - knowledge.documents
   - knowledge.document_chunks
+  - knowledge.knowledge_sources
+  - knowledge.indexing_runs
   future_tables:
   - knowledge.knowledge_sources
   - knowledge.indexing_runs

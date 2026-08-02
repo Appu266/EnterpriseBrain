@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.2.2
+**Version:** 0.2.3
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : Phase 2 - Database Repository Assistant
 
-Step : Knowledge Source Persistence and Database Redesign
+Step : Repository-Scoped Retrieval
 
 Current Task :
 
-Redesign the database schema around persistent knowledge sources
+Implement retrieval across all documents belonging to one repository knowledge source
 
 Next Task :
 
-Add knowledge-source relationships to documents and indexing runs
+Build repository-level question answering with cross-file context
 
 ---
 
@@ -94,6 +94,8 @@ Add knowledge-source relationships to documents and indexing runs
 - Repository Reading
 - Repository Ingestion
 - Knowledge Source Management
+- Indexing Run Management
+- Persistent Ingestion Tracking
 
 ## Current Pipeline
 

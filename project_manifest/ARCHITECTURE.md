@@ -39,6 +39,8 @@
 - Repository Reading
 - Repository Ingestion
 - Knowledge Source Management
+- Indexing Run Management
+- Persistent Ingestion Tracking
 
 ---
 

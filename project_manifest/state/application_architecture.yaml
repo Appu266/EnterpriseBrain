@@ -31,6 +31,8 @@ application_architecture:
   - Repository Reading
   - Repository Ingestion
   - Knowledge Source Management
+  - Indexing Run Management
+  - Persistent Ingestion Tracking
   current_pipeline:
   - PL/SQL Document Path Input
   - Deferred AI Component Loading
@@ -133,12 +135,18 @@ application_architecture:
     - app/models/repository_ingestion_context.py
     - app/models/knowledge_source.py
     - app/models/knowledge_source_record.py
+    - app/models/indexing_run.py
     factories:
     - app/factories/reader_factory.py
     services:
     - app/services/repository_discovery_service.py
     - app/services/repository_reader_service.py
     - app/services/repository_ingestion_service.py
+    - app/services/knowledge_source_service.py
+    - app/services/indexing_run_service.py
+    repositories:
+    - app/repositories/knowledge_source_repository.py
+    - app/repositories/indexing_run_repository.py
 architecture_decisions:
 - date: '2026-07-28'
   decision: Repository Pattern adopted

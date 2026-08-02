@@ -12,3 +12,8 @@ changelog:
     date: '2026-08-02'
     summary: Added repository discovery, reading, ingestion, multi-document retrieval foundation and the
       generic knowledge-source abstraction.
+  - version: 0.2.3
+    date: '2026-08-02'
+    summary: Added persistent knowledge sources and indexing runs, linked documents to both records, integrated
+      standalone and repository ingestion, validated indexing counters and corrected vector storage to
+      384 dimensions.

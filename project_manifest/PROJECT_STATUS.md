@@ -8,7 +8,7 @@ Phase 2 - Database Repository Assistant
 
 ## Current Step
 
-Knowledge Source Persistence and Database Redesign
+Repository-Scoped Retrieval
 
 ---
 
@@ -189,18 +189,40 @@ Knowledge Source Persistence and Database Redesign
 - [x] Reader Factory Test Completed Successfully
 - [x] Repository Reader Test Completed Successfully
 - [x] Repository Ingestion Test Completed Successfully
+- [x] Persistent Knowledge Source Database Table Implemented
+- [x] Persistent Indexing Run Database Table Implemented
+- [x] Knowledge Source Repository Implemented
+- [x] Knowledge Source Service Implemented
+- [x] Indexing Run Repository Implemented
+- [x] Indexing Run Service Implemented
+- [x] Documents Linked to Persistent Knowledge Sources
+- [x] Documents Linked to Indexing Runs
+- [x] Document Database Model Redesigned Successfully
+- [x] Document Service Updated for Persistent Ingestion
+- [x] Duplicate Source-and-Path Document Registration Prevented
+- [x] Document Service Integration Validated Successfully
+- [x] Standalone Document Ingestion Connected to Knowledge Sources
+- [x] Standalone Document Ingestion Connected to Indexing Runs
+- [x] Repository Ingestion Connected to Knowledge Sources
+- [x] Repository Ingestion Connected to Indexing Runs
+- [x] Repository Indexing Counters Persisted Successfully
+- [x] Failed Indexing Runs Recorded Successfully
+- [x] Repository Ingestion Persistence Validated Successfully
+- [x] Standalone Document Assistant Revalidated Successfully
+- [x] Document Chunk Vector Dimension Corrected to 384
+- [x] End-to-End Persistent Ingestion Foundation Completed
 
 ---
 
 ## Current Task
 
-Redesign the database schema around persistent knowledge sources
+Implement retrieval across all documents belonging to one repository knowledge source
 
 ---
 
 ## Next Task
 
-Add knowledge-source relationships to documents and indexing runs
+Build repository-level question answering with cross-file context
 
 ---
 

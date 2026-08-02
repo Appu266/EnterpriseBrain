@@ -1,73 +1,63 @@
 update:
-  id: phase2_repository_foundation
+  id: phase2_persistent_ingestion_foundation
   date: "2026-08-02"
-  description: Complete repository ingestion and knowledge-source foundation
+  description: Complete persistent knowledge-source and indexing-run integration
 
 project:
-  version: "0.2.2"
+  version: "0.2.3"
 
 progress:
   add_completed:
-    - Repository Source File Model Implemented
-    - Recursive Repository Discovery Implemented
-    - Database Source File Classification Implemented
-    - Reader Factory Implemented
-    - Repository Reader Service Implemented
-    - Repository Ingestion Service Implemented
-    - Repository Ingestion Context Implemented
-    - Repository File Metadata Preserved
-    - Multi-Document Retrieval Foundation Implemented
-    - Single-Document Retrieval Regression Tested Successfully
-    - Generic KnowledgeSource Model Implemented
-    - Persistent KnowledgeSourceRecord ORM Foundation Implemented
-    - Repository Discovery Test Completed Successfully
-    - Reader Factory Test Completed Successfully
-    - Repository Reader Test Completed Successfully
-    - Repository Ingestion Test Completed Successfully
+    - Persistent Knowledge Source Database Table Implemented
+    - Persistent Indexing Run Database Table Implemented
+    - Knowledge Source Repository Implemented
+    - Knowledge Source Service Implemented
+    - Indexing Run Repository Implemented
+    - Indexing Run Service Implemented
+    - Documents Linked to Persistent Knowledge Sources
+    - Documents Linked to Indexing Runs
+    - Document Database Model Redesigned Successfully
+    - Document Service Updated for Persistent Ingestion
+    - Duplicate Source-and-Path Document Registration Prevented
+    - Document Service Integration Validated Successfully
+    - Standalone Document Ingestion Connected to Knowledge Sources
+    - Standalone Document Ingestion Connected to Indexing Runs
+    - Repository Ingestion Connected to Knowledge Sources
+    - Repository Ingestion Connected to Indexing Runs
+    - Repository Indexing Counters Persisted Successfully
+    - Failed Indexing Runs Recorded Successfully
+    - Repository Ingestion Persistence Validated Successfully
+    - Standalone Document Assistant Revalidated Successfully
+    - Document Chunk Vector Dimension Corrected to 384
+    - End-to-End Persistent Ingestion Foundation Completed
 
-  current_step: Knowledge Source Persistence and Database Redesign
-  current_task: Redesign the database schema around persistent knowledge sources
-  next_task: Add knowledge-source relationships to documents and indexing runs
-
-vision:
-  add_current_scope:
-    - Generic Knowledge Source Foundation
-    - Multi-File Repository Ingestion
-    - Repository Context Management
-    - Multi-Document Retrieval Foundation
+  current_step: Repository-Scoped Retrieval
+  current_task: Implement retrieval across all documents belonging to one repository knowledge source
+  next_task: Build repository-level question answering with cross-file context
 
 architecture:
-  add_styles:
-    - Knowledge Source Abstraction
-    - Factory Pattern
-
   add_layers:
-    - Repository Discovery
-    - Repository Reading
-    - Repository Ingestion
-    - Knowledge Source Management
+    - Indexing Run Management
+    - Persistent Ingestion Tracking
 
   add_modules:
     models:
-      - app/models/repository_source_file.py
-      - app/models/repository_ingestion_context.py
-      - app/models/knowledge_source.py
-      - app/models/knowledge_source_record.py
+      - app/models/indexing_run.py
 
-    factories:
-      - app/factories/reader_factory.py
+    repositories:
+      - app/repositories/knowledge_source_repository.py
+      - app/repositories/indexing_run_repository.py
 
     services:
-      - app/services/repository_discovery_service.py
-      - app/services/repository_reader_service.py
-      - app/services/repository_ingestion_service.py
+      - app/services/knowledge_source_service.py
+      - app/services/indexing_run_service.py
 
 database:
-  add_future_tables:
+  add_tables:
     - knowledge.knowledge_sources
     - knowledge.indexing_runs
 
 changelog:
-  version: "0.2.2"
+  version: "0.2.3"
   date: "2026-08-02"
-  summary: Added repository discovery, reading, ingestion, multi-document retrieval foundation and the generic knowledge-source abstraction.
+  summary: Added persistent knowledge sources and indexing runs, linked documents to both records, integrated standalone and repository ingestion, validated indexing counters and corrected vector storage to 384 dimensions.
