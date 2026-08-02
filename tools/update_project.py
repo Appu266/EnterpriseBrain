@@ -19,18 +19,18 @@ STATE_DIRECTORY = (
     / "state"
 )
 
-PENDING_DIRECTORY = (
+UPDATE_FILE = (
     ROOT
     / "project_manifest"
     / "updates"
-    / "pending"
+    / "project_update.yaml"
 )
 
-APPLIED_DIRECTORY = (
+HISTORY_DIRECTORY = (
     ROOT
     / "project_manifest"
     / "updates"
-    / "applied"
+    / "history"
 )
 
 UPDATE_DOCS_SCRIPT = (
@@ -118,24 +118,17 @@ def write_yaml(
     )
 
 
-def find_pending_update() -> Path:
+def get_project_update_file() -> Path:
+    """
+    Return the permanent project update file.
+    """
 
-    pending_files = sorted(
-        PENDING_DIRECTORY.glob("*.yaml")
-    )
-
-    if not pending_files:
+    if not UPDATE_FILE.exists():
         raise FileNotFoundError(
-            "No pending project update YAML was found."
+            f"Project update file not found: {UPDATE_FILE}"
         )
 
-    if len(pending_files) > 1:
-        raise ValueError(
-            "Only one pending project update is allowed. "
-            f"Found: {[file.name for file in pending_files]}"
-        )
-
-    return pending_files[0]
+    return UPDATE_FILE
 
 
 def load_complete_state() -> dict[str, Any]:
@@ -626,11 +619,14 @@ def run_documentation_generator() -> None:
 
 
 def archive_update(
-    pending_file: Path,
+    update_file: Path,
     update: dict[str, Any]
 ) -> Path:
+    """
+    Save a timestamped snapshot of the permanent project update file.
+    """
 
-    APPLIED_DIRECTORY.mkdir(
+    HISTORY_DIRECTORY.mkdir(
         parents=True,
         exist_ok=True
     )
@@ -653,16 +649,15 @@ def archive_update(
     )
 
     archive_path = (
-        APPLIED_DIRECTORY / archive_name
+        HISTORY_DIRECTORY / archive_name
     )
 
-    shutil.move(
-        str(pending_file),
-        str(archive_path)
+    shutil.copy2(
+        update_file,
+        archive_path
     )
 
     return archive_path
-
 
 def main() -> None:
 
@@ -671,14 +666,14 @@ def main() -> None:
     print("=" * 60)
     print()
 
-    pending_file = find_pending_update()
+    update_file = get_project_update_file()
 
     print(
-        f"Pending update: {pending_file.name}"
+        f"Project update: {update_file.name}"
     )
 
     update = load_yaml(
-        pending_file
+        update_file
     )
 
     current_state = load_complete_state()
@@ -712,7 +707,7 @@ def main() -> None:
         run_documentation_generator()
 
         archived_file = archive_update(
-            pending_file,
+            update_file,
             update
         )
 

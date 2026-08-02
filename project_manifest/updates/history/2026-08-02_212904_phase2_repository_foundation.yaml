@@ -1,0 +1,73 @@
+update:
+  id: phase2_repository_foundation
+  date: "2026-08-02"
+  description: Complete repository ingestion and knowledge-source foundation
+
+project:
+  version: "0.2.2"
+
+progress:
+  add_completed:
+    - Repository Source File Model Implemented
+    - Recursive Repository Discovery Implemented
+    - Database Source File Classification Implemented
+    - Reader Factory Implemented
+    - Repository Reader Service Implemented
+    - Repository Ingestion Service Implemented
+    - Repository Ingestion Context Implemented
+    - Repository File Metadata Preserved
+    - Multi-Document Retrieval Foundation Implemented
+    - Single-Document Retrieval Regression Tested Successfully
+    - Generic KnowledgeSource Model Implemented
+    - Persistent KnowledgeSourceRecord ORM Foundation Implemented
+    - Repository Discovery Test Completed Successfully
+    - Reader Factory Test Completed Successfully
+    - Repository Reader Test Completed Successfully
+    - Repository Ingestion Test Completed Successfully
+
+  current_step: Knowledge Source Persistence and Database Redesign
+  current_task: Redesign the database schema around persistent knowledge sources
+  next_task: Add knowledge-source relationships to documents and indexing runs
+
+vision:
+  add_current_scope:
+    - Generic Knowledge Source Foundation
+    - Multi-File Repository Ingestion
+    - Repository Context Management
+    - Multi-Document Retrieval Foundation
+
+architecture:
+  add_styles:
+    - Knowledge Source Abstraction
+    - Factory Pattern
+
+  add_layers:
+    - Repository Discovery
+    - Repository Reading
+    - Repository Ingestion
+    - Knowledge Source Management
+
+  add_modules:
+    models:
+      - app/models/repository_source_file.py
+      - app/models/repository_ingestion_context.py
+      - app/models/knowledge_source.py
+      - app/models/knowledge_source_record.py
+
+    factories:
+      - app/factories/reader_factory.py
+
+    services:
+      - app/services/repository_discovery_service.py
+      - app/services/repository_reader_service.py
+      - app/services/repository_ingestion_service.py
+
+database:
+  add_future_tables:
+    - knowledge.knowledge_sources
+    - knowledge.indexing_runs
+
+changelog:
+  version: "0.2.2"
+  date: "2026-08-02"
+  summary: Added repository discovery, reading, ingestion, multi-document retrieval foundation and the generic knowledge-source abstraction.
