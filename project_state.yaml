@@ -1,6 +1,6 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.24
+  version: 0.2.0
 environment:
   python: 3.12.10
   postgres: '18'
@@ -30,6 +30,9 @@ vision:
   - Configurable Local LLM
   - Generic Document Assistant Application Service
   - Basic Browser UI Development
+  - Browser-Based Document Upload
+  - Browser-Based Conversational Question Answering
+  - Context-Aware Follow-Up Questions
   future_scope:
   - Basic Web UI
   - PDF Reader
@@ -80,7 +83,7 @@ roadmap:
       '
 progress:
   phase: PL/SQL Assistant MVP Development
-  current_step: Basic Browser UI Development
+  current_step: End-to-End Document Assistant MVP Completed
   completed:
   - PostgreSQL Installed
   - pgAdmin Installed
@@ -225,8 +228,19 @@ progress:
   - Active Document State Management Introduced
   - Document Assistant Close Operation Introduced
   - Streamlit Installed for Basic Browser UI
-  current_task: Implement Streamlit Document Upload and Question Answering Interface
-  next_task: Validate the Complete Browser-Based Document Assistant End to End
+  - Streamlit Browser Interface Implemented
+  - Browser-Based Document Upload Implemented
+  - Browser-Based Question Answering Implemented
+  - Streamlit Session State Management Implemented
+  - Browser Chat History Implemented
+  - Generic Conversation History Support Added to QA Service
+  - Context-Aware Follow-Up Question Retrieval Implemented
+  - DocumentAssistantService Integrated with Streamlit
+  - Streamlit File Watcher Configuration Added
+  - End-to-End Browser Document Assistant Validated Successfully
+  - EnterpriseBrain Browser Assistant MVP Completed
+  current_task: Document the MVP and Prepare the Next Foundation Capability
+  next_task: Implement Hash-Based Document Change and Duplicate Detection
 database:
   schemas:
   - knowledge
@@ -259,6 +273,7 @@ application_architecture:
   - CLI
   - Web UI (Upcoming)
   - Presentation
+  - Streamlit Browser UI
   current_pipeline:
   - PL/SQL Document Path Input
   - Deferred AI Component Loading
@@ -282,11 +297,13 @@ application_architecture:
   - qwen2.5 1.5B Local Inference
   - Interactive Question Loop
   - Graceful Assistant Shutdown
+  - Browser Document Upload
+  - Streamlit Session State
+  - Generic DocumentAssistantService
+  - Conversation-Aware Retrieval Query
+  - Conversation History Prompt Context
+  - Browser Chat Interface
   upcoming_pipeline:
-  - End-to-End Browser Assistant Validation
-  - Browser Session State Management
-  - Streamlit Question Answering Interface
-  - Streamlit Document Upload Interface
   - Browser-Based PL/SQL Document Upload
   - Browser-Based Question Answering
   - End-to-End User Experience Validation
@@ -298,6 +315,13 @@ application_architecture:
   - Enterprise Document Ingestion
   - Metadata Enhancement
   - Document Classification
+  - SHA-256 Document Content Hashing
+  - Duplicate Document Detection
+  - Existing Embedding Reuse
+  - PDF Reader
+  - DOCX Reader
+  - FastAPI Application Interface
+  - Angular or React Enterprise UI
   modules:
     configuration:
     - config/settings.py
@@ -473,6 +497,21 @@ architecture_decisions:
 - date: '2026-08-02'
   decision: Presentation interfaces must contain no document ingestion, retrieval, embedding or LLM orchestration
     logic
+- date: '2026-08-02'
+  decision: DocumentAssistantService is the generic application entry point for CLI, Streamlit and future
+    API-based interfaces
+- date: '2026-08-02'
+  decision: Conversation history is passed through the generic QA pipeline to support contextual follow-up
+    questions across all document types
+- date: '2026-08-02'
+  decision: Ambiguous follow-up questions use recent conversation messages when constructing the retrieval
+    query
+- date: '2026-08-02'
+  decision: Streamlit is adopted only for the browser MVP; the long-term enterprise interface remains
+    FastAPI with Angular or React
+- date: '2026-08-02'
+  decision: Iteration 1 prioritizes complete end-to-end foundations while answer quality improvements
+    are deferred to a later iteration
 documentation:
   generated_files:
   - PROJECT_VISION.md

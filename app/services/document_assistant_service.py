@@ -133,7 +133,8 @@ class DocumentAssistantService:
 
     def ask(
         self,
-        question: str
+        question: str,
+        conversation_history: list[dict[str, str]] | None = None
     ) -> QAResult:
 
         normalized_question = question.strip()
@@ -149,16 +150,19 @@ class DocumentAssistantService:
             )
 
         return self._qa_service.answer_with_context(
-            normalized_question
+            question=normalized_question,
+            conversation_history=conversation_history
         )
 
     def answer_question(
         self,
-        question: str
+        question: str,
+        conversation_history: list[dict[str, str]] | None = None
     ) -> QAResult:
 
         return self.ask(
-            question
+            question=question,
+            conversation_history=conversation_history
         )
 
     def close_document(self) -> None:

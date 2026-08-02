@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.24
+**Version:** 0.2.0
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : PL/SQL Assistant MVP Development
 
-Step : Basic Browser UI Development
+Step : End-to-End Document Assistant MVP Completed
 
 Current Task :
 
-Implement Streamlit Document Upload and Question Answering Interface
+Document the MVP and Prepare the Next Foundation Capability
 
 Next Task :
 
-Validate the Complete Browser-Based Document Assistant End to End
+Implement Hash-Based Document Change and Duplicate Detection
 
 ---
 
@@ -89,6 +89,7 @@ Validate the Complete Browser-Based Document Assistant End to End
 - CLI
 - Web UI (Upcoming)
 - Presentation
+- Streamlit Browser UI
 
 ## Current Pipeline
 
@@ -114,6 +115,12 @@ Validate the Complete Browser-Based Document Assistant End to End
 - qwen2.5 1.5B Local Inference
 - Interactive Question Loop
 - Graceful Assistant Shutdown
+- Browser Document Upload
+- Streamlit Session State
+- Generic DocumentAssistantService
+- Conversation-Aware Retrieval Query
+- Conversation History Prompt Context
+- Browser Chat Interface
 
 ---
 
@@ -152,6 +159,11 @@ Validate the Complete Browser-Based Document Assistant End to End
 - 2026-08-02 : Exact PL/SQL structural questions such as table extraction will use deterministic analysis instead of relying exclusively on the local 1.5B LLM
 - 2026-08-02 : DocumentAssistantService adopted as the generic application entry point shared by CLI, Streamlit and future API-based Angular or React interfaces
 - 2026-08-02 : Presentation interfaces must contain no document ingestion, retrieval, embedding or LLM orchestration logic
+- 2026-08-02 : DocumentAssistantService is the generic application entry point for CLI, Streamlit and future API-based interfaces
+- 2026-08-02 : Conversation history is passed through the generic QA pipeline to support contextual follow-up questions across all document types
+- 2026-08-02 : Ambiguous follow-up questions use recent conversation messages when constructing the retrieval query
+- 2026-08-02 : Streamlit is adopted only for the browser MVP; the long-term enterprise interface remains FastAPI with Angular or React
+- 2026-08-02 : Iteration 1 prioritizes complete end-to-end foundations while answer quality improvements are deferred to a later iteration
 
 ---
 

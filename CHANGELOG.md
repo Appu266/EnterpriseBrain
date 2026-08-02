@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.24
+0.2.0
 
 ---
 
@@ -151,6 +151,17 @@
 - Active Document State Management Introduced
 - Document Assistant Close Operation Introduced
 - Streamlit Installed for Basic Browser UI
+- Streamlit Browser Interface Implemented
+- Browser-Based Document Upload Implemented
+- Browser-Based Question Answering Implemented
+- Streamlit Session State Management Implemented
+- Browser Chat History Implemented
+- Generic Conversation History Support Added to QA Service
+- Context-Aware Follow-Up Question Retrieval Implemented
+- DocumentAssistantService Integrated with Streamlit
+- Streamlit File Watcher Configuration Added
+- End-to-End Browser Document Assistant Validated Successfully
+- EnterpriseBrain Browser Assistant MVP Completed
 
 
 ---

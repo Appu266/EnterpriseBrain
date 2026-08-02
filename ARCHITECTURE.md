@@ -32,6 +32,7 @@
 - CLI
 - Web UI (Upcoming)
 - Presentation
+- Streamlit Browser UI
 
 ---
 
@@ -59,15 +60,17 @@
 - qwen2.5 1.5B Local Inference
 - Interactive Question Loop
 - Graceful Assistant Shutdown
+- Browser Document Upload
+- Streamlit Session State
+- Generic DocumentAssistantService
+- Conversation-Aware Retrieval Query
+- Conversation History Prompt Context
+- Browser Chat Interface
 
 ---
 
 # Upcoming Pipeline
 
-- End-to-End Browser Assistant Validation
-- Browser Session State Management
-- Streamlit Question Answering Interface
-- Streamlit Document Upload Interface
 - Browser-Based PL/SQL Document Upload
 - Browser-Based Question Answering
 - End-to-End User Experience Validation
@@ -79,6 +82,13 @@
 - Enterprise Document Ingestion
 - Metadata Enhancement
 - Document Classification
+- SHA-256 Document Content Hashing
+- Duplicate Document Detection
+- Existing Embedding Reuse
+- PDF Reader
+- DOCX Reader
+- FastAPI Application Interface
+- Angular or React Enterprise UI
 
 ---
 

@@ -1,0 +1,9 @@
+[server]
+fileWatcherType = "none"
+headless = false
+
+[logger]
+level = "error"
+
+[browser]
+gatherUsageStats = false

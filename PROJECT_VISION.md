@@ -37,6 +37,9 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 - Configurable Local LLM
 - Generic Document Assistant Application Service
 - Basic Browser UI Development
+- Browser-Based Document Upload
+- Browser-Based Conversational Question Answering
+- Context-Aware Follow-Up Questions
 
 ---
 
