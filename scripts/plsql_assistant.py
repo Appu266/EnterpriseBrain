@@ -1,8 +1,11 @@
 from pathlib import Path
 
+from app.presentation.cli import CLI
+from config.settings import settings
+
 
 def run_assistant() -> None:
-    print("\nEnterpriseBrain - PL/SQL Assistant\n")
+    CLI.title("EnterpriseBrain - PL/SQL Assistant")
 
     file_path = input(
         "Enter the PL/SQL document path: "
@@ -12,7 +15,8 @@ def run_assistant() -> None:
         print("\nDocument path cannot be empty.")
         return
 
-    print("\nLoading EnterpriseBrain components...")
+    if settings.is_debug:
+        print("\nLoading EnterpriseBrain components...")
 
     from app.chunkers.document_chunker import DocumentChunker
     from app.chunkers.text_chunker import TextChunker
@@ -67,7 +71,8 @@ def run_assistant() -> None:
             db
         )
 
-        print("Loading embedding model...")
+        if settings.is_debug:
+            print("Loading embedding model...")
 
         embedding_generator = EmbeddingGenerator()
 
@@ -77,7 +82,8 @@ def run_assistant() -> None:
             embedding_generator=embedding_generator
         )
 
-        print("Generating and storing document embeddings...")
+        if settings.is_debug:
+            print("Generating and storing document embeddings...")
 
         stored_chunks = chunk_service.create_and_store_chunks(
             document_id=stored_document.id,
@@ -100,13 +106,14 @@ def run_assistant() -> None:
             llm=llm
         )
 
-        print("\nDocument ingested successfully.")
-        print(
-            f"File: {processing_document.file_name}"
-        )
-        print(
-            f"Stored chunks: {len(stored_chunks)}"
-        )
+        if settings.is_debug:
+            print("\nDocument ingested successfully.")
+            print(
+                f"File: {processing_document.file_name}"
+            )
+            print(
+                f"Stored chunks: {len(stored_chunks)}"
+            )
 
         print(
             "\nAsk questions about the PL/SQL package."
@@ -132,12 +139,25 @@ def run_assistant() -> None:
                 )
                 continue
 
-            answer = qa_service.answer(
+            result = qa_service.answer_with_context(
                 question
             )
 
+            if settings.is_debug:
+                print("\nRetrieved Context:\n")
+                print("-" * 70)
+
+                if result.context:
+                    print(result.context)
+                else:
+                    print(
+                        "No relevant document context was retrieved."
+                    )
+
+                print("-" * 70)
+
             print("\nAnswer:\n")
-            print(answer)
+            print(result.answer)
             print()
 
     finally:

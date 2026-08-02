@@ -19,11 +19,17 @@ class Settings(BaseSettings):
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "qwen2.5:1.5b"
 
+    LOG_LEVEL: str = "INFO"
+
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",
         env_file_encoding="utf-8",
         case_sensitive=False
     )
+
+    @property
+    def is_debug(self) -> bool:
+        return self.LOG_LEVEL.upper() == "DEBUG"
 
 
 settings = Settings()

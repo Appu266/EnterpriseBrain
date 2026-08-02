@@ -2,7 +2,7 @@
 
 ## Version
 
-0.1.22
+0.1.23
 
 ---
 
@@ -129,8 +129,21 @@
 - Hardcoded LLM Model Removed from Interactive Assistant
 - Configurable Local LLM Integration Tested Successfully
 - Interactive PL/SQL Assistant Revalidated After LLM Configuration Refactoring
+- PL/SQL Source File Extensions Added to File Validation
+- Unsupported PDF and DOCX Validation Removed Until Readers Are Implemented
+- QA Result Extended to Include Retrieved Context
+- Retrieved Context Debug Display Implemented
+- Application LOG_LEVEL Configuration Introduced
+- SQLAlchemy Logging Connected to Application Debug Mode
+- CLI Presentation Layer Introduced
+- User Mode and Developer Mode Separation Implemented
+- User Mode Background Processing Messages Hidden
+- Hugging Face Warning and Progress Output Suppressed
+- PL/SQL QA Prompt Strengthened for Structural Code Questions
+- Retrieval Quality Verified Using Debug Context
+- Local 1.5B LLM Exhaustive Extraction Limitation Identified
 
 
 ---
 
-Last Updated: 2026-08-01
+Last Updated: 2026-08-02

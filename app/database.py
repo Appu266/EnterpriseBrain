@@ -1,13 +1,9 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, DeclarativeBase
 from sqlalchemy.engine import URL
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from config.settings import settings
 
-
-# ---------------------------------
-# Database URL
-# ---------------------------------
 
 DATABASE_URL = URL.create(
     drivername="postgresql+psycopg",
@@ -19,19 +15,11 @@ DATABASE_URL = URL.create(
 )
 
 
-# ---------------------------------
-# SQLAlchemy Engine
-# ---------------------------------
-
 engine = create_engine(
     DATABASE_URL,
-    echo=True
+    echo=settings.is_debug
 )
 
-
-# ---------------------------------
-# Database Session
-# ---------------------------------
 
 SessionLocal = sessionmaker(
     autocommit=False,
@@ -40,17 +28,9 @@ SessionLocal = sessionmaker(
 )
 
 
-# ---------------------------------
-# Base class for ORM models
-# ---------------------------------
-
 class Base(DeclarativeBase):
     pass
 
-
-# ---------------------------------
-# Database dependency
-# ---------------------------------
 
 def get_db():
     db = SessionLocal()

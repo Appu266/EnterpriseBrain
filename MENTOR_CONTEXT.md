@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.1.22
+**Version:** 0.1.23
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : PL/SQL Assistant MVP Development
 
-Step : Stabilize PL/SQL Assistant Quality and Performance Before Web UI
+Step : Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
 
 Current Task :
 
-Complete PL/SQL Assistant MVP Stabilization and Prepare Basic Web UI
+Introduce Deterministic PL/SQL Structural Analysis for Exact Questions
 
 Next Task :
 
-Build Basic Web UI for End-to-End User Validation
+Implement Table Extraction Without Depending on the Local LLM
 
 ---
 
@@ -147,6 +147,8 @@ Build Basic Web UI for End-to-End User Validation
 - 2026-08-01 : Current MVP will re-ingest the latest source file until SHA-256 based document change detection is implemented
 - 2026-08-01 : Basic browser UI must be completed and validated before expanding EnterpriseBrain beyond the initial PL/SQL assistant scope
 - 2026-08-01 : Assistant quality and correctness take priority over aggressive startup-time optimization
+- 2026-08-02 : User Mode hides internal SQL, retrieval, embedding and ingestion diagnostics while DEBUG mode preserves them for development
+- 2026-08-02 : Exact PL/SQL structural questions such as table extraction will use deterministic analysis instead of relying exclusively on the local 1.5B LLM
 
 ---
 
@@ -194,4 +196,4 @@ Build Basic Web UI for End-to-End User Validation
 
 ---
 
-Last Updated : 2026-08-01
+Last Updated : 2026-08-02

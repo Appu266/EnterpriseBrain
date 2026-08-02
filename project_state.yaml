@@ -1,441 +1,459 @@
 project:
   name: EnterpriseBrain
-  version: 0.1.22
-
+  version: 0.1.23
 environment:
-  python: "3.12.10"
-  postgres: "18"
+  python: 3.12.10
+  postgres: '18'
   docker: true
-
 vision:
   product_name: EnterpriseBrain
-  current_goal: >
-    Build an AI assistant that understands enterprise documents,
-    especially PL/SQL documentation and database-related assets,
-    and can answer project-specific questions.
-  final_goal: >
-    Build a multi-language enterprise knowledge assistant capable of
-    understanding complete software systems including Database,
-    Java, Spring Boot, Python, .NET, React, Angular, NodeJS,
-    APIs, Infrastructure, CI/CD and Architecture directly from
-    repositories and enterprise documents.
-  current_scope:
-    - Local document ingestion
-    - TXT Reader
-    - PL/SQL Document Question Answering
-    - Interactive CLI Assistant
-    - Complex PL/SQL Package Evaluation
-    - Chunking
-    - Embeddings
-    - Vector Database
-    - Document-Scoped Retrieval
-    - RAG based Question Answering
-    - Configurable Local LLM
-  future_scope:
-    - Basic Web UI
-    - PDF Reader
-    - DOCX Reader
-    - Git Repository Ingestion
-    - PL/SQL Dependency Analysis
-    - Java Code Understanding
-    - Spring Boot Understanding
-    - Python Understanding
-    - React Understanding
-    - Angular Understanding
-    - NodeJS Understanding
-    - API Dependency Mapping
-    - Cross-language Impact Analysis
-    - Architecture Discovery
-    - Code Change Impact Prediction
-  non_goals:
-    - AI Code Generation
-    - Automated Code Modification
-    - IDE Replacement
+  current_goal: 'Build an AI assistant that understands enterprise documents, especially PL/SQL documentation
+    and database-related assets, and can answer project-specific questions.
 
+    '
+  final_goal: 'Build a multi-language enterprise knowledge assistant capable of understanding complete
+    software systems including Database, Java, Spring Boot, Python, .NET, React, Angular, NodeJS, APIs,
+    Infrastructure, CI/CD and Architecture directly from repositories and enterprise documents.
+
+    '
+  current_scope:
+  - Local document ingestion
+  - TXT Reader
+  - PL/SQL Document Question Answering
+  - Interactive CLI Assistant
+  - Complex PL/SQL Package Evaluation
+  - Chunking
+  - Embeddings
+  - Vector Database
+  - Document-Scoped Retrieval
+  - RAG based Question Answering
+  - Configurable Local LLM
+  future_scope:
+  - Basic Web UI
+  - PDF Reader
+  - DOCX Reader
+  - Git Repository Ingestion
+  - PL/SQL Dependency Analysis
+  - Java Code Understanding
+  - Spring Boot Understanding
+  - Python Understanding
+  - React Understanding
+  - Angular Understanding
+  - NodeJS Understanding
+  - API Dependency Mapping
+  - Cross-language Impact Analysis
+  - Architecture Discovery
+  - Code Change Impact Prediction
+  non_goals:
+  - AI Code Generation
+  - Automated Code Modification
+  - IDE Replacement
 roadmap:
   current_phase: 1
   phases:
-    - phase: 1
-      name: "Document Knowledge Assistant"
-      goal: >
-        Build a document-based enterprise assistant using local
-        documents.
-    - phase: 2
-      name: "Database Repository Assistant"
-      goal: >
-        Understand complete database repositories including
-        Oracle PL/SQL.
-    - phase: 3
-      name: "Backend Repository Assistant"
-      goal: >
-        Understand Java, Spring Boot, Python and APIs.
-    - phase: 4
-      name: "Frontend Repository Assistant"
-      goal: >
-        Understand React, Angular and NodeJS projects.
-    - phase: 5
-      name: "EnterpriseBrain"
-      goal: >
-        Unified enterprise assistant capable of understanding
-        complete enterprise applications.
+  - phase: 1
+    name: Document Knowledge Assistant
+    goal: 'Build a document-based enterprise assistant using local documents.
 
+      '
+  - phase: 2
+    name: Database Repository Assistant
+    goal: 'Understand complete database repositories including Oracle PL/SQL.
+
+      '
+  - phase: 3
+    name: Backend Repository Assistant
+    goal: 'Understand Java, Spring Boot, Python and APIs.
+
+      '
+  - phase: 4
+    name: Frontend Repository Assistant
+    goal: 'Understand React, Angular and NodeJS projects.
+
+      '
+  - phase: 5
+    name: EnterpriseBrain
+    goal: 'Unified enterprise assistant capable of understanding complete enterprise applications.
+
+      '
 progress:
-  phase: "PL/SQL Assistant MVP Development"
-  current_step: "Stabilize PL/SQL Assistant Quality and Performance Before Web UI"
+  phase: PL/SQL Assistant MVP Development
+  current_step: Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
   completed:
-    - PostgreSQL Installed
-    - pgAdmin Installed
-    - Docker Installed
-    - PyCharm Installed
-    - Virtual Environment Created
-    - python-dotenv Installed
-    - PyYAML Installed
-    - Pydantic Installed
-    - Pydantic Settings Installed
-    - SQLAlchemy Installed
-    - psycopg Installed
-    - requirements.txt Automation Completed
-    - PROJECT_STATUS.md Automation Completed
-    - MENTOR_CONTEXT.md Automation Completed
-    - CHANGELOG.md Automation Completed
-    - Environment Configuration Created
-    - .env Configuration Loaded Successfully
-    - Pydantic Settings Validation Tested
-    - Database Connection Module Created
-    - PostgreSQL Application Connection Tested Successfully
-    - SQLAlchemy ORM Base Created
-    - Document Model Created
-    - Database Table Creation Automation Created
-    - PostgreSQL knowledge Schema Created
-    - documents Table Created Successfully
-    - Bulk Document Insert Tested
-    - SQLAlchemy Transaction Handling Verified
-    - Repository Layer Structure Created
-    - Document Repository Implemented
-    - Service Layer Structure Created
-    - Document Service Implemented
-    - End-to-End Document Creation Flow Tested Successfully
-    - Document Ingestion Module Created
-    - File Validator Implemented
-    - Metadata Extractor Implemented
-    - Document Loader Refactored
-    - End-to-End Metadata Pipeline Tested Successfully
-    - Documentation Generator Refactored
-    - Reader Framework Structure Created
-    - BaseReader Abstract Contract Implemented
-    - TXT Reader Implemented
-    - TXT Reader Independent Test Completed Successfully
-    - pgvector Extension Installed
-    - pgvector Extension Enabled Through Python Automation
-    - Document Chunk Model Created
-    - document_chunks Table Created Successfully
-    - Chunk Repository Implemented
-    - Chunk Service Implemented
-    - Text Chunking Pipeline Tested Successfully
-    - sentence-transformers Installed
-    - Embedding Generator Implemented
-    - Sentence Transformer Model Integration Tested Successfully
-    - 384 Dimension Embeddings Generated Successfully
-    - Document Chunk Embeddings Stored in PostgreSQL using pgvector
-    - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
-    - Vector Similarity Search Layer Implemented
-    - Vector Similarity Search Tested Successfully
-    - Retrieval Service Implemented
-    - Retrieval Service Tested Successfully
-    - Context Builder Service Implemented
-    - Context Builder Service Tested Successfully
-    - QA Flow Tested Successfully
-    - Ollama LLM Integration Tested Successfully
-    - End-to-End RAG Pipeline Validation Completed Successfully
-    - ProcessingDocument In-Memory Model Introduced
-    - BaseReader Contract Refactored to Return ProcessingDocument
-    - TXT Reader Refactored to Return ProcessingDocument
-    - Document Loader Integrated with ProcessingDocument
-    - ProcessingDocument Reader Validation Completed Successfully
-    - ProcessingDocument Document Loader Validation Completed Successfully
-    - ProcessingDocument Extended with Chunk Support
-    - Document Loader Refactored to Return ProcessingDocument
-    - Document Loader Test Refactored for ProcessingDocument
-    - ProcessingDocument Metadata and Chunk Propagation Validated Successfully
-    - End-to-End ProcessingDocument Ingestion Flow Validated Successfully
-    - Interactive PL/SQL Assistant Script Created
-    - PL/SQL Document Path Input Implemented
-    - PL/SQL Document Ingestion Orchestration Implemented
-    - Document Record Creation Integrated into Assistant
-    - Document Chunking and Embedding Storage Integrated into Assistant
-    - Interactive Question Loop Implemented
-    - QA Service Integrated into Interactive Assistant
-    - First End-to-End PL/SQL Assistant Validation Completed Successfully
-    - Retrieval Restricted to Current Uploaded Document
-    - Document-Specific Vector Similarity Search Implemented
-    - Current Document ID Propagated Through Retrieval Service
-    - Graceful Assistant Exit Using Exit Command Implemented
-    - Graceful Keyboard Interrupt Handling Implemented
-    - Multiple Questions Against One Ingested Document Validated Successfully
-    - First Interactive EnterpriseBrain Assistant Implemented Successfully
-    - Complex Synthetic PL/SQL Package Created for Evaluation
-    - Complex PL/SQL Package Ingestion Tested Successfully
-    - Complex PL/SQL Package Question Answering Tested Successfully
-    - Public Procedure and Function Identification Validated
-    - PL/SQL Procedure Explanation Validated
-    - PL/SQL Table Usage Identification Validated
-    - PL/SQL Transaction Handling Questions Validated
-    - PL/SQL Validation and Exception Questions Validated
-    - PL/SQL Internal Dependency Questions Validated
-    - RAG Retrieval Limit Reduced for Concise Context
-    - PL/SQL-Specific QA Prompt Introduced
-    - Ollama Response Length Limited for Faster Generation
-    - Ollama Model Keep-Alive Configuration Introduced
-    - Heavy AI Component Imports Deferred Until After Document Selection
-    - Assistant Component Loading Progress Messages Added
-    - Local LLM Performance Bottleneck Identified
-    - llama3 Local Model Removed
-    - qwen2.5 1.5B Local Model Installed
-    - qwen2.5 1.5B Direct Ollama Performance Validated Successfully
-    - Interactive Assistant Migrated to qwen2.5 1.5B
-    - Question Answer Time Reduced from More Than Two Minutes to Approximately Five to Ten Seconds
-    - Application Import Performance Measured
-    - Sentence Transformer Import Performance Measured
-    - Embedding Model Initialization Performance Measured
-    - Complex Document Embedding Performance Measured
-    - Ollama Base URL Added to Application Settings
-    - Ollama Model Name Added to Application Settings
-    - OllamaLLM Refactored to Use Central Application Configuration
-    - Hardcoded LLM Model Removed from Interactive Assistant
-    - Configurable Local LLM Integration Tested Successfully
-    - Interactive PL/SQL Assistant Revalidated After LLM Configuration Refactoring
-  current_task: "Complete PL/SQL Assistant MVP Stabilization and Prepare Basic Web UI"
-  next_task: "Build Basic Web UI for End-to-End User Validation"
-
+  - PostgreSQL Installed
+  - pgAdmin Installed
+  - Docker Installed
+  - PyCharm Installed
+  - Virtual Environment Created
+  - python-dotenv Installed
+  - PyYAML Installed
+  - Pydantic Installed
+  - Pydantic Settings Installed
+  - SQLAlchemy Installed
+  - psycopg Installed
+  - requirements.txt Automation Completed
+  - PROJECT_STATUS.md Automation Completed
+  - MENTOR_CONTEXT.md Automation Completed
+  - CHANGELOG.md Automation Completed
+  - Environment Configuration Created
+  - .env Configuration Loaded Successfully
+  - Pydantic Settings Validation Tested
+  - Database Connection Module Created
+  - PostgreSQL Application Connection Tested Successfully
+  - SQLAlchemy ORM Base Created
+  - Document Model Created
+  - Database Table Creation Automation Created
+  - PostgreSQL knowledge Schema Created
+  - documents Table Created Successfully
+  - Bulk Document Insert Tested
+  - SQLAlchemy Transaction Handling Verified
+  - Repository Layer Structure Created
+  - Document Repository Implemented
+  - Service Layer Structure Created
+  - Document Service Implemented
+  - End-to-End Document Creation Flow Tested Successfully
+  - Document Ingestion Module Created
+  - File Validator Implemented
+  - Metadata Extractor Implemented
+  - Document Loader Refactored
+  - End-to-End Metadata Pipeline Tested Successfully
+  - Documentation Generator Refactored
+  - Reader Framework Structure Created
+  - BaseReader Abstract Contract Implemented
+  - TXT Reader Implemented
+  - TXT Reader Independent Test Completed Successfully
+  - pgvector Extension Installed
+  - pgvector Extension Enabled Through Python Automation
+  - Document Chunk Model Created
+  - document_chunks Table Created Successfully
+  - Chunk Repository Implemented
+  - Chunk Service Implemented
+  - Text Chunking Pipeline Tested Successfully
+  - sentence-transformers Installed
+  - Embedding Generator Implemented
+  - Sentence Transformer Model Integration Tested Successfully
+  - 384 Dimension Embeddings Generated Successfully
+  - Document Chunk Embeddings Stored in PostgreSQL using pgvector
+  - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
+  - Vector Similarity Search Layer Implemented
+  - Vector Similarity Search Tested Successfully
+  - Retrieval Service Implemented
+  - Retrieval Service Tested Successfully
+  - Context Builder Service Implemented
+  - Context Builder Service Tested Successfully
+  - QA Flow Tested Successfully
+  - Ollama LLM Integration Tested Successfully
+  - End-to-End RAG Pipeline Validation Completed Successfully
+  - ProcessingDocument In-Memory Model Introduced
+  - BaseReader Contract Refactored to Return ProcessingDocument
+  - TXT Reader Refactored to Return ProcessingDocument
+  - Document Loader Integrated with ProcessingDocument
+  - ProcessingDocument Reader Validation Completed Successfully
+  - ProcessingDocument Document Loader Validation Completed Successfully
+  - ProcessingDocument Extended with Chunk Support
+  - Document Loader Refactored to Return ProcessingDocument
+  - Document Loader Test Refactored for ProcessingDocument
+  - ProcessingDocument Metadata and Chunk Propagation Validated Successfully
+  - End-to-End ProcessingDocument Ingestion Flow Validated Successfully
+  - Interactive PL/SQL Assistant Script Created
+  - PL/SQL Document Path Input Implemented
+  - PL/SQL Document Ingestion Orchestration Implemented
+  - Document Record Creation Integrated into Assistant
+  - Document Chunking and Embedding Storage Integrated into Assistant
+  - Interactive Question Loop Implemented
+  - QA Service Integrated into Interactive Assistant
+  - First End-to-End PL/SQL Assistant Validation Completed Successfully
+  - Retrieval Restricted to Current Uploaded Document
+  - Document-Specific Vector Similarity Search Implemented
+  - Current Document ID Propagated Through Retrieval Service
+  - Graceful Assistant Exit Using Exit Command Implemented
+  - Graceful Keyboard Interrupt Handling Implemented
+  - Multiple Questions Against One Ingested Document Validated Successfully
+  - First Interactive EnterpriseBrain Assistant Implemented Successfully
+  - Complex Synthetic PL/SQL Package Created for Evaluation
+  - Complex PL/SQL Package Ingestion Tested Successfully
+  - Complex PL/SQL Package Question Answering Tested Successfully
+  - Public Procedure and Function Identification Validated
+  - PL/SQL Procedure Explanation Validated
+  - PL/SQL Table Usage Identification Validated
+  - PL/SQL Transaction Handling Questions Validated
+  - PL/SQL Validation and Exception Questions Validated
+  - PL/SQL Internal Dependency Questions Validated
+  - RAG Retrieval Limit Reduced for Concise Context
+  - PL/SQL-Specific QA Prompt Introduced
+  - Ollama Response Length Limited for Faster Generation
+  - Ollama Model Keep-Alive Configuration Introduced
+  - Heavy AI Component Imports Deferred Until After Document Selection
+  - Assistant Component Loading Progress Messages Added
+  - Local LLM Performance Bottleneck Identified
+  - llama3 Local Model Removed
+  - qwen2.5 1.5B Local Model Installed
+  - qwen2.5 1.5B Direct Ollama Performance Validated Successfully
+  - Interactive Assistant Migrated to qwen2.5 1.5B
+  - Question Answer Time Reduced from More Than Two Minutes to Approximately Five to Ten Seconds
+  - Application Import Performance Measured
+  - Sentence Transformer Import Performance Measured
+  - Embedding Model Initialization Performance Measured
+  - Complex Document Embedding Performance Measured
+  - Ollama Base URL Added to Application Settings
+  - Ollama Model Name Added to Application Settings
+  - OllamaLLM Refactored to Use Central Application Configuration
+  - Hardcoded LLM Model Removed from Interactive Assistant
+  - Configurable Local LLM Integration Tested Successfully
+  - Interactive PL/SQL Assistant Revalidated After LLM Configuration Refactoring
+  - PL/SQL Source File Extensions Added to File Validation
+  - Unsupported PDF and DOCX Validation Removed Until Readers Are Implemented
+  - QA Result Extended to Include Retrieved Context
+  - Retrieved Context Debug Display Implemented
+  - Application LOG_LEVEL Configuration Introduced
+  - SQLAlchemy Logging Connected to Application Debug Mode
+  - CLI Presentation Layer Introduced
+  - User Mode and Developer Mode Separation Implemented
+  - User Mode Background Processing Messages Hidden
+  - Hugging Face Warning and Progress Output Suppressed
+  - PL/SQL QA Prompt Strengthened for Structural Code Questions
+  - Retrieval Quality Verified Using Debug Context
+  - Local 1.5B LLM Exhaustive Extraction Limitation Identified
+  current_task: Introduce Deterministic PL/SQL Structural Analysis for Exact Questions
+  next_task: Implement Table Extraction Without Depending on the Local LLM
 database:
   schemas:
-    - knowledge
+  - knowledge
   tables:
-    - knowledge.documents
-    - knowledge.document_chunks
-
+  - knowledge.documents
+  - knowledge.document_chunks
 application_architecture:
   architecture_style:
-    - Layered Architecture
-    - Repository Pattern
-    - Service Pattern
-    - Configuration-Driven LLM Integration
-    - Factory Pattern (Upcoming)
-    - Strategy Pattern (Upcoming)
+  - Layered Architecture
+  - Repository Pattern
+  - Service Pattern
+  - Configuration-Driven LLM Integration
+  - Factory Pattern (Upcoming)
+  - Strategy Pattern (Upcoming)
   layers:
-    - Configuration
-    - Database
-    - ORM
-    - Repository
-    - Service
-    - Ingestion
-    - Readers
-    - Chunking
-    - Embeddings
-    - Vector Store
-    - Retrieval
-    - Context Builder
-    - QA
-    - LLM
-    - CLI
-    - Web UI (Upcoming)
+  - Configuration
+  - Database
+  - ORM
+  - Repository
+  - Service
+  - Ingestion
+  - Readers
+  - Chunking
+  - Embeddings
+  - Vector Store
+  - Retrieval
+  - Context Builder
+  - QA
+  - LLM
+  - CLI
+  - Web UI (Upcoming)
   current_pipeline:
-    - PL/SQL Document Path Input
-    - Deferred AI Component Loading
-    - File Validator
-    - Metadata Extractor
-    - Document Loader
-    - Reader Framework
-    - ProcessingDocument In-Memory Model
-    - ProcessingDocument Metadata Enrichment
-    - ProcessingDocument Chunk Generation
-    - Document Database Record Creation
-    - Document Chunker
-    - Sentence Transformer Embedding Generator
-    - pgvector Vector Storage
-    - Document-Scoped Vector Similarity Search
-    - Retrieval Service
-    - Context Builder Service
-    - PL/SQL-Specific QA Prompt
-    - QA Service
-    - Configurable Ollama LLM Integration
-    - qwen2.5 1.5B Local Inference
-    - Interactive Question Loop
-    - Graceful Assistant Shutdown
+  - PL/SQL Document Path Input
+  - Deferred AI Component Loading
+  - File Validator
+  - Metadata Extractor
+  - Document Loader
+  - Reader Framework
+  - ProcessingDocument In-Memory Model
+  - ProcessingDocument Metadata Enrichment
+  - ProcessingDocument Chunk Generation
+  - Document Database Record Creation
+  - Document Chunker
+  - Sentence Transformer Embedding Generator
+  - pgvector Vector Storage
+  - Document-Scoped Vector Similarity Search
+  - Retrieval Service
+  - Context Builder Service
+  - PL/SQL-Specific QA Prompt
+  - QA Service
+  - Configurable Ollama LLM Integration
+  - qwen2.5 1.5B Local Inference
+  - Interactive Question Loop
+  - Graceful Assistant Shutdown
   upcoming_pipeline:
-    - Basic Web UI
-    - Browser-Based PL/SQL Document Upload
-    - Browser-Based Question Answering
-    - End-to-End User Experience Validation
-    - Retrieval Quality Improvement
-    - Prompt Quality Improvement
-    - Source Attribution Improvement
-    - Hash-Based Document Change Detection
-    - Persistent Application Runtime
-    - Enterprise Document Ingestion
-    - Metadata Enhancement
-    - Document Classification
+  - Basic Web UI
+  - Browser-Based PL/SQL Document Upload
+  - Browser-Based Question Answering
+  - End-to-End User Experience Validation
+  - Retrieval Quality Improvement
+  - Prompt Quality Improvement
+  - Source Attribution Improvement
+  - Hash-Based Document Change Detection
+  - Persistent Application Runtime
+  - Enterprise Document Ingestion
+  - Metadata Enhancement
+  - Document Classification
   modules:
     configuration:
-      - config/settings.py
+    - config/settings.py
     database:
-      - app/database.py
-      - app/models/document.py
-      - app/models/document_chunk.py
-      - app/models/processing_document.py
+    - app/database.py
+    - app/models/document.py
+    - app/models/document_chunk.py
+    - app/models/processing_document.py
     repository:
-      - app/repositories/document_repository.py
-      - app/repositories/document_chunk_repository.py
+    - app/repositories/document_repository.py
+    - app/repositories/document_chunk_repository.py
     service:
-      - app/services/document_service.py
-      - app/services/chunk_service.py
-      - app/services/retrieval_service.py
-      - app/services/context_builder_service.py
-      - app/services/qa_service.py
+    - app/services/document_service.py
+    - app/services/chunk_service.py
+    - app/services/retrieval_service.py
+    - app/services/context_builder_service.py
+    - app/services/qa_service.py
     ingestion:
-      - app/validators/file_validator.py
-      - app/extractors/metadata_extractor.py
-      - app/ingestion/document_loader.py
+    - app/validators/file_validator.py
+    - app/extractors/metadata_extractor.py
+    - app/ingestion/document_loader.py
     readers:
-      - app/readers/base_reader.py
-      - app/readers/txt_reader.py
+    - app/readers/base_reader.py
+    - app/readers/txt_reader.py
     chunkers:
-      - app/chunkers/document_chunker.py
-      - app/chunkers/text_chunker.py
+    - app/chunkers/document_chunker.py
+    - app/chunkers/text_chunker.py
     embeddings:
-      - app/embeddings/embedding_generator.py
+    - app/embeddings/embedding_generator.py
     vector_store:
-      - pgvector
+    - pgvector
     llm:
-      - app/llm/base_llm.py
-      - app/llm/ollama_llm.py
+    - app/llm/base_llm.py
+    - app/llm/ollama_llm.py
     cli:
-      - scripts/plsql_assistant.py
+    - scripts/plsql_assistant.py
     test_documents:
-      - tests/sample_plsql.txt
-      - data/documents/employee_operations_pkg.txt
+    - tests/sample_plsql.txt
+    - data/documents/employee_operations_pkg.txt
 dependencies:
   update_requirements: true
   installed:
-    - python-dotenv==1.2.2
-    - PyYAML==6.0.3
-    - pydantic==2.13.4
-    - pydantic-settings==2.14.2
-    - SQLAlchemy==2.0.51
-    - psycopg==3.3.4
-    - pgvector==0.5.0
-    - sentence-transformers==5.6.1
-    - requests
-
+  - python-dotenv==1.2.2
+  - PyYAML==6.0.3
+  - pydantic==2.13.4
+  - pydantic-settings==2.14.2
+  - SQLAlchemy==2.0.51
+  - psycopg==3.3.4
+  - pgvector==0.5.0
+  - sentence-transformers==5.6.1
+  - requests
 assistant_context:
   working_rules:
-    - Never skip roadmap phases.
-    - Always continue from current_task.
-    - Prefer enterprise architecture.
-    - Prefer modular design.
-    - Avoid premature optimization.
-    - Explain every important decision.
-    - Keep documentation synchronized.
-    - Test every completed milestone.
-    - Provide exact terminal commands when a new file must be created.
-    - Provide complete replacement content for every new or modified file.
-    - Explain the purpose and expected outcome of each change before providing code.
-    - Summarize completed changes after each verified milestone.
-    - Do not edit project files; the user applies all changes manually.
-    - Treat project_state.yaml as the single source of truth.
-    - Read committed project files directly from GitHub whenever available.
-    - Do not ask the user to paste files that are already committed to GitHub.
-    - Focus on completing the basic PL/SQL assistant end to end before expanding to additional file types.
-    - Complete basic UI validation before starting the next major capability iteration.
-    - Do not compromise answer correctness for performance improvements.
-    - Re-ingest the latest document content until reliable content-hash change detection is implemented.
-
+  - Never skip roadmap phases.
+  - Always continue from current_task.
+  - Prefer enterprise architecture.
+  - Prefer modular design.
+  - Avoid premature optimization.
+  - Explain every important decision.
+  - Keep documentation synchronized.
+  - Test every completed milestone.
+  - Provide exact terminal commands when a new file must be created.
+  - Provide complete replacement content for every new or modified file.
+  - Explain the purpose and expected outcome of each change before providing code.
+  - Summarize completed changes after each verified milestone.
+  - Do not edit project files; the user applies all changes manually.
+  - Treat project_state.yaml as the single source of truth.
+  - Read committed project files directly from GitHub whenever available.
+  - Do not ask the user to paste files that are already committed to GitHub.
+  - Focus on completing the basic PL/SQL assistant end to end before expanding to additional file types.
+  - Complete basic UI validation before starting the next major capability iteration.
+  - Do not compromise answer correctness for performance improvements.
+  - Re-ingest the latest document content until reliable content-hash change detection is implemented.
 user_learning_preferences:
   mentoring_style:
-    - Teach step-by-step.
-    - Give whole updated file instead of suggesting manual changes.
-    - Explain why before how.
-    - Assume beginner for unfamiliar topics.
-    - Use enterprise best practices.
-    - Build incrementally.
-    - One task at a time.
-    - Avoid unnecessary complexity.
-    - Keep architecture consistent.
-    - Provide PowerShell commands for creating every new file or folder.
-    - Return the complete updated project_state.yaml after verified milestones.
-    - Split project_state.yaml into contiguous parts only when required.
-    - Avoid repeating questions whose answers are already available.
-    - Prefer implementation over repeated architecture discussion.
-
+  - Teach step-by-step.
+  - Give whole updated file instead of suggesting manual changes.
+  - Explain why before how.
+  - Assume beginner for unfamiliar topics.
+  - Use enterprise best practices.
+  - Build incrementally.
+  - One task at a time.
+  - Avoid unnecessary complexity.
+  - Keep architecture consistent.
+  - Provide PowerShell commands for creating every new file or folder.
+  - Return the complete updated project_state.yaml after verified milestones.
+  - Split project_state.yaml into contiguous parts only when required.
+  - Avoid repeating questions whose answers are already available.
+  - Prefer implementation over repeated architecture discussion.
 architecture_decisions:
-  - date: "2026-07-28"
-    decision: Repository Pattern adopted
-  - date: "2026-07-28"
-    decision: Service Layer adopted
-  - date: "2026-07-28"
-    decision: Knowledge schema introduced
-  - date: "2026-07-28"
-    decision: Validator, Extractor and Loader separated
-  - date: "2026-07-28"
-    decision: Documentation generation modularized
-  - date: "2026-07-29"
-    decision: pgvector selected for vector storage
-  - date: "2026-07-29"
-    decision: Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
-  - date: "2026-07-29"
-    decision: Embedding vectors stored with document chunks using pgvector
-  - date: "2026-07-30"
-    decision: Cosine distance selected for vector similarity search
-  - date: "2026-07-30"
-    decision: Retrieval Service, Context Builder and QA Service introduced for RAG orchestration
-  - date: "2026-07-30"
-    decision: LLM abstraction layer introduced to support multiple LLM providers
-  - date: "2026-07-31"
-    decision: First end-to-end RAG pipeline validation completed successfully using QA flow test
-  - date: "2026-08-01"
-    decision: ProcessingDocument introduced as the canonical in-memory model for documents flowing through the ingestion pipeline
-  - date: "2026-08-01"
-    decision: DocumentLoader standardized to return ProcessingDocument with metadata and generated chunks attached
-  - date: "2026-08-01"
-    decision: Interactive CLI assistant introduced as the first user-facing EnterpriseBrain interface
-  - date: "2026-08-01"
-    decision: Retrieval restricted to the currently ingested document to prevent cross-document contamination of answers
-  - date: "2026-08-01"
-    decision: EnterpriseBrain milestone achieved with the first complete end-to-end document ingestion and question-answering workflow
-  - date: "2026-08-01"
-    decision: Complex synthetic PL/SQL package adopted for realistic MVP quality evaluation
-  - date: "2026-08-01"
-    decision: PL/SQL-specific prompting introduced to improve grounded and concise answers
-  - date: "2026-08-01"
-    decision: Retrieved context reduced to three chunks to balance answer quality and local inference performance
-  - date: "2026-08-01"
-    decision: Ollama generation limited to 250 predicted tokens with low temperature for faster and more deterministic responses
-  - date: "2026-08-01"
-    decision: Heavy AI imports deferred until after document-path input to improve perceived CLI responsiveness
-  - date: "2026-08-01"
-    decision: llama3 removed because its local inference speed was impractical on the available 8 GB development laptop
-  - date: "2026-08-01"
-    decision: qwen2.5:1.5b selected as the default local development LLM after reducing answer time from more than two minutes to approximately five to ten seconds
-  - date: "2026-08-01"
-    decision: Ollama model name and base URL externalized through central application settings
-  - date: "2026-08-01"
-    decision: Reusing stored document embeddings without source-content verification rejected to prevent stale-document answers
-  - date: "2026-08-01"
-    decision: Current MVP will re-ingest the latest source file until SHA-256 based document change detection is implemented
-  - date: "2026-08-01"
-    decision: Basic browser UI must be completed and validated before expanding EnterpriseBrain beyond the initial PL/SQL assistant scope
-  - date: "2026-08-01"
-    decision: Assistant quality and correctness take priority over aggressive startup-time optimization
-
+- date: '2026-07-28'
+  decision: Repository Pattern adopted
+- date: '2026-07-28'
+  decision: Service Layer adopted
+- date: '2026-07-28'
+  decision: Knowledge schema introduced
+- date: '2026-07-28'
+  decision: Validator, Extractor and Loader separated
+- date: '2026-07-28'
+  decision: Documentation generation modularized
+- date: '2026-07-29'
+  decision: pgvector selected for vector storage
+- date: '2026-07-29'
+  decision: Sentence Transformer embeddings selected using all-MiniLM-L6-v2 model
+- date: '2026-07-29'
+  decision: Embedding vectors stored with document chunks using pgvector
+- date: '2026-07-30'
+  decision: Cosine distance selected for vector similarity search
+- date: '2026-07-30'
+  decision: Retrieval Service, Context Builder and QA Service introduced for RAG orchestration
+- date: '2026-07-30'
+  decision: LLM abstraction layer introduced to support multiple LLM providers
+- date: '2026-07-31'
+  decision: First end-to-end RAG pipeline validation completed successfully using QA flow test
+- date: '2026-08-01'
+  decision: ProcessingDocument introduced as the canonical in-memory model for documents flowing through
+    the ingestion pipeline
+- date: '2026-08-01'
+  decision: DocumentLoader standardized to return ProcessingDocument with metadata and generated chunks
+    attached
+- date: '2026-08-01'
+  decision: Interactive CLI assistant introduced as the first user-facing EnterpriseBrain interface
+- date: '2026-08-01'
+  decision: Retrieval restricted to the currently ingested document to prevent cross-document contamination
+    of answers
+- date: '2026-08-01'
+  decision: EnterpriseBrain milestone achieved with the first complete end-to-end document ingestion and
+    question-answering workflow
+- date: '2026-08-01'
+  decision: Complex synthetic PL/SQL package adopted for realistic MVP quality evaluation
+- date: '2026-08-01'
+  decision: PL/SQL-specific prompting introduced to improve grounded and concise answers
+- date: '2026-08-01'
+  decision: Retrieved context reduced to three chunks to balance answer quality and local inference performance
+- date: '2026-08-01'
+  decision: Ollama generation limited to 250 predicted tokens with low temperature for faster and more
+    deterministic responses
+- date: '2026-08-01'
+  decision: Heavy AI imports deferred until after document-path input to improve perceived CLI responsiveness
+- date: '2026-08-01'
+  decision: llama3 removed because its local inference speed was impractical on the available 8 GB development
+    laptop
+- date: '2026-08-01'
+  decision: qwen2.5:1.5b selected as the default local development LLM after reducing answer time from
+    more than two minutes to approximately five to ten seconds
+- date: '2026-08-01'
+  decision: Ollama model name and base URL externalized through central application settings
+- date: '2026-08-01'
+  decision: Reusing stored document embeddings without source-content verification rejected to prevent
+    stale-document answers
+- date: '2026-08-01'
+  decision: Current MVP will re-ingest the latest source file until SHA-256 based document change detection
+    is implemented
+- date: '2026-08-01'
+  decision: Basic browser UI must be completed and validated before expanding EnterpriseBrain beyond the
+    initial PL/SQL assistant scope
+- date: '2026-08-01'
+  decision: Assistant quality and correctness take priority over aggressive startup-time optimization
+- date: '2026-08-02'
+  decision: User Mode hides internal SQL, retrieval, embedding and ingestion diagnostics while DEBUG mode
+    preserves them for development
+- date: '2026-08-02'
+  decision: Exact PL/SQL structural questions such as table extraction will use deterministic analysis
+    instead of relying exclusively on the local 1.5B LLM
 documentation:
   generated_files:
-    - PROJECT_VISION.md
-    - PROJECT_STATUS.md
-    - MENTOR_CONTEXT.md
-    - ARCHITECTURE.md
-    - CHANGELOG.md
-
+  - PROJECT_VISION.md
+  - PROJECT_STATUS.md
+  - MENTOR_CONTEXT.md
+  - ARCHITECTURE.md
+  - CHANGELOG.md
 changelog:
   enabled: true
-
-last_updated: "2026-08-01"
+last_updated: '2026-08-02'

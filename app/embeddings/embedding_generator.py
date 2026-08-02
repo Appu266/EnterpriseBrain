@@ -1,4 +1,16 @@
+import os
+
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+from huggingface_hub import logging as hf_logging
 from sentence_transformers import SentenceTransformer
+from transformers.utils import logging as transformers_logging
+
+
+hf_logging.set_verbosity_error()
+transformers_logging.set_verbosity_error()
+transformers_logging.disable_progress_bar()
 
 
 class EmbeddingGenerator:
@@ -18,7 +30,8 @@ class EmbeddingGenerator:
     ) -> list[list[float]]:
 
         embeddings = self.model.encode(
-            texts
+            texts,
+            show_progress_bar=False
         )
 
         return embeddings.tolist()

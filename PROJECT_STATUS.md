@@ -8,7 +8,7 @@ PL/SQL Assistant MVP Development
 
 ## Current Step
 
-Stabilize PL/SQL Assistant Quality and Performance Before Web UI
+Improve PL/SQL Assistant Accuracy and User Experience Before Web UI
 
 ---
 
@@ -135,19 +135,32 @@ Stabilize PL/SQL Assistant Quality and Performance Before Web UI
 - [x] Hardcoded LLM Model Removed from Interactive Assistant
 - [x] Configurable Local LLM Integration Tested Successfully
 - [x] Interactive PL/SQL Assistant Revalidated After LLM Configuration Refactoring
+- [x] PL/SQL Source File Extensions Added to File Validation
+- [x] Unsupported PDF and DOCX Validation Removed Until Readers Are Implemented
+- [x] QA Result Extended to Include Retrieved Context
+- [x] Retrieved Context Debug Display Implemented
+- [x] Application LOG_LEVEL Configuration Introduced
+- [x] SQLAlchemy Logging Connected to Application Debug Mode
+- [x] CLI Presentation Layer Introduced
+- [x] User Mode and Developer Mode Separation Implemented
+- [x] User Mode Background Processing Messages Hidden
+- [x] Hugging Face Warning and Progress Output Suppressed
+- [x] PL/SQL QA Prompt Strengthened for Structural Code Questions
+- [x] Retrieval Quality Verified Using Debug Context
+- [x] Local 1.5B LLM Exhaustive Extraction Limitation Identified
 
 ---
 
 ## Current Task
 
-Complete PL/SQL Assistant MVP Stabilization and Prepare Basic Web UI
+Introduce Deterministic PL/SQL Structural Analysis for Exact Questions
 
 ---
 
 ## Next Task
 
-Build Basic Web UI for End-to-End User Validation
+Implement Table Extraction Without Depending on the Local LLM
 
 ---
 
-Last Updated: 2026-08-01
+Last Updated: 2026-08-02

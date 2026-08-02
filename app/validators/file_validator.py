@@ -4,21 +4,23 @@ from pathlib import Path
 class FileValidator:
 
     SUPPORTED_EXTENSIONS = {
-        ".pdf",
-        ".docx",
-        ".txt"
+        ".txt",
+        ".sql",
+        ".pls",
+        ".pks",
+        ".pkb",
     }
 
     def exists(
         self,
-        file_path: str
+        file_path: str,
     ) -> bool:
 
-        return Path(file_path).exists()
+        return Path(file_path).is_file()
 
     def validate_extension(
         self,
-        file_path: str
+        file_path: str,
     ) -> bool:
 
         extension = Path(file_path).suffix.lower()
@@ -27,7 +29,7 @@ class FileValidator:
 
     def validate(
         self,
-        file_path: str
+        file_path: str,
     ) -> None:
 
         if not self.exists(file_path):
@@ -36,6 +38,12 @@ class FileValidator:
             )
 
         if not self.validate_extension(file_path):
+            supported_extensions = ", ".join(
+                sorted(self.SUPPORTED_EXTENSIONS)
+            )
+
             raise ValueError(
-                f"Unsupported file type: {Path(file_path).suffix}"
+                f"Unsupported file type: "
+                f"{Path(file_path).suffix or '[no extension]'}. "
+                f"Supported file types: {supported_extensions}"
             )
