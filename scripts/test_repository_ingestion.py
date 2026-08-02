@@ -20,6 +20,12 @@ def main() -> None:
     from app.embeddings.embedding_generator import (
         EmbeddingGenerator
     )
+    from app.services.indexing_run_service import (
+        IndexingRunService
+    )
+    from app.services.knowledge_source_service import (
+        KnowledgeSourceService
+    )
     from app.services.repository_ingestion_service import (
         RepositoryIngestionService
     )
@@ -133,9 +139,112 @@ def main() -> None:
                 "does not match ingested file count."
             )
 
+        knowledge_source_id = (
+            result.context.source.metadata[
+                "knowledge_source_id"
+            ]
+        )
+
+        indexing_run_id = (
+            result.context.source.metadata[
+                "indexing_run_id"
+            ]
+        )
+
+        knowledge_source_service = (
+            KnowledgeSourceService()
+        )
+
+        indexing_run_service = (
+            IndexingRunService()
+        )
+
+        persistent_source = (
+            knowledge_source_service.get_knowledge_source(
+                db=db,
+                knowledge_source_id=knowledge_source_id
+            )
+        )
+
+        if persistent_source is None:
+            raise AssertionError(
+                "Persistent knowledge source was not found."
+            )
+
+        if persistent_source.name != result.repository_name:
+            raise AssertionError(
+                "Persistent knowledge-source name "
+                "does not match the repository name."
+            )
+
+        if persistent_source.location != result.repository_root:
+            raise AssertionError(
+                "Persistent knowledge-source location "
+                "does not match the repository root."
+            )
+
+        indexing_run = (
+            indexing_run_service.get_indexing_run(
+                db=db,
+                indexing_run_id=indexing_run_id
+            )
+        )
+
+        if indexing_run is None:
+            raise AssertionError(
+                "Persistent indexing run was not found."
+            )
+
+        if indexing_run.status != "completed":
+            raise AssertionError(
+                "Indexing run was not completed."
+            )
+
+        if (
+            indexing_run.documents_discovered
+            != result.discovered_file_count
+        ):
+            raise AssertionError(
+                "Indexing-run discovered count "
+                "does not match the ingestion result."
+            )
+
+        if (
+            indexing_run.documents_processed
+            != result.ingested_file_count
+        ):
+            raise AssertionError(
+                "Indexing-run processed count "
+                "does not match the ingestion result."
+            )
+
+        if (
+            indexing_run.chunks_created
+            != result.stored_chunk_count
+        ):
+            raise AssertionError(
+                "Indexing-run chunk count "
+                "does not match the ingestion result."
+            )
+
+        print("Persistent Indexing Records")
+        print("-" * 50)
         print(
-            "Repository ingestion test "
-            "completed successfully."
+            f"Knowledge source ID: "
+            f"{persistent_source.id}"
+        )
+        print(
+            f"Indexing run ID: {indexing_run.id}"
+        )
+        print(
+            f"Indexing run status: "
+            f"{indexing_run.status}"
+        )
+        print()
+
+        print(
+            "Repository ingestion and persistent "
+            "indexing records validated successfully."
         )
 
     finally:

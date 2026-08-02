@@ -18,6 +18,8 @@ from app.repositories.document_chunk_repository import (
 )
 from app.services.chunk_service import ChunkService
 from app.services.document_service import DocumentService
+from app.services.indexing_run_service import IndexingRunService
+from app.services.knowledge_source_service import KnowledgeSourceService
 from app.services.repository_discovery_service import (
     RepositoryDiscoveryService
 )
@@ -53,8 +55,9 @@ class RepositoryIngestionService:
     """
     Discovers, reads and stores supported files from a repository.
 
-    The repository is represented as a generic KnowledgeSource,
-    while each supported repository file is stored as a document.
+    The repository is registered as a persistent knowledge source.
+    Every ingestion attempt is tracked as an indexing run, while each
+    supported repository file is stored as a document.
     """
 
     def __init__(
@@ -103,7 +106,38 @@ class RepositoryIngestionService:
             source_files
         )
 
+        repository_name = source_files[0].repository_name
+        repository_location = str(repository_root)
+
+        knowledge_source_service = KnowledgeSourceService()
+        indexing_run_service = IndexingRunService()
         document_service = DocumentService()
+
+        persistent_source = (
+            knowledge_source_service
+            .get_knowledge_source_by_type_and_location(
+                db=self.db,
+                source_type=KnowledgeSourceType.GIT_REPOSITORY.value,
+                location=repository_location
+            )
+        )
+
+        if persistent_source is None:
+            persistent_source = (
+                knowledge_source_service.create_knowledge_source(
+                    db=self.db,
+                    name=repository_name,
+                    source_type=(
+                        KnowledgeSourceType.GIT_REPOSITORY.value
+                    ),
+                    location=repository_location
+                )
+            )
+
+        indexing_run = indexing_run_service.start_indexing_run(
+            db=self.db,
+            knowledge_source_id=persistent_source.id
+        )
 
         chunk_repository = DocumentChunkRepository(
             self.db
@@ -117,67 +151,103 @@ class RepositoryIngestionService:
             embedding_generator=self.embedding_generator
         )
 
-        file_results = []
-        document_ids = []
+        file_results: list[RepositoryFileIngestionResult] = []
+        document_ids: list[int] = []
         total_stored_chunks = 0
 
-        for processing_document in processing_documents:
-            metadata = processing_document.metadata
+        try:
+            for processing_document in processing_documents:
+                metadata = processing_document.metadata
 
-            relative_path = metadata.get(
-                "relative_path",
-                processing_document.file_name
-            )
-
-            extension = metadata.get(
-                "extension",
-                Path(
+                relative_path = metadata.get(
+                    "relative_path",
                     processing_document.file_name
-                ).suffix.lower()
-            )
-
-            file_type = extension.lstrip(".").upper()
-
-            stored_document = document_service.create_document(
-                db=self.db,
-                filename=processing_document.file_name,
-                file_type=file_type,
-                file_path=relative_path
-            )
-
-            stored_chunks = chunk_service.create_and_store_chunks(
-                document_id=stored_document.id,
-                document_text=processing_document.content
-            )
-
-            stored_chunk_count = len(
-                stored_chunks
-            )
-
-            document_ids.append(
-                stored_document.id
-            )
-
-            total_stored_chunks += stored_chunk_count
-
-            file_results.append(
-                RepositoryFileIngestionResult(
-                    document_id=stored_document.id,
-                    file_name=processing_document.file_name,
-                    relative_path=relative_path,
-                    file_type=file_type,
-                    stored_chunk_count=stored_chunk_count,
-                    metadata=dict(metadata)
                 )
+
+                extension = metadata.get(
+                    "extension",
+                    Path(
+                        processing_document.file_name
+                    ).suffix.lower()
+                )
+
+                file_type = extension.lstrip(".").upper()
+
+                stored_document = (
+                    document_service.create_document(
+                        db=self.db,
+                        knowledge_source_id=persistent_source.id,
+                        indexing_run_id=indexing_run.id,
+                        filename=processing_document.file_name,
+                        file_type=file_type,
+                        file_path=relative_path,
+                        status="processing"
+                    )
+                )
+
+                stored_chunks = (
+                    chunk_service.create_and_store_chunks(
+                        document_id=stored_document.id,
+                        document_text=processing_document.content
+                    )
+                )
+
+                stored_document.status = "indexed"
+                self.db.commit()
+                self.db.refresh(stored_document)
+
+                stored_chunk_count = len(
+                    stored_chunks
+                )
+
+                document_ids.append(
+                    stored_document.id
+                )
+
+                total_stored_chunks += stored_chunk_count
+
+                file_results.append(
+                    RepositoryFileIngestionResult(
+                        document_id=stored_document.id,
+                        file_name=processing_document.file_name,
+                        relative_path=relative_path,
+                        file_type=file_type,
+                        stored_chunk_count=stored_chunk_count,
+                        metadata=dict(metadata)
+                    )
+                )
+
+            indexing_run_service.complete_indexing_run(
+                db=self.db,
+                indexing_run_id=indexing_run.id,
+                documents_discovered=len(source_files),
+                documents_processed=len(file_results),
+                documents_failed=0,
+                chunks_created=total_stored_chunks
             )
 
-        repository_name = source_files[0].repository_name
+        except Exception as error:
+            self.db.rollback()
+
+            indexing_run_service.fail_indexing_run(
+                db=self.db,
+                indexing_run_id=indexing_run.id,
+                error_message=str(error),
+                documents_discovered=len(source_files),
+                documents_processed=len(file_results),
+                documents_failed=1,
+                chunks_created=total_stored_chunks
+            )
+
+            raise
 
         knowledge_source = KnowledgeSource(
             name=repository_name,
             source_type=KnowledgeSourceType.GIT_REPOSITORY,
-            location=str(repository_root),
+            location=repository_location,
             metadata={
+                "knowledge_source_id": persistent_source.id,
+                "indexing_run_id": indexing_run.id,
                 "source_category": source_files[0].source_type,
                 "discovered_file_count": len(source_files),
                 "ingested_file_count": len(file_results),
@@ -198,7 +268,7 @@ class RepositoryIngestionService:
 
         return RepositoryIngestionResult(
             repository_name=repository_name,
-            repository_root=str(repository_root),
+            repository_root=repository_location,
             discovered_file_count=len(source_files),
             ingested_file_count=len(file_results),
             stored_chunk_count=total_stored_chunks,

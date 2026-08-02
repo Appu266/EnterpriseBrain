@@ -17,6 +17,8 @@ from app.services.context_builder_service import (
     ContextBuilderService
 )
 from app.services.document_service import DocumentService
+from app.services.indexing_run_service import IndexingRunService
+from app.services.knowledge_source_service import KnowledgeSourceService
 from app.services.qa_service import QAResult, QAService
 from app.services.retrieval_service import RetrievalService
 
@@ -69,7 +71,7 @@ class DocumentAssistantService:
     ) -> DocumentIngestionResult:
 
         normalized_path = str(
-            Path(file_path)
+            Path(file_path).expanduser().resolve()
         )
 
         document_loader = DocumentLoader(
@@ -83,53 +85,113 @@ class DocumentAssistantService:
             normalized_path
         )
 
+        knowledge_source_service = KnowledgeSourceService()
+        indexing_run_service = IndexingRunService()
         document_service = DocumentService()
 
-        stored_document = document_service.create_document(
+        knowledge_source = (
+            knowledge_source_service
+            .get_knowledge_source_by_type_and_location(
+                db=self.db,
+                source_type="local_file",
+                location=normalized_path
+            )
+        )
+
+        if knowledge_source is None:
+            knowledge_source = (
+                knowledge_source_service.create_knowledge_source(
+                    db=self.db,
+                    name=processing_document.file_name,
+                    source_type="local_file",
+                    location=normalized_path
+                )
+            )
+
+        indexing_run = indexing_run_service.start_indexing_run(
             db=self.db,
-            filename=processing_document.file_name,
-            file_type=processing_document.metadata["file_type"],
-            file_path=processing_document.file_path
+            knowledge_source_id=knowledge_source.id
         )
 
-        chunk_repository = DocumentChunkRepository(
-            self.db
-        )
+        try:
+            stored_document = document_service.create_document(
+                db=self.db,
+                knowledge_source_id=knowledge_source.id,
+                indexing_run_id=indexing_run.id,
+                filename=processing_document.file_name,
+                file_type=processing_document.metadata["file_type"],
+                file_path=processing_document.file_path,
+                status="processing"
+            )
 
-        chunk_service = ChunkService(
-            chunker=DocumentChunker(
-                chunk_size=self.storage_chunk_size
-            ),
-            repository=chunk_repository,
-            embedding_generator=self.embedding_generator
-        )
+            chunk_repository = DocumentChunkRepository(
+                self.db
+            )
 
-        stored_chunks = chunk_service.create_and_store_chunks(
-            document_id=stored_document.id,
-            document_text=processing_document.content
-        )
+            chunk_service = ChunkService(
+                chunker=DocumentChunker(
+                    chunk_size=self.storage_chunk_size
+                ),
+                repository=chunk_repository,
+                embedding_generator=self.embedding_generator
+            )
 
-        retrieval_service = RetrievalService(
-            repository=chunk_repository,
-            embedding_generator=self.embedding_generator,
-            context_builder=ContextBuilderService(),
-            document_id=stored_document.id
-        )
+            stored_chunks = chunk_service.create_and_store_chunks(
+                document_id=stored_document.id,
+                document_text=processing_document.content
+            )
 
-        self._qa_service = QAService(
-            retrieval_service=retrieval_service,
-            llm=self.llm
-        )
+            stored_document.status = "indexed"
+            self.db.commit()
+            self.db.refresh(stored_document)
 
-        self._active_document_id = stored_document.id
-        self._active_document_name = processing_document.file_name
+            indexing_run_service.complete_indexing_run(
+                db=self.db,
+                indexing_run_id=indexing_run.id,
+                documents_discovered=1,
+                documents_processed=1,
+                documents_failed=0,
+                chunks_created=len(stored_chunks)
+            )
 
-        return DocumentIngestionResult(
-            document_id=stored_document.id,
-            file_name=processing_document.file_name,
-            file_path=processing_document.file_path,
-            stored_chunk_count=len(stored_chunks)
-        )
+            retrieval_service = RetrievalService(
+                repository=chunk_repository,
+                embedding_generator=self.embedding_generator,
+                context_builder=ContextBuilderService(),
+                document_id=stored_document.id
+            )
+
+            self._qa_service = QAService(
+                retrieval_service=retrieval_service,
+                llm=self.llm
+            )
+
+            self._active_document_id = stored_document.id
+            self._active_document_name = (
+                processing_document.file_name
+            )
+
+            return DocumentIngestionResult(
+                document_id=stored_document.id,
+                file_name=processing_document.file_name,
+                file_path=processing_document.file_path,
+                stored_chunk_count=len(stored_chunks)
+            )
+
+        except Exception as error:
+            self.db.rollback()
+
+            indexing_run_service.fail_indexing_run(
+                db=self.db,
+                indexing_run_id=indexing_run.id,
+                error_message=str(error),
+                documents_discovered=1,
+                documents_processed=0,
+                documents_failed=1,
+                chunks_created=0
+            )
+
+            raise
 
     def ask(
         self,
