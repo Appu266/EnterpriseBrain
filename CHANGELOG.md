@@ -2,7 +2,7 @@
 
 ## Version
 
-0.2.0
+0.2.1
 
 ---
 
@@ -162,6 +162,11 @@
 - Streamlit File Watcher Configuration Added
 - End-to-End Browser Document Assistant Validated Successfully
 - EnterpriseBrain Browser Assistant MVP Completed
+- Phase 1 Document Knowledge Assistant Completed
+- Phase 1 End-to-End Foundation Closed
+- Phase 1 Known Limitations Documented
+- Phase 1 Quality Improvements Deferred to Later Iteration
+- Phase 2 Database Repository Assistant Started
 
 
 ---

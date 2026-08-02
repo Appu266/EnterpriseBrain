@@ -71,9 +71,15 @@
 
 # Upcoming Pipeline
 
-- Browser-Based PL/SQL Document Upload
-- Browser-Based Question Answering
-- End-to-End User Experience Validation
+- Git Repository Source
+- Repository Cloning or Local Repository Selection
+- Recursive Repository File Discovery
+- Database Source File Filtering
+- Repository and File Metadata Extraction
+- Multi-File Repository Ingestion
+- Repository-Scoped Vector Retrieval
+- Cross-File Database Question Answering
+- Database Object Dependency Foundation
 - Retrieval Quality Improvement
 - Prompt Quality Improvement
 - Source Attribution Improvement

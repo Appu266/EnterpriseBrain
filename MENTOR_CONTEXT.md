@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.2.0
+**Version:** 0.2.1
 
 ---
 
@@ -26,7 +26,7 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 
 # Current Roadmap
 
-Current Phase : 1
+Current Phase : 2
 
 ### Phase 1 - Document Knowledge Assistant
 Build a document-based enterprise assistant using local documents.
@@ -54,17 +54,17 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 # Current Progress
 
-Phase : PL/SQL Assistant MVP Development
+Phase : Phase 2 - Database Repository Assistant
 
-Step : End-to-End Document Assistant MVP Completed
+Step : Database Repository Foundation
 
 Current Task :
 
-Document the MVP and Prepare the Next Foundation Capability
+Design and Implement Git Repository Ingestion for Database Source Files
 
 Next Task :
 
-Implement Hash-Based Document Change and Duplicate Detection
+Ingest a Local or GitHub Database Repository and Preserve File-Level Metadata
 
 ---
 
@@ -164,6 +164,10 @@ Implement Hash-Based Document Change and Duplicate Detection
 - 2026-08-02 : Ambiguous follow-up questions use recent conversation messages when constructing the retrieval query
 - 2026-08-02 : Streamlit is adopted only for the browser MVP; the long-term enterprise interface remains FastAPI with Angular or React
 - 2026-08-02 : Iteration 1 prioritizes complete end-to-end foundations while answer quality improvements are deferred to a later iteration
+- 2026-08-02 : Phase 1 is closed after validating a complete end-to-end document assistant through CLI and browser interfaces.
+- 2026-08-02 : Known answer-quality and consistency limitations are accepted for the Phase 1 MVP and moved to a dedicated quality backlog.
+- 2026-08-02 : Phase 2 begins with scalable repository ingestion and file-level metadata rather than PL/SQL-specific question patches.
+- 2026-08-02 : The existing ingestion, embedding, retrieval, QA, LLM and presentation boundaries will remain the foundation for repository-level capabilities.
 
 ---
 

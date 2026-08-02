@@ -36,16 +36,19 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 - RAG based Question Answering
 - Configurable Local LLM
 - Generic Document Assistant Application Service
-- Basic Browser UI Development
 - Browser-Based Document Upload
 - Browser-Based Conversational Question Answering
 - Context-Aware Follow-Up Questions
+- Database Repository Ingestion
+- Repository File Discovery
+- Database Source File Classification
+- File-Level Repository Metadata
+- Repository-Scoped Retrieval
 
 ---
 
 # Future Scope
 
-- Basic Web UI
 - PDF Reader
 - DOCX Reader
 - Git Repository Ingestion
@@ -73,7 +76,7 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 
 # Development Roadmap
 
-Current Active Phase: **Phase 1**
+Current Active Phase: **Phase 2**
 
 ## Phase 1 - Document Knowledge Assistant
 
