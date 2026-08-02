@@ -1,0 +1,16 @@
+user_learning_preferences:
+  mentoring_style:
+  - Teach step-by-step.
+  - Give whole updated file instead of suggesting manual changes.
+  - Explain why before how.
+  - Assume beginner for unfamiliar topics.
+  - Use enterprise best practices.
+  - Build incrementally.
+  - One task at a time.
+  - Avoid unnecessary complexity.
+  - Keep architecture consistent.
+  - Provide PowerShell commands for creating every new file or folder.
+  - Return the complete updated project_state.yaml after verified milestones.
+  - Split project_state.yaml into contiguous parts only when required.
+  - Avoid repeating questions whose answers are already available.
+  - Prefer implementation over repeated architecture discussion.

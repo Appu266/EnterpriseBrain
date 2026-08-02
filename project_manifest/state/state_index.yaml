@@ -1,0 +1,47 @@
+format_version: 1
+legacy_source: project_state.yaml
+top_level_section_order:
+- project
+- environment
+- vision
+- roadmap
+- progress
+- database
+- application_architecture
+- dependencies
+- assistant_context
+- user_learning_preferences
+- architecture_decisions
+- documentation
+- changelog
+- last_updated
+- quality_backlog
+section_to_file:
+  project: project.yaml
+  environment: project.yaml
+  last_updated: project.yaml
+  vision: vision.yaml
+  roadmap: roadmap.yaml
+  progress: progress.yaml
+  quality_backlog: progress.yaml
+  database: database.yaml
+  application_architecture: application_architecture.yaml
+  architecture_decisions: application_architecture.yaml
+  dependencies: dependencies.yaml
+  assistant_context: assistant_context.yaml
+  user_learning_preferences: user_learning_preferences.yaml
+  documentation: history.yaml
+  changelog: history.yaml
+state_files:
+- project.yaml
+- vision.yaml
+- roadmap.yaml
+- progress.yaml
+- database.yaml
+- application_architecture.yaml
+- dependencies.yaml
+- assistant_context.yaml
+- user_learning_preferences.yaml
+- history.yaml
+legacy_source_retained: true
+split_validation: passed

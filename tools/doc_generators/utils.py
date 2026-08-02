@@ -1,9 +1,7 @@
 from pathlib import Path
 
-import yaml
-
-from doc_generators.constants import (
-    PROJECT_STATE_FILE
+from doc_generators.state_loader import (
+    load_project_state_from_files
 )
 
 
@@ -11,23 +9,12 @@ def load_project_state(
     root: Path
 ) -> dict:
     """
-    Load project_state.yaml from project_manifest.
+    Load the complete project state from split YAML files.
 
-    The root argument is retained so existing generator calls
-    remain compatible.
+    The root argument is retained for compatibility with the
+    existing documentation generator interface.
     """
 
     del root
 
-    with PROJECT_STATE_FILE.open(
-        "r",
-        encoding="utf-8"
-    ) as file:
-        state = yaml.safe_load(file)
-
-    if not isinstance(state, dict):
-        raise ValueError(
-            "project_state.yaml must contain a YAML mapping."
-        )
-
-    return state
+    return load_project_state_from_files()

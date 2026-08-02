@@ -44,6 +44,10 @@ Build a multi-language enterprise knowledge assistant capable of understanding c
 - Database Source File Classification
 - File-Level Repository Metadata
 - Repository-Scoped Retrieval
+- Generic Knowledge Source Foundation
+- Multi-File Repository Ingestion
+- Repository Context Management
+- Multi-Document Retrieval Foundation
 
 ---
 

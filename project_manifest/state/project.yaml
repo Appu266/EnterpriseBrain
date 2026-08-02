@@ -1,0 +1,8 @@
+project:
+  name: EnterpriseBrain
+  version: 0.2.2
+environment:
+  python: 3.12.10
+  postgres: '18'
+  docker: true
+last_updated: '2026-08-02'

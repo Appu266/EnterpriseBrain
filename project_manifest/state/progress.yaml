@@ -1,0 +1,197 @@
+progress:
+  phase: Phase 2 - Database Repository Assistant
+  current_step: Knowledge Source Persistence and Database Redesign
+  completed:
+  - PostgreSQL Installed
+  - pgAdmin Installed
+  - Docker Installed
+  - PyCharm Installed
+  - Virtual Environment Created
+  - python-dotenv Installed
+  - PyYAML Installed
+  - Pydantic Installed
+  - Pydantic Settings Installed
+  - SQLAlchemy Installed
+  - psycopg Installed
+  - requirements.txt Automation Completed
+  - PROJECT_STATUS.md Automation Completed
+  - MENTOR_CONTEXT.md Automation Completed
+  - CHANGELOG.md Automation Completed
+  - Environment Configuration Created
+  - .env Configuration Loaded Successfully
+  - Pydantic Settings Validation Tested
+  - Database Connection Module Created
+  - PostgreSQL Application Connection Tested Successfully
+  - SQLAlchemy ORM Base Created
+  - Document Model Created
+  - Database Table Creation Automation Created
+  - PostgreSQL knowledge Schema Created
+  - documents Table Created Successfully
+  - Bulk Document Insert Tested
+  - SQLAlchemy Transaction Handling Verified
+  - Repository Layer Structure Created
+  - Document Repository Implemented
+  - Service Layer Structure Created
+  - Document Service Implemented
+  - End-to-End Document Creation Flow Tested Successfully
+  - Document Ingestion Module Created
+  - File Validator Implemented
+  - Metadata Extractor Implemented
+  - Document Loader Refactored
+  - End-to-End Metadata Pipeline Tested Successfully
+  - Documentation Generator Refactored
+  - Reader Framework Structure Created
+  - BaseReader Abstract Contract Implemented
+  - TXT Reader Implemented
+  - TXT Reader Independent Test Completed Successfully
+  - pgvector Extension Installed
+  - pgvector Extension Enabled Through Python Automation
+  - Document Chunk Model Created
+  - document_chunks Table Created Successfully
+  - Chunk Repository Implemented
+  - Chunk Service Implemented
+  - Text Chunking Pipeline Tested Successfully
+  - sentence-transformers Installed
+  - Embedding Generator Implemented
+  - Sentence Transformer Model Integration Tested Successfully
+  - 384 Dimension Embeddings Generated Successfully
+  - Document Chunk Embeddings Stored in PostgreSQL using pgvector
+  - End-to-End Chunking to Vector Storage Pipeline Tested Successfully
+  - Vector Similarity Search Layer Implemented
+  - Vector Similarity Search Tested Successfully
+  - Retrieval Service Implemented
+  - Retrieval Service Tested Successfully
+  - Context Builder Service Implemented
+  - Context Builder Service Tested Successfully
+  - QA Flow Tested Successfully
+  - Ollama LLM Integration Tested Successfully
+  - End-to-End RAG Pipeline Validation Completed Successfully
+  - ProcessingDocument In-Memory Model Introduced
+  - BaseReader Contract Refactored to Return ProcessingDocument
+  - TXT Reader Refactored to Return ProcessingDocument
+  - Document Loader Integrated with ProcessingDocument
+  - ProcessingDocument Reader Validation Completed Successfully
+  - ProcessingDocument Document Loader Validation Completed Successfully
+  - ProcessingDocument Extended with Chunk Support
+  - Document Loader Refactored to Return ProcessingDocument
+  - Document Loader Test Refactored for ProcessingDocument
+  - ProcessingDocument Metadata and Chunk Propagation Validated Successfully
+  - End-to-End ProcessingDocument Ingestion Flow Validated Successfully
+  - Interactive PL/SQL Assistant Script Created
+  - PL/SQL Document Path Input Implemented
+  - PL/SQL Document Ingestion Orchestration Implemented
+  - Document Record Creation Integrated into Assistant
+  - Document Chunking and Embedding Storage Integrated into Assistant
+  - Interactive Question Loop Implemented
+  - QA Service Integrated into Interactive Assistant
+  - First End-to-End PL/SQL Assistant Validation Completed Successfully
+  - Retrieval Restricted to Current Uploaded Document
+  - Document-Specific Vector Similarity Search Implemented
+  - Current Document ID Propagated Through Retrieval Service
+  - Graceful Assistant Exit Using Exit Command Implemented
+  - Graceful Keyboard Interrupt Handling Implemented
+  - Multiple Questions Against One Ingested Document Validated Successfully
+  - First Interactive EnterpriseBrain Assistant Implemented Successfully
+  - Complex Synthetic PL/SQL Package Created for Evaluation
+  - Complex PL/SQL Package Ingestion Tested Successfully
+  - Complex PL/SQL Package Question Answering Tested Successfully
+  - Public Procedure and Function Identification Validated
+  - PL/SQL Procedure Explanation Validated
+  - PL/SQL Table Usage Identification Validated
+  - PL/SQL Transaction Handling Questions Validated
+  - PL/SQL Validation and Exception Questions Validated
+  - PL/SQL Internal Dependency Questions Validated
+  - RAG Retrieval Limit Reduced for Concise Context
+  - PL/SQL-Specific QA Prompt Introduced
+  - Ollama Response Length Limited for Faster Generation
+  - Ollama Model Keep-Alive Configuration Introduced
+  - Heavy AI Component Imports Deferred Until After Document Selection
+  - Assistant Component Loading Progress Messages Added
+  - Local LLM Performance Bottleneck Identified
+  - llama3 Local Model Removed
+  - qwen2.5 1.5B Local Model Installed
+  - qwen2.5 1.5B Direct Ollama Performance Validated Successfully
+  - Interactive Assistant Migrated to qwen2.5 1.5B
+  - Question Answer Time Reduced from More Than Two Minutes to Approximately Five to Ten Seconds
+  - Application Import Performance Measured
+  - Sentence Transformer Import Performance Measured
+  - Embedding Model Initialization Performance Measured
+  - Complex Document Embedding Performance Measured
+  - Ollama Base URL Added to Application Settings
+  - Ollama Model Name Added to Application Settings
+  - OllamaLLM Refactored to Use Central Application Configuration
+  - Hardcoded LLM Model Removed from Interactive Assistant
+  - Configurable Local LLM Integration Tested Successfully
+  - Interactive PL/SQL Assistant Revalidated After LLM Configuration Refactoring
+  - PL/SQL Source File Extensions Added to File Validation
+  - Unsupported PDF and DOCX Validation Removed Until Readers Are Implemented
+  - QA Result Extended to Include Retrieved Context
+  - Retrieved Context Debug Display Implemented
+  - Application LOG_LEVEL Configuration Introduced
+  - SQLAlchemy Logging Connected to Application Debug Mode
+  - CLI Presentation Layer Introduced
+  - User Mode and Developer Mode Separation Implemented
+  - User Mode Background Processing Messages Hidden
+  - Hugging Face Warning and Progress Output Suppressed
+  - PL/SQL QA Prompt Strengthened for Structural Code Questions
+  - Retrieval Quality Verified Using Debug Context
+  - Local 1.5B LLM Exhaustive Extraction Limitation Identified
+  - Generic DocumentAssistantService Introduced
+  - Document Ingestion Orchestration Extracted from CLI
+  - Document Question Answering Orchestration Extracted from CLI
+  - CLI Refactored to Use DocumentAssistantService
+  - DocumentAssistantService Validated Through Existing CLI
+  - DocumentAssistantService Public API Introduced
+  - Active Document State Management Introduced
+  - Document Assistant Close Operation Introduced
+  - Streamlit Installed for Basic Browser UI
+  - Streamlit Browser Interface Implemented
+  - Browser-Based Document Upload Implemented
+  - Browser-Based Question Answering Implemented
+  - Streamlit Session State Management Implemented
+  - Browser Chat History Implemented
+  - Generic Conversation History Support Added to QA Service
+  - Context-Aware Follow-Up Question Retrieval Implemented
+  - DocumentAssistantService Integrated with Streamlit
+  - Streamlit File Watcher Configuration Added
+  - End-to-End Browser Document Assistant Validated Successfully
+  - EnterpriseBrain Browser Assistant MVP Completed
+  - Phase 1 Document Knowledge Assistant Completed
+  - Phase 1 End-to-End Foundation Closed
+  - Phase 1 Known Limitations Documented
+  - Phase 1 Quality Improvements Deferred to Later Iteration
+  - Phase 2 Database Repository Assistant Started
+  - Repository Source File Model Implemented
+  - Recursive Repository Discovery Implemented
+  - Database Source File Classification Implemented
+  - Reader Factory Implemented
+  - Repository Reader Service Implemented
+  - Repository Ingestion Service Implemented
+  - Repository Ingestion Context Implemented
+  - Repository File Metadata Preserved
+  - Multi-Document Retrieval Foundation Implemented
+  - Single-Document Retrieval Regression Tested Successfully
+  - Generic KnowledgeSource Model Implemented
+  - Persistent KnowledgeSourceRecord ORM Foundation Implemented
+  - Repository Discovery Test Completed Successfully
+  - Reader Factory Test Completed Successfully
+  - Repository Reader Test Completed Successfully
+  - Repository Ingestion Test Completed Successfully
+  current_task: Redesign the database schema around persistent knowledge sources
+  next_task: Add knowledge-source relationships to documents and indexing runs
+quality_backlog:
+  source_phase: 1
+  status: deferred
+  reason: Phase 1 prioritized completion of a scalable end-to-end foundation. Answer quality and consistency
+    improvements will be addressed after broader platform capabilities are working.
+  items:
+  - Improve exact count and exhaustive list reliability
+  - Improve consistency across repeated questions
+  - Improve contextual follow-up resolution
+  - Prevent unsupported descriptions and hallucinated details
+  - Introduce hybrid retrieval
+  - Introduce reranking
+  - Introduce source attribution
+  - Add automated evaluation questions and expected answers
+  - Evaluate stronger language models
+  - Improve document and code chunking

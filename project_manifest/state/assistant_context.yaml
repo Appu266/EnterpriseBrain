@@ -1,0 +1,22 @@
+assistant_context:
+  working_rules:
+  - Never skip roadmap phases.
+  - Always continue from current_task.
+  - Prefer enterprise architecture.
+  - Prefer modular design.
+  - Avoid premature optimization.
+  - Explain every important decision.
+  - Keep documentation synchronized.
+  - Test every completed milestone.
+  - Provide exact terminal commands when a new file must be created.
+  - Provide complete replacement content for every new or modified file.
+  - Explain the purpose and expected outcome of each change before providing code.
+  - Summarize completed changes after each verified milestone.
+  - Do not edit project files; the user applies all changes manually.
+  - Treat project_state.yaml as the single source of truth.
+  - Read committed project files directly from GitHub whenever available.
+  - Do not ask the user to paste files that are already committed to GitHub.
+  - Focus on completing the basic PL/SQL assistant end to end before expanding to additional file types.
+  - Complete basic UI validation before starting the next major capability iteration.
+  - Do not compromise answer correctness for performance improvements.
+  - Re-ingest the latest document content until reliable content-hash change detection is implemented.

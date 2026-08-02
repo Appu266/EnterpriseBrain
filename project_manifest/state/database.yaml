@@ -1,0 +1,9 @@
+database:
+  schemas:
+  - knowledge
+  tables:
+  - knowledge.documents
+  - knowledge.document_chunks
+  future_tables:
+  - knowledge.knowledge_sources
+  - knowledge.indexing_runs

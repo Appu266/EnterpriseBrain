@@ -1,0 +1,14 @@
+documentation:
+  generated_files:
+  - PROJECT_VISION.md
+  - PROJECT_STATUS.md
+  - MENTOR_CONTEXT.md
+  - ARCHITECTURE.md
+  - CHANGELOG.md
+changelog:
+  enabled: true
+  entries:
+  - version: 0.2.2
+    date: '2026-08-02'
+    summary: Added repository discovery, reading, ingestion, multi-document retrieval foundation and the
+      generic knowledge-source abstraction.

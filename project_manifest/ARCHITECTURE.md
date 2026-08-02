@@ -10,6 +10,8 @@
 - Configuration-Driven LLM Integration
 - Factory Pattern (Upcoming)
 - Strategy Pattern (Upcoming)
+- Knowledge Source Abstraction
+- Factory Pattern
 
 ---
 
@@ -33,6 +35,10 @@
 - Web UI (Upcoming)
 - Presentation
 - Streamlit Browser UI
+- Repository Discovery
+- Repository Reading
+- Repository Ingestion
+- Knowledge Source Management
 
 ---
 

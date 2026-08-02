@@ -6,7 +6,7 @@
 
 **Name:** EnterpriseBrain
 
-**Version:** 0.2.1
+**Version:** 0.2.2
 
 ---
 
@@ -56,15 +56,15 @@ Unified enterprise assistant capable of understanding complete enterprise applic
 
 Phase : Phase 2 - Database Repository Assistant
 
-Step : Database Repository Foundation
+Step : Knowledge Source Persistence and Database Redesign
 
 Current Task :
 
-Design and Implement Git Repository Ingestion for Database Source Files
+Redesign the database schema around persistent knowledge sources
 
 Next Task :
 
-Ingest a Local or GitHub Database Repository and Preserve File-Level Metadata
+Add knowledge-source relationships to documents and indexing runs
 
 ---
 
@@ -90,6 +90,10 @@ Ingest a Local or GitHub Database Repository and Preserve File-Level Metadata
 - Web UI (Upcoming)
 - Presentation
 - Streamlit Browser UI
+- Repository Discovery
+- Repository Reading
+- Repository Ingestion
+- Knowledge Source Management
 
 ## Current Pipeline
 

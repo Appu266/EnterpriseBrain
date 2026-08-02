@@ -1,0 +1,55 @@
+vision:
+  product_name: EnterpriseBrain
+  current_goal: 'Build an AI assistant that understands enterprise documents, especially PL/SQL documentation
+    and database-related assets, and can answer project-specific questions.
+
+    '
+  final_goal: 'Build a multi-language enterprise knowledge assistant capable of understanding complete
+    software systems including Database, Java, Spring Boot, Python, .NET, React, Angular, NodeJS, APIs,
+    Infrastructure, CI/CD and Architecture directly from repositories and enterprise documents.
+
+    '
+  current_scope:
+  - Local document ingestion
+  - TXT Reader
+  - PL/SQL Document Question Answering
+  - Interactive CLI Assistant
+  - Complex PL/SQL Package Evaluation
+  - Chunking
+  - Embeddings
+  - Vector Database
+  - Document-Scoped Retrieval
+  - RAG based Question Answering
+  - Configurable Local LLM
+  - Generic Document Assistant Application Service
+  - Browser-Based Document Upload
+  - Browser-Based Conversational Question Answering
+  - Context-Aware Follow-Up Questions
+  - Database Repository Ingestion
+  - Repository File Discovery
+  - Database Source File Classification
+  - File-Level Repository Metadata
+  - Repository-Scoped Retrieval
+  - Generic Knowledge Source Foundation
+  - Multi-File Repository Ingestion
+  - Repository Context Management
+  - Multi-Document Retrieval Foundation
+  future_scope:
+  - PDF Reader
+  - DOCX Reader
+  - Git Repository Ingestion
+  - PL/SQL Dependency Analysis
+  - Java Code Understanding
+  - Spring Boot Understanding
+  - Python Understanding
+  - React Understanding
+  - Angular Understanding
+  - NodeJS Understanding
+  - API Dependency Mapping
+  - Cross-language Impact Analysis
+  - Architecture Discovery
+  - Code Change Impact Prediction
+  non_goals:
+  - AI Code Generation
+  - Automated Code Modification
+  - IDE Replacement

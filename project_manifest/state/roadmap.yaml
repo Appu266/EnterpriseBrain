@@ -1,0 +1,67 @@
+roadmap:
+  current_phase: 2
+  phases:
+  - phase: 1
+    name: Document Knowledge Assistant
+    goal: 'Build a document-based enterprise assistant using local documents.
+
+      '
+    status: completed
+    completed_on: '2026-08-02'
+    completion_summary: Completed the first end-to-end EnterpriseBrain foundation for local document ingestion
+      and conversational question answering. The completed flow includes document validation, reading,
+      metadata extraction, chunking, embeddings, pgvector storage, document-scoped retrieval, context
+      building, local LLM integration, CLI access, browser upload, Streamlit chat, session state and contextual
+      follow-up questions.
+    known_limitations:
+    - The qwen2.5:1.5b local model can produce inconsistent answers across repeated runs.
+    - Exact counting and exhaustive listing questions are not always reliable, including procedure, function
+      and table counts.
+    - Follow-up questions using references such as 'them', 'those' or 'these procedures' are improved
+      through conversation history but remain partially unreliable.
+    - The model may repeat a count instead of returning the requested item names.
+    - The model may omit valid document entities or introduce unsupported descriptions and inferred details.
+    - Semantic vector retrieval alone may not always provide the best context for exact code-structure
+      questions.
+    - The same document is re-ingested and stored again on each new upload because content-hash duplicate
+      detection has not yet been implemented.
+    - Only text-based document formats are currently supported. PDF and DOCX readers are not yet implemented.
+    - The Streamlit interface is an MVP browser interface and is not the final enterprise Angular or React
+      UI.
+    - Authentication, authorization, multi-user isolation and production deployment concerns are outside
+      the completed Phase 1 scope.
+    deferred_quality_improvements:
+    - Stronger local or hosted language model evaluation
+    - Hybrid semantic and keyword retrieval
+    - Retrieval reranking
+    - Structured answer validation
+    - Source attribution
+    - Evaluation datasets and automated quality scoring
+    - Improved chunking strategies
+    - Prompt quality improvements
+    - Reliable conversational query rewriting
+  - phase: 2
+    name: Database Repository Assistant
+    goal: 'Understand complete database repositories including Oracle PL/SQL.
+
+      '
+    status: in_progress
+    started_on: '2026-08-02'
+  - phase: 3
+    name: Backend Repository Assistant
+    goal: 'Understand Java, Spring Boot, Python and APIs.
+
+      '
+    status: not_started
+  - phase: 4
+    name: Frontend Repository Assistant
+    goal: 'Understand React, Angular and NodeJS projects.
+
+      '
+    status: not_started
+  - phase: 5
+    name: EnterpriseBrain
+    goal: 'Unified enterprise assistant capable of understanding complete enterprise applications.
+
+      '
+    status: not_started
